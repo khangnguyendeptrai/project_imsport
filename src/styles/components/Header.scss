@@ -1,0 +1,391 @@
+@import '../variables.scss';
+
+.header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+  // Top brown bar
+  .top-bar {
+    height: 4px;
+    background-color: #8b4513;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  // Main header section (logo, search, actions)
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .logo {
+    text-decoration: none;
+    
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      
+      .logo-im {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #374151;
+        display: inline-block;
+        position: relative;
+        
+        // Add running figure effect to M
+        &::after {
+          content: '🏃';
+          position: absolute;
+          right: -0.5rem;
+          top: -0.2rem;
+          font-size: 0.8rem;
+        }
+      }
+      
+      .logo-sports {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #f97316; // Orange color
+        margin-left: 0.2rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.55rem;
+        color: #6b7280;
+        margin-top: -0.2rem;
+        font-style: italic;
+      }
+    }
+  }
+
+  .search-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+  }
+
+  .search-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background: white;
+    font-size: 0.875rem;
+    
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px #3b82f6;
+    }
+  }
+
+  .search-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.25rem;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+      color: #2563eb;
+    }
+  }
+
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .user-btn, .cart-btn {
+    position: relative;
+    padding: 0.5rem;
+    color: #374151;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: #2563eb;
+    }
+  }
+
+  .cart-count {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.625rem;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .language-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      
+      .flag-icon {
+        font-size: 1rem;
+      }
+    }
+    
+    .language-divider {
+      color: #d1d5db;
+      font-size: 0.875rem;
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    padding: 0.5rem;
+    color: #374151;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    @media (max-width: $mobile) {
+      display: block;
+    }
+  }
+
+  // Main navigation section
+  .main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem 0;
+    overflow-x: auto;
+    
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  .nav-dropdown {
+    position: relative;
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #374151;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      transition: color 0.2s;
+      
+      &:hover {
+        color: #2563eb;
+      }
+      
+      .dropdown-icon {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+  }
+
+  .nav-link {
+    color: #374151;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+    white-space: nowrap;
+    
+    &:hover {
+      color: #2563eb;
+    }
+    
+    &.sale-link {
+      font-weight: 600;
+      color: #ef4444;
+      
+      &:hover {
+        color: #dc2626;
+      }
+    }
+  }
+
+  // Mobile menu styles
+  .mobile-menu {
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 0.75rem 0;
+    color: #374151;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+    
+    &:hover {
+      color: #2563eb;
+    }
+    
+    &.sale-link {
+      font-weight: 600;
+      color: #ef4444;
+      
+      &:hover {
+        color: #dc2626;
+      }
+    }
+  }
+
+  .mobile-search-container {
+    padding: 1rem 0;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .mobile-search-wrapper {
+    position: relative;
+  }
+
+  .mobile-search-input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background: white;
+    font-size: 0.875rem;
+    
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px #3b82f6;
+    }
+  }
+
+  .mobile-search-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.25rem;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+      color: #2563eb;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive styles
+@media (max-width: $mobile) {
+  .header {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .main-header {
+      padding: 0.75rem 0;
+      
+      .logo {
+        .logo-container {
+          .logo-im {
+            font-size: 1.25rem;
+          }
+          
+          .logo-sports {
+            font-size: 1.25rem;
+          }
+          
+          .logo-subtitle {
+            font-size: 0.425rem;
+          }
+        }
+      }
+      
+      .search-container {
+        margin: 0 1rem;
+        max-width: 200px;
+      }
+      
+      .user-actions {
+        gap: 0.5rem;
+        
+        .language-selector {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .main-header {
+      .search-container {
+        display: none;
+      }
+      
+      .user-actions {
+        .user-btn {
+          display: none;
+        }
+      }
+    }
+  }
+}
