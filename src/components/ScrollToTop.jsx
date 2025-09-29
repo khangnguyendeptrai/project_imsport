@@ -64,8 +64,7 @@ const ScrollToTop = () => {
       const progress = Math.min(timeElapsed / duration, 1);
       const ease = easeInOutQuart(progress);
       
-      window.scrollTo(0, startPosition * (1 - ease));
-      
+      window.scrollTo(0, startPosition * (1 - ease));    
       if (progress < 1) {
         requestAnimationFrame(animateScroll);
       }
