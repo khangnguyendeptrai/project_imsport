@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { products, categories } from '../data/products';
 import '../styles/pages/Home.scss';
+import MainBanner from '../components/MainBanner';
+import BrandBanner from '../components/BrandBanner';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -169,9 +171,14 @@ const Home = () => {
     //     </div>
     //   </section>
     // </div>
-    <h1 className="text-3xl font-bold underline text-blue-600">
-      Hello world!
-    </h1>
+    // <h1 className="text-3xl font-bold underline text-blue-600">
+    //   Hello world!
+    // </h1>
+    <>
+      <MainBanner/>
+      <BrandBanner/>
+    
+    </>
   );
 };
 
