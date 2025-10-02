@@ -42,7 +42,12 @@ const BrandBanner = () => {
         modules={[Autoplay]}
         slidesPerView={7}
         watchSlidesProgress
-         speed={3000}
+        speed={3000}
+          breakpoints={{
+            320: { slidesPerView: 4 },
+                1024: { slidesPerView: 7 }  // desktop
+
+          }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         onInit={(swiper) => markVisibleSlides(swiper)}
         onTouchEnd={(swiper) => {
