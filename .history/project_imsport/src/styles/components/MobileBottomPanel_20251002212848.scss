@@ -1,0 +1,37 @@
+.mobile-bottom-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.84); // nền xám + opacity
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 999;
+
+  // Ẩn trên desktop
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .panel-btn {
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .panel-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    &:hover {
+      color: #ffe600;
+    }
+  }
+}
