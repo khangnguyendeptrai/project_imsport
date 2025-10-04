@@ -37,32 +37,36 @@ const BrandBanner = () => {
   };
 
   return (
-    <div className='brand-banner w-screen container !py-10 mx-auto'>
+    <div className='brand-banner w-screen container md:!py-[40px] py-5  !px-[15px] mx-auto'>
       <Swiper
         modules={[Autoplay]}
         slidesPerView={7}
+        loop={false}
         watchSlidesProgress
         speed={3000}
-          breakpoints={{
-            320: { slidesPerView: 4 },
-                1024: { slidesPerView: 7 }  // desktop
+        breakpoints={{
+          320: { slidesPerView: 4 },
+          1024: { slidesPerView: 7 }  // desktop
 
-          }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         onInit={(swiper) => markVisibleSlides(swiper)}
         onTouchEnd={(swiper) => {
-           markVisibleSlides(swiper)
+          markVisibleSlides(swiper)
         }}
         onAutoplay={(swiper) => markVisibleSlides(swiper)}
+        onReachEnd={(swiper) => {
+          swiper.autoplay.stop(); // 👈 dừng khi tới cuối
+        }}
       >
         {dataImage.map(item => (
-          <SwiperSlide key={item.id}>
-            <a href=''>
-            <img
-              src={item.image}
-              alt=""
-              className="h-[70px]  opacity-0 transition-opacity duration-500"
-            />
+          <SwiperSlide className='' key={item.id}>
+            <a className='md:h-[70px] h-[75px] w-[75px] block' href=''>
+              <img
+                src={item.image}
+                alt=""
+                className="h-full opacity-0 transition-opacity duration-500"
+              />
             </a>
           </SwiperSlide>
         ))}
