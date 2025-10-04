@@ -6,7 +6,7 @@ import FacebookPageCard from './FacebookPageCard';
 
 const Footer = () => {
   return (
-    <footer className="footer bg-gray-500 text-white py-10">
+    <footer className="footer bg-gray-400 text-white py-10">
       <div className="container">
         <div className='grid grid-cols-1 md:grid-cols-4 gap-6 justify-between'>
           <div className="footer-section">
