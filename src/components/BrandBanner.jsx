@@ -37,7 +37,7 @@ const BrandBanner = () => {
   };
 
   return (
-    <div className='brand-banner w-screen container md:!py-[40px] py-5  !px-[15px] mx-auto'>
+    <div className='brand-banner w-screen container md:!py-[40px] !py-5 !px-[15px] mx-auto'>
       <Swiper
         modules={[Autoplay]}
         slidesPerView={7}
