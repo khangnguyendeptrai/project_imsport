@@ -1,102 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { animateScroll as scroll } from 'react-scroll';
+import React, { useEffect, useState, useCallback } from 'react';
 import '../styles/components/ScrollToTop.scss';
+
+// Hàm easing: mượt, tự nhiên (nhanh lúc đầu, chậm dần về cuối)
+const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
+  // Theo dõi vị trí scroll để hiện/ẩn nút
+  const handleScroll = useCallback(() => {
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    setIsVisible(y > 300);
   }, []);
 
-  // Ultra smooth scroll to top with multiple easing options
-  const scrollToTop = () => {
-    const startPosition = window.pageYOffset;
+  useEffect(() => {
+    handleScroll(); // kiểm tra ngay khi load trang
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Hàm cuộn lên đầu trang
+  const scrollToTop = useCallback(() => {
+    const startPosition = window.pageYOffset || document.documentElement.scrollTop || 0;
     const startTime = performance.now();
-    const duration = 1200; // 1.2 seconds for ultra smooth scroll
+    const duration = 600; // 0.6s -> mượt, không quá chậm
 
-    // Ultra smooth easing function (easeInOutQuint)
-    const easeInOutQuint = (t) => {
-      return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress); // áp dụng easing
+      const nextY = Math.max(0, Math.round(startPosition * (1 - eased)));
+      window.scrollTo({ top: nextY, left: 0, behavior: 'auto' });
+      if (progress < 1) requestAnimationFrame(step);
     };
 
-    const animateScroll = (currentTime) => {
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const ease = easeInOutQuint(progress);
-      
-      window.scrollTo(0, startPosition * (1 - ease));
-      
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
+    requestAnimationFrame(step);
+  }, []);
 
-    requestAnimationFrame(animateScroll);
-  };
-
-  // Alternative: Custom smooth scroll with better easing
-  const scrollToTopCustom = () => {
-    const startPosition = window.pageYOffset;
-    const startTime = performance.now();
-    const duration = 1000; // 1 second duration
-
-    // Better easing function for smoother animation
-    const easeInOutQuart = (t) => {
-      return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
-    };
-
-    const animateScroll = (currentTime) => {
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const ease = easeInOutQuart(progress);
-      
-      window.scrollTo(0, startPosition * (1 - ease));
-      
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
-  };
+  if (!isVisible) return null;
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="scroll-to-top-btn"
-          aria-label="Scroll to top"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2l8 8-2.83 2.83L12 7.66l-5.17 5.17L4 10l8-8z" />
-          </svg>
-        </button>
-      )}
-    </>
+    <button aria-label="Scroll to top" className="scroll-to-top-btn" onClick={scrollToTop}>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
   );
 };
 
