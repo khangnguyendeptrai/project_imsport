@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import "../styles/components/Header.scss"
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null); // submenu nào đang mở
