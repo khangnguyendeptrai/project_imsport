@@ -1,109 +1,110 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/components/Footer.scss';
+import certificate from '../assets/images/certificate.png';
+import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaPaperPlane } from "react-icons/fa";
+import FacebookPageCard from './FacebookPageCard';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-gray-500 text-white py-10">
       <div className="container">
-        {/* Main Footer Content */}
-        <div className="footer-content">
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-6 justify-between'>
           <div className="footer-section">
-            <h3 className="footer-title">Shopify</h3>
-            <p className="footer-description">
-              Cửa hàng trực tuyến hàng đầu với các sản phẩm chất lượng cao và dịch vụ khách hàng tuyệt vời.
-            </p>
-            <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook">
-                <svg className="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a href="#" className="social-link" aria-label="Twitter">
-                <svg className="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              <a href="#" className="social-link" aria-label="Instagram">
-                <svg className="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.281c-.49 0-.875-.385-.875-.875s.385-.875.875-.875.875.385.875.875-.385.875-.875.875z"/>
-                </svg>
-              </a>
-              <a href="#" className="social-link" aria-label="YouTube">
-                <svg className="social-icon" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
+            <h3 className='text-lg font-bold'>GIỚI THIỆU</h3>
+            <p className='mt-4 text-lg'>IMSports chuyên giày dép, quần áo và phụ kiện chạy bộ/chạy địa hình chính hãng đến từ các thương hiệu hàng đầu thế giới. Chúng tôi luôn có sẵn những dòng sản phẩm mới nhất, tối ưu và hiệu suất cao dành cho runners. Đội ngũ nhân viên trẻ trung, nhiệt huyết, là những chân chạy đã được tích luỹ nhiều kinh nghiệm tập luyện và thi đấu sẽ mang đến tinh thần phục vụ chuyên nghiệp và chuyên sâu nhất cho khách hàng.</p>
+            <div className="flex space-x-4 text-2xl text-gray-600 mt-4 ">
+              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                className="rounded-full p-2 bg-white/20 border border-transparent text-white/60 flex items-center justify-center hover:bg-white/20 transition"
+              >
+                <FaTwitter className="hover:text-blue-600 text-while" />
+              </Link>
+              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                className="rounded-full p-2 bg-white/20 border border-transparent  text-white/60 flex items-center justify-center hover:bg-white/20 transition"
+              >
+                <FaFacebook className="hover:text-blue-600" />
+              </Link>
+              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" className="rounded-full p-2 bg-white/20 border border-transparent  text-white/60 flex items-center justify-center hover:bg-white/20 transition"
+              >
+                <FaInstagram className="hover:text-pink-500" />
+              </Link>
+              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer" className="rounded-full p-2 bg-white/20 border border-transparent  text-white/60 flex items-center justify-center hover:bg-white/20 transition"
+              >
+                <FaYoutube className="hover:text-red-600" />
+              </Link>
+
             </div>
+            <img src={certificate} alt="Certificate" className="mt-4 w-80 h-auto" />
           </div>
-
           <div className="footer-section">
-            <h4 className="footer-subtitle">Sản phẩm</h4>
-            <ul className="footer-links">
-              <li><Link to="/products/electronics">Điện tử</Link></li>
-              <li><Link to="/products/fashion">Thời trang</Link></li>
-              <li><Link to="/products/home">Nhà cửa</Link></li>
-              <li><Link to="/products/sports">Thể thao</Link></li>
-            </ul>
+            <h3 className='text-lg font-bold'>ĐỊA CHỈ STORE</h3>
+            <h3 className='text-lg font-bold mt-6' > HÀ NỘI</h3>
+            <p className='mt-2 text-lg'>-Số 58A Ngõ 92, Thanh Nhàn, Hai Bà Trưng</p>
+            <p className='mt-2 text-lg'>Hotline/Zalo: 0846 33 5858 </p>
+            <p className='mt-2 text-lg'>- B11, Imperia Sky Garden, 423 Minh Khai, Hai Bà Trưng</p>
+            <p className='mt-2 text-lg'>Hotline/Zalo: 0839 33 5858 </p>
+            <p className='mt-2 text-lg'>-0105, Tòa Luxury Park Views, Trương Công Giai, Cầu Giấy</p>
+            <p className='mt-2 text-lg'>Hotline/Zalo Tư vấn: 0879 33 5858</p>
+            <h3 className='text-lg font-bold mt-2' > Đại lý ủy quyền tại Tp.HCM.</h3>
+            <p className='mt-2 text-lg'>Số 285/21 CMT8, Phường 12, Quận 10</p>
+            <p className='mt-2 text-lg'>Hotline/Zalo Tư vấn: 08668 285 21</p>
           </div>
-
           <div className="footer-section">
-            <h4 className="footer-subtitle">Hỗ trợ</h4>
-            <ul className="footer-links">
-              <li><Link to="/help">Trung tâm trợ giúp</Link></li>
-              <li><Link to="/shipping">Vận chuyển</Link></li>
-              <li><Link to="/returns">Đổi trả</Link></li>
-              <li><Link to="/warranty">Bảo hành</Link></li>
-            </ul>
+            <h3 className='text-lg font-bold'>HƯỚNG DẪN</h3>
+            <Link to="/"><p className='mt-4 text-lg'>Sản phẩm</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Bản đồ</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Chính sách thanh toán</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Chính sách vận chuyển</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Chính sách đổi trả hàng</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Chính sách bảo hành</p></Link>
+            <Link to="/"><p className='mt-2 text-lg'>Chính sách bảo mật</p></Link>
           </div>
-
           <div className="footer-section">
-            <h4 className="footer-subtitle">Công ty</h4>
-            <ul className="footer-links">
-              <li><Link to="/about">Giới thiệu</Link></li>
-              <li><Link to="/careers">Tuyển dụng</Link></li>
-              <li><Link to="/press">Báo chí</Link></li>
-              <li><Link to="/contact">Liên hệ</Link></li>
-            </ul>
-          </div>
+            <h3 className='text-lg font-bold'>THEO DÕI CHÚNG TÔI</h3>
+            <FacebookPageCard />
+            {/* input */}
+            <div className="relative w-80 mt-5">
+              <input
+                type="email"
+                id="email"
+                placeholder=" "
+                className="peer w-full bg-transparent text-white placeholder-transparent 
+               focus:outline-none py-2 border-b border-gray-400"
+              />
 
-          <div className="footer-section">
-            <h4 className="footer-subtitle">Liên hệ</h4>
-            <div className="contact-info">
-              <div className="contact-item">
-                <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>+84 123 456 789</span>
-              </div>
-              <div className="contact-item">
-                <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>support@shopify.com</span>
-              </div>
-              <div className="contact-item">
-                <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>123 Đường ABC, Quận XYZ, TP.HCM</span>
-              </div>
+              {/* Label */}
+              <label
+                htmlFor="email"
+                className="absolute left-0 top-2 text-gray-300 text-base transition-all
+               peer-placeholder-shown:top-2 peer-placeholder-shown:text-base 
+               peer-placeholder-shown:text-gray-400
+               peer-focus:top-[-10px] peer-focus:text-xs peer-focus:text-orange-400
+               peer-not-placeholder-shown:top-[-10px] peer-not-placeholder-shown:text-xs peer-not-placeholder-shown:text-orange-400"
+              >
+                Nhập email của bạn
+              </label>
+
+              {/* Icon */}
+              <FaPaperPlane
+                className="absolute right-2 top-3 text-gray-400 transition-colors duration-500 
+               peer-focus:text-orange-400 peer-not-placeholder-shown:text-orange-400 cursor-pointer"
+              />
+
+              {/* Border trái (từ giữa sang trái) */}
+              <span
+                className="absolute bottom-0 left-1/2 h-[2px] w-1/2 bg-orange-400
+               transform scale-x-0 transition-transform duration-500 origin-left
+               peer-focus:scale-x-100 peer-not-placeholder-shown:scale-x-100"
+              ></span>
+
+              {/* Border phải (từ giữa sang phải) */}
+              <span
+                className="absolute bottom-0 right-1/2 h-[2px] w-1/2 bg-orange-400
+               transform scale-x-0 transition-transform duration-500 origin-right
+               peer-focus:scale-x-100 peer-not-placeholder-shown:scale-x-100"
+              ></span>
             </div>
-          </div>
-        </div>
 
-        {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <p className="copyright">
-              © 2024 Shopify. Tất cả quyền được bảo lưu.
-            </p>
-            <div className="footer-bottom-links">
-              <Link to="/privacy">Chính sách bảo mật</Link>
-              <Link to="/terms">Điều khoản sử dụng</Link>
-              <Link to="/cookies">Cookie Policy</Link>
-            </div>
+            <p className='mt-4 text-lg'>Đăng ký để nhận chương trình ưu đãi! Website được sở hữu bởi Công ty TNHH Thể Thao Thung Lũng Mặt Trời, GPĐK: 0109685009. Liên hệ CSKH: sales@imsports.vn</p>
           </div>
         </div>
       </div>
