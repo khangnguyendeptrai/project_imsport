@@ -107,8 +107,10 @@ export default function Header() {
                 <img
                   src={vnFlag}
                   alt="Vietnamese"
-                  className="h-5 w-auto inline mr-2 cursor-pointer"
+                  className="h-5 w-auto inline  cursor-pointer"
                 />
+                  <span className="border-l h-5 border-gray-400 mx-1"></span>
+
                 <img
                   src={ukFlag}
                   alt="English"
@@ -145,7 +147,6 @@ export default function Header() {
             <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon class="h-4 w-4 ml-1 text-gray-500" />
 </span></Link>
             <ul className="dropdown-menu">
-              <li><Link to="/" className="dropdown-item">Heart Rate Monitor</Link></li>
               <li><Link to="/" className="dropdown-item">Coros</Link></li>
               <li><Link to="/" className="dropdown-item">Garmin</Link></li>
               <li><Link to="/" className="dropdown-item">Coros</Link></li>
@@ -259,7 +260,6 @@ export default function Header() {
               <span>GPS Watch</span>
             </div>
             <nav>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Heart Rate Monitor</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Garmin</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Coros</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Suunto</Link>

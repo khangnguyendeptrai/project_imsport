@@ -14,10 +14,31 @@ import imgbrand5 from "../assets/images/imgbrand5.png"
 import imgbrand6 from "../assets/images/imgbrand6.png"
 import imgbrand7 from "../assets/images/imgbrand7.png"
 import imgbrand8 from "../assets/images/imgbrand8.png"
+import collectionImg1 from "../assets/images/collection-img.jpg"
+import collectionImg2 from "../assets/images/collection-img-1.jpg"
+import imgCategoryCollection1 from "../assets/images/img-category-collection1.jpg"
+import productImg1 from "../assets/images/img-product1.jpeg"
+import productImg2 from "../assets/images/img-product2.jpeg"
+import productImg3 from "../assets/images/img-product3.jpeg"
+import productImg4 from "../assets/images/img-product4.jpg"
+import productImg5 from "../assets/images/img-product5.jpg"
+import productImg6 from "../assets/images/img-product6.jpg"
+import productImg1Hide from "../assets/images/img-product1-hide.jpeg"
+import productImg2Hide from "../assets/images/img-product2-hide.jpeg"
+import productImg3Hide from "../assets/images/img-product3-hide.jpeg"
+import productImg4Hide from "../assets/images/img-product4-hide.jpeg"
+import productImg5Hide from "../assets/images/img-product5-hide.jpeg"
+import productImg6Hide from "../assets/images/img-product6-hide.jpg"
+import tagGift from "../assets/images/tag-gift.png"
 
 
 export {imgbanner1, imgbanner2, imgbanner3, imgbanner4,
     imgbanner5, imgbanner6, imgbanner7, imgbanner8,
     imgbrand1, imgbrand2, imgbrand3, imgbrand4,
-    imgbrand5, imgbrand6, imgbrand7, imgbrand8
+    imgbrand5, imgbrand6, imgbrand7, imgbrand8,
+    collectionImg1, collectionImg2,
+    imgCategoryCollection1,
+    productImg1, productImg2, productImg3, productImg4, productImg5, productImg6,
+    productImg1Hide, productImg2Hide, productImg3Hide, productImg4Hide, productImg5Hide, productImg6Hide,
+    tagGift
 }
