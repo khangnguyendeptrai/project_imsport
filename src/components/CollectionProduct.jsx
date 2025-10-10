@@ -114,11 +114,11 @@ const CollectionProduct = () => {
                                     </div>
                                     <div className='px-4 pb-5'>
                                         <a href='/' className='line-clamp-2 font-semibold text-base text-center' title={item.name}>{item.name}</a>
-                                        <div className='my-1 mr-5'>
-                                            <p className='text-[15px] font-bold  text-[#ff8c00] text-end'>{item.price}</p>
-                                            {item.originalPrice !== 0 && <p className='text-sm font-normal text-end text-[#adadad] line-through '>{item.originalPrice}</p>}
+                                        <div className='my-1 md:mr-5 text-end'>
+                                            <p className='text-[15px] font-bold  text-[#ff8c00] '>{item.price}</p>
+                                            {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{item.originalPrice}</p>}
                                         </div>
-                                        <a href='/' className='text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</a>
+                                        <a href='/' className='md:block hidden text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             ))}

@@ -10,7 +10,7 @@ const NewColleciton = () => {
                         <img src={collectionImg1} alt="collection" className='w-full h-full object-cover' />
                     </a>
                 </div>
-                <div className='col-span-1 px-4'>
+                <div className='col-span-1 px-4 md:pt-0 pt-4 '>
                     <a href='/'>
                         <img src={collectionImg2} alt="collection" className='w-full h-full object-cover' />
                     </a>
