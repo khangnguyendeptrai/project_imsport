@@ -145,7 +145,6 @@ export default function Header() {
             <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon class="h-4 w-4 ml-1 text-gray-500" />
 </span></Link>
             <ul className="dropdown-menu">
-              <li><Link to="/" className="dropdown-item">Heart Rate Monitor</Link></li>
               <li><Link to="/" className="dropdown-item">Coros</Link></li>
               <li><Link to="/" className="dropdown-item">Garmin</Link></li>
               <li><Link to="/" className="dropdown-item">Coros</Link></li>
@@ -197,7 +196,7 @@ export default function Header() {
                 </span>
               </Link>
             </div>
-
+                  
             {/* GPS Watch có submenu */}
             <div className="mobile-nav-item">
             <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>
@@ -219,9 +218,7 @@ export default function Header() {
               <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>SALE SHOCK CUỐI HÈ</Link>
             </div>
           </nav>
-        </div>
-
-        {/* Submenu cho mobile */}
+             {/* Submenu cho mobile */}
         {activeSubmenu === "men" && (
           <div className="mobile-submenu">
             <div className="mobile-nav-header">
@@ -259,15 +256,23 @@ export default function Header() {
               <span>GPS Watch</span>
             </div>
             <nav>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Heart Rate Monitor</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Garmin</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Coros</Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Suunto</Link>
             </nav>
           </div>
         )}
+        </div>
 
-        {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+     
+
+        {isMenuOpen && 
+        
+        <div className="overlay" onClick={toggleMenu}>
+          123123
+          
+        </div>
+        }
 
       {/* Mobile search */}
       {showMobileSearch && (

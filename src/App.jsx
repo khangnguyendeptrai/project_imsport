@@ -10,15 +10,17 @@ import './App.css';
 
 function App() {
   return (
+    
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="product/:id" element={<ProductDetail />} />   
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
         </Route>
-      </Routes>
+      </Routes> 
+      
       <ScrollToTop />
     </Router>
   );
