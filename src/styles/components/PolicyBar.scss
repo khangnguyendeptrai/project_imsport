@@ -71,7 +71,7 @@
 
   // Responsive: chuyển sang bố cục dọc
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 15px 0;
 
