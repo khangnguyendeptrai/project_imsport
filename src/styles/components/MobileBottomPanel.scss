@@ -13,6 +13,7 @@
     z-index: 999;
     transform: translateZ(0); // fix lỗi render position fixed
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.84; //update bug chua hoan thanh srpint 1
   // Ẩn trên desktop
   @media (min-width: 768px) {
     display: none;
