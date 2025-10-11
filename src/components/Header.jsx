@@ -122,7 +122,7 @@ export default function Header() {
       <nav className="main-navigation container">
         <Link to="/about" className="nav-link">Giới Thiệu</Link>
         <div className="nav-dropdown">
-          <Link to="/men" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/men" className="nav-link">Men <span className="caret"><ChevronDownIcon class="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -132,7 +132,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/women" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/women" className="nav-link">Women <span className="caret"><ChevronDownIcon class="h-4 w-4 ml-1 text-gray-500" />
           </span> </Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -142,10 +142,9 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon class="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
-            <li><Link to="/" className="dropdown-item">Heart Rate Monitor</Link></li>
             <li><Link to="/" className="dropdown-item">Coros</Link></li>
             <li><Link to="/" className="dropdown-item">Garmin</Link></li>
             <li><Link to="/" className="dropdown-item">Coros</Link></li>
@@ -219,76 +218,90 @@ export default function Header() {
             <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>SALE SHOCK CUỐI HÈ</Link>
           </div>
         </nav>
+        {/* Submenu cho mobile */}
+        {activeSubmenu === "men" && (
+          <>
+            <div className="mobile-submenu">
+              <div className="mobile-nav-header">
+                <button className="back-btn" onClick={closeSubmenu}>‹</button>
+                <span>Men</span>
+              </div>
+              <nav>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+              </nav>
+            </div>
+            <nav>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+            </nav>
+          </>
+        )}
+
+        {activeSubmenu === "women" && (
+          <div className="mobile-submenu">
+            <div className="mobile-nav-header">
+              <button className="back-btn" onClick={closeSubmenu}>‹</button>
+              <span>Women</span>
+            </div>
+            <nav>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+            </nav>
+          </div>
+        )}
+
+        {activeSubmenu === "gps" && (
+          <div className="mobile-submenu">
+            <div className="mobile-nav-header">
+              <button className="back-btn" onClick={closeSubmenu}>‹</button>
+              <span>GPS Watch</span>
+            </div>
+            <nav>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Garmin</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Coros</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Suunto</Link>
+            </nav>
+          </div>
+        )}
       </div>
 
-      {/* Submenu cho mobile */}
-      {activeSubmenu === "men" && (
-        <div className="mobile-submenu">
-          <div className="mobile-nav-header">
-            <button className="back-btn" onClick={closeSubmenu}>‹</button>
-            <span>Men</span>
-          </div>
-          <nav>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
-          </nav>
-        </div>
-      )}
 
-      {activeSubmenu === "women" && (
-        <div className="mobile-submenu">
-          <div className="mobile-nav-header">
-            <button className="back-btn" onClick={closeSubmenu}>‹</button>
-            <span>Women</span>
-          </div>
-          <nav>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
-          </nav>
-        </div>
-      )}
 
-      {activeSubmenu === "gps" && (
-        <div className="mobile-submenu">
-          <div className="mobile-nav-header">
-            <button className="back-btn" onClick={closeSubmenu}>‹</button>
-            <span>GPS Watch</span>
-          </div>
-          <nav>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Heart Rate Monitor</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Garmin</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Coros</Link>
-            <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Suunto</Link>
-          </nav>
-        </div>
-      )}
+      {
+        isMenuOpen &&
 
-      {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+        <div className="overlay" onClick={toggleMenu}>
+          123123
+
+        </div>
+      }
 
       {/* Mobile search */}
-<div
-  className={`md:hidden absolute top-16 right-0 w-2/3 bg-gray-100 border border-gray-300 flex items-center p-2 rounded-l-md shadow-md z-50 overflow-hidden transition-all duration-500 ease-linear ${
-    showMobileSearch ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
-  }`}
->
-  <input
-    type="text"
-    placeholder="Tìm kiếm..."
-    className="flex-1 outline-none rounded-md px-3 py-2 bg-white text-gray-700"
-  />
-  <button className="ml-2 text-gray-600 hover:text-orange-500">
-    <MagnifyingGlassIcon className="h-5 w-5" />
-  </button>
-</div>
+      <div
+        className={`md:hidden absolute top-16 right-0 w-2/3 bg-gray-100 border border-gray-300 flex items-center p-2 rounded-l-md shadow-md z-50 overflow-hidden transition-all duration-500 ease-linear ${showMobileSearch ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+          }`}
+      >
+        <input
+          type="text"
+          placeholder="Tìm kiếm..."
+          className="flex-1 outline-none rounded-md px-3 py-2 bg-white text-gray-700"
+        />
+        <button className="ml-2 text-gray-600 hover:text-orange-500">
+          <MagnifyingGlassIcon className="h-5 w-5" />
+        </button>
+      </div>
 
 
 
 
 
-    </header>
+    </header >
   );
 }
