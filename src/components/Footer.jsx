@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* --- Cột 1: Giới thiệu --- */}
           <div>
-            <h3 className="text-lg font-bold mb-3">GIỚI THIỆU</h3>
+            <h3 className="text-xl font-bold mb-3">GIỚI THIỆU</h3>
             <p className="text-base leading-relaxed text-gray-100">
               IMSports chuyên giày dép, quần áo và phụ kiện chạy bộ/chạy địa hình
               chính hãng đến từ các thương hiệu hàng đầu thế giới. Đội ngũ nhân viên
