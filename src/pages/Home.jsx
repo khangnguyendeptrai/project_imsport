@@ -6,6 +6,8 @@ import MainBanner from '../components/MainBanner';
 import BrandBanner from '../components/BrandBanner';
 import NewColleciton from '../components/NewColleciton';
 import CollectionProduct from '../components/CollectionProduct';
+import ProductsSection from "../components/ProductsSection";
+
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -16,7 +18,7 @@ const Home = () => {
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === 'all' || product.category.toLowerCase() === selectedCategory.toLowerCase();
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -38,10 +40,11 @@ const Home = () => {
 
   return (
     <>
-      <MainBanner/>
-      <BrandBanner/>
-      <NewColleciton/>
-      <CollectionProduct/>
+      <MainBanner />
+      <BrandBanner />
+      <ProductsSection/>
+      <NewColleciton />
+      <CollectionProduct />
     </>
   );
 };

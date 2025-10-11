@@ -32,6 +32,28 @@ import productImg6Hide from "../assets/images/img-product6-hide.jpg"
 import tagGift from "../assets/images/tag-gift.png"
 
 
+import buckethat from "../assets/images/buckethat.jpeg"
+import buckethathide from "../assets/images/buckethathide.jpeg"
+import khoacrun from "../assets/images/khoacrun.jpeg"
+import khoacrunhide from "../assets/images/khoacrunhide.png"
+import khoacnu from "../assets/images/khoacnu.jpg"
+import khoacnuhide from "../assets/images/khoacnuhide.jpg"
+import giaynamhide from "../assets/images/giaynamhide.png"
+import giaynam from "../assets/images/giaynam.jpeg"
+import giaymafe from "../assets/images/giaymafe.jpeg"
+import giaymafehide from "../assets/images/giaymafehide.jpeg"
+import giaykjehide from "../assets/images/giaykjehide.png"
+import giaykje from "../assets/images/giaykje.jpeg"
+import giayhokahide from "../assets/images/giayhokahide.jpeg"
+import giayhoka from "../assets/images/giayhoka.jpeg"
+import giaycloudbom from "../assets/images/giaycloudbom.jpeg"
+import giaycloudbomhide from "../assets/images/giaycloudbomhide.jpg"
+import aotrail from "../assets/images/aotrail.jpeg"
+import aotrailhide from "../assets/images/aotrailhide.png"
+import thunnam from "../assets/images/thunnam.jpeg"
+import thunnamhide from "../assets/images/thunnamhide.png"
+
+
 export {imgbanner1, imgbanner2, imgbanner3, imgbanner4,
     imgbanner5, imgbanner6, imgbanner7, imgbanner8,
     imgbrand1, imgbrand2, imgbrand3, imgbrand4,
@@ -40,5 +62,8 @@ export {imgbanner1, imgbanner2, imgbanner3, imgbanner4,
     imgCategoryCollection1,
     productImg1, productImg2, productImg3, productImg4, productImg5, productImg6,
     productImg1Hide, productImg2Hide, productImg3Hide, productImg4Hide, productImg5Hide, productImg6Hide,
-    tagGift
+    tagGift,buckethat,buckethathide,khoacrun,khoacrunhide,khoacnu,khoacnuhide,giaynamhide,giaynam,giaymafe,
+    giaymafehide,giaykjehide,giaykje,giayhokahide,giayhoka,giaycloudbom,giaycloudbomhide,aotrail,
+    aotrailhide,thunnam,thunnamhide
+    
 }
