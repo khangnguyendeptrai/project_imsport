@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide, productImg6, productImg6Hide, tagGift } from '../assets/ExportImage'
 import ProductCard from './ProductCard'
 import ProductDetailPopup from './ProductDetailPopup'
+import Pagination from './Pagination'
 const data =
 {
     title: 'Đồ Nam',
@@ -74,8 +75,7 @@ const data =
         },
     ]
 }
-
-const CollectionProduct = () => {
+const ProductList = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
     const quickView = (id) => {
@@ -83,32 +83,19 @@ const CollectionProduct = () => {
         setProduct(data.data.find(item => item.id === id))
         setModalOpen(true)
     }
-    return (
-        <>
-            <div className='container mx-auto !pt-10'>
-                <h3 className='text-[28px] uppercase text-center mb-10'>
-                    <a className='text-[#333333] hover:text-[#673AB7] font-semibold' href='/'>{data.title}</a>
-                </h3>
-                <div className='grid grid-cols-1 min-[1000px]:grid-cols-2'>
-                    <div className='col-span-1 px-4'>
-                        <a href='/'>
-                            <img src={imgCategoryCollection1} alt="collection" className='w-full h-full object-cover' />
-                        </a>
-                    </div>
-                    <div className='col-span-1 px-4'>
-                        <div className='grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-4'>
-                            {data.data.map((item) => (
-                                <ProductCard key={item.id} item={item} quickView={quickView} />
-                            ))}
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div>
+        <div className='container mx-auto'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[870px]'>
+                {data.data.map((item) => (
+                    <ProductCard key={item.id} item={item} quickView={quickView} isList={true} />
+                ))}
             </div>
-            {modalOpen &&
-                <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-            }
-        </>
-    )
+            <Pagination />
+        </div>
+        {modalOpen && <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />}
+    </div>
+  )
 }
 
-export default CollectionProduct
+export default ProductList

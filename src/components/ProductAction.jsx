@@ -9,13 +9,13 @@ const ProductAction = ({product, quickView}) => {
                     e.preventDefault()
                     quickView(product.id)
                 }}>
-                    <MagnifyingGlassPlusIcon strokeWidth={2.5} class="h-4 w-4 text-[#333333] group-hover/icon:text-white" />
+                    <MagnifyingGlassPlusIcon strokeWidth={2.5} className="h-4 w-4 text-[#333333] group-hover/icon:text-white" />
 
                 </a>
             </div>
             <div className='w-11 h-11 group/icon bg-white hover:bg-[#673AB7] rounded flex items-center justify-center'>
                 <a title='Xem chi tiết' className='w-full h-full flex items-center justify-center' href='/'>
-                    <EyeIcon strokeWidth={2.5} class="h-4 w-4 text-[#333333] group-hover/icon:text-white" />
+                    <EyeIcon strokeWidth={2.5} className="h-4 w-4 text-[#333333] group-hover/icon:text-white" />
                 </a>
             </div>
 

@@ -1,25 +1,83 @@
 import React from 'react'
 
-const ProductDetailPopup = ({ isOpen, onClose, title, children }) => {
+const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     if (!isOpen) return null;
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-            <div className="bg-white rounded-2xl shadow-xl w-[90%] max-w-md p-6 relative animate-fadeIn">
-                {/* Nút đóng */}
-                <button
-                    onClick={onClose}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl"
-                >
-                    &times;
-                </button>
+        <>
+            <div onClick={() => onClose()} className="fixed inset-0 bg-black/50 z-50">
+                <div onClick={(e) => e.stopPropagation()} className="bg-white  shadow-xl w-[1000px] top-[5%] left-1/2 -translate-x-1/2  relative ">
+                    <button
+                        onClick={() => onClose()}
+                        className="absolute w-5 h-5 flex justify-center items-center font-bold top-3 right-3 text-white bg-[#673AB7] rounded-full text-xl"
+                    >
+                        &times;
+                    </button>
+                    <div className='grid grid-cols-1 min-[1000px]:grid-cols-2'>
+                        <div className='col-span-1 px-4'>
+                            <a href='/'>
+                                <img src={product.image} alt="collection" className='w-full h-full object-cover' />
+                            </a>
+                        </div>
+                        <div className='col-span-1 p-4'>
+                            <h3>
+                                <a href='/' className='text-[21px] font-normal  text-[#333333] hover:text-[#673AB7] mt-4 mb-1 block '>{product.name}</a>
+                            </h3>
+                            <div className='flex gap-2 divide-x-[1px] divide-[#898989] py-3'>
+                                <p className='text-[#898989] text-sm'><span className='font-semibold'>Mã SP: </span> {product.id}</p>
+                                <p className='text-[#898989] text-sm pl-2'><span className='font-semibold'>Thương hiệu: </span> {product.brand}</p>
+                            </div>
+                            <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{product.price}</h3>
+                            <div className='flex gap-x-2 border-t border-gray-100 pt-4'>
+                                <label className="cursor-pointer">
+                                    <input
+                                        type="radio"
+                                        name="size"
+                                        value="S"
+                                        className="hidden peer"
+                                    />
+                                    <div className="border shadow-[0_0_0_1px_#B8B8B8] text-black h-[35px] w-[50px] text-sm flex justify-center items-center rounded peer-checked:shadow-[0_0_2px_2px_#FF7A00] hover:shadow-[0_0_2px_2px_#FF7A00] transition-colors duration-200">
+                                        S
+                                    </div>
+                                </label>
+                                <label className="cursor-pointer">
+                                    <input
+                                        type="radio"
+                                        name="size"
+                                        value="M"
+                                        className="hidden peer"
+                                    />
+                                    <div className="border shadow-[0_0_0_1px_#B8B8B8] text-black h-[35px] w-[50px] text-sm flex justify-center items-center rounded peer-checked:shadow-[0_0_2px_2px_#FF7A00] hover:shadow-[0_0_2px_2px_#FF7A00] transition-colors duration-200">
+                                        M
+                                    </div>
+                                </label>
+                                <label className="cursor-pointer">
+                                    <input
+                                        type="radio"
+                                        name="size"
+                                        value="L"
+                                        className="hidden peer"
+                                    />
+                                    <div className="border shadow-[0_0_0_1px_#B8B8B8] text-black h-[35px] w-[50px] text-sm flex justify-center items-center rounded peer-checked:shadow-[0_0_2px_2px_#FF7A00] hover:shadow-[0_0_2px_2px_#FF7A00] transition-colors duration-200">
+                                        L
+                                    </div>
+                                </label>
 
-                {/* Tiêu đề */}
-                {title && <h2 className="text-lg font-semibold mb-4 text-gray-800">{title}</h2>}
+                            </div>
+                            <p className='text-[#333] font-normal text-sm mt-4'>Số lượng: </p>
+                            <div className='flex gap-x-2 items-center mt-2'>
+                                <div>
+                                    <input name='a' className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' value="1" type="number" />
+                                </div>
+                                <div>
+                                    <button className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>
+                                </div>
+                            </div>
+                        </div>
 
-                {/* Nội dung */}
-                <div>{children}</div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
