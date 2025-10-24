@@ -3,6 +3,7 @@ import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, prod
 import ProductCard from './ProductCard'
 import ProductDetailPopup from './ProductDetailPopup'
 import Pagination from './Pagination'
+import { useSearchParams } from 'react-router-dom'
 const data =
 {
     title: 'Đồ Nam',
@@ -78,6 +79,8 @@ const data =
 const ProductList = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
+    const [searchParams] = useSearchParams();
+    const page = parseInt(searchParams.get("page")) || 1;
     const quickView = (id) => {
         console.log('quickView ', id)
         setProduct(data.data.find(item => item.id === id))
