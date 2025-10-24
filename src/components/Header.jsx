@@ -102,7 +102,7 @@ export default function Header() {
             </li>
 
             {/* Language */}
-            <li className="hidden md:flex items-center gap-2">
+            <li className="flex items-center gap-2">
               <img
                 src={vnFlag}
                 alt="Vietnamese"

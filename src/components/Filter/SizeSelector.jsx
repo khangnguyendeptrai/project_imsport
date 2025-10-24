@@ -28,7 +28,7 @@ export default function SizeSelector({ data }) {
 
     setSearchParams(prevParams => {
       const newParams = new URLSearchParams(prevParams);
-      
+
       if (newSelected.length > 0) {
         newParams.set('size', newSelected.join(','));
       } else {
@@ -37,14 +37,17 @@ export default function SizeSelector({ data }) {
       return newParams;
     }, { replace: true });
   };
-  
+
   const selectedSizes = getSizesFromUrl();
 
   return (
-    <div className="max-h-48 overflow-y-auto pr-2 mt-2">
+    <div className="max-h-48 overflow-y-auto p-2 mt-2  
+    scrollbar-hide-buttons
+     
+">
       {/* 1. Đã quay lại layout grid 2 cột (code cũ) */}
       <div className="grid grid-cols-2 gap-2">
-        
+
         {sizesToDisplay.map((size) => {
           const isSelected = selectedSizes.includes(size);
 
@@ -60,7 +63,7 @@ export default function SizeSelector({ data }) {
                 ${isSelected
                   ? 'bg-purple-800 text-white ring-1 ring-black border border-white' // 2. Style khi ĐÃ CHỌN (Click)
                   : 'bg-white text-black border border-black ' + // 3. Style MẶC ĐỊNH
-                    'hover:bg-purple-800 hover:text-white hover:ring-1 hover:ring-black hover:border-white' // 4. Style khi HOVER
+                  'hover:bg-purple-800 hover:text-white hover:ring-1 hover:ring-black hover:border-white' // 4. Style khi HOVER
                 }
               `}
             >

@@ -22,7 +22,7 @@ export default function BrandSelector({ data }) {
   // Logic khi click vào một thương hiệu
   const handleBrandClick = (brand) => {
     const brandAsParam = brand.toLowerCase();
-    
+
     const currentSelected = getBrandsFromUrl();
     const isSelected = currentSelected.includes(brandAsParam);
     let newSelected = [];
@@ -43,11 +43,12 @@ export default function BrandSelector({ data }) {
       return newParams;
     }, { replace: true });
   };
-  
+
   return (
-    <div className="max-h-48 overflow-y-auto pr-2">
+    <div className="max-h-48 overflow-y-auto p-1
+      scrollbar-hide-buttons">
       <div className="flex flex-col gap-1">
-        
+
         {brandsToDisplay.map((brand) => {
           return (
             <button

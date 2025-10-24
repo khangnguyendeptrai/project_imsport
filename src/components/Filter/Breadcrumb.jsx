@@ -37,13 +37,13 @@ const Breadcrumb = ({ data }) => {
       <nav className="text-sm text-gray-600 p-10">
         {breadcrumbItems.map((item, index) => (
           <span key={index}>
-            {index > 0 && <span className="mx-2">/</span>} 
+            {index > 0 && <span className="mx-2"> / </span>} 
             
             {index < breadcrumbItems.length - 1 ? (
               // Link cho các mục cha (ĐÃ BỎ hover:underline)
               <Link 
                 to={item.slug} 
-                className="text-blue-600 no-underline hover:text-blue-800"
+                className="text-blue-500 no-underline hover:text-blue-800"
               >
                 {item.name}
               </Link>
@@ -51,7 +51,7 @@ const Breadcrumb = ({ data }) => {
               // Link cho mục hiện tại (ĐÃ CHUYỂN TỪ <span> SANG <Link>)
               <Link 
                 to={item.slug}
-                className="text-gray-800 font-medium no-underline"
+                className="text-gray-800 font-medium no-underline hover:text-blue-800"
               >
                 {item.name}
               </Link>

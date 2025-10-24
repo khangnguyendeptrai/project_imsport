@@ -60,7 +60,7 @@ export default function PriceFilter() {
   const maxPercent = (maxPrice / initialMax) * 100;
 
   return (
-    <div className="p-4 w-64">
+    <div className="p-4 md:w-auto">
 
       {/* 1. Thanh trượt (Range Slider) */}
       <div className="relative mb-3">
