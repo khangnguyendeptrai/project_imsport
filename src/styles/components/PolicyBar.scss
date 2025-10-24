@@ -71,12 +71,12 @@
 
   // Responsive: chuyển sang bố cục dọc
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 15px 0;
 
     .policy-item {
-      flex-direction: column;
+      flex-direction:column;
       text-align: center;
       padding: 10px 0;
 

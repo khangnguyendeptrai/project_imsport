@@ -1,237 +1,117 @@
-@import '../variables.scss';
-
 .product-card {
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: all 0.3s;
-  // @include hover-lift;
-  border: 1px solid #e5e7eb;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-  &:hover {
-    .product-actions {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .product-link {
+    text-decoration: none;
+    color: inherit;
   }
 
-  .product-image-container {
+  .product-image {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1;
+    border-radius: 10px;
 
-    .product-image {
+    img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s;
-      
-      &:hover {
-        transform: scale(1.05);
+      transition: transform 0.4s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      color: #fff;
+
+      &.discount {
+        background: #b91c1c;
+      }
+
+      &.special {
+        background: #f97316;
+        right: 10px;
+        left: auto;
       }
     }
 
-    .sale-badge {
+    .hover-icons {
       position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-      background-color: #ef4444;
-      color: white;
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      z-index: 2;
-    }
-
-    .out-of-stock-badge {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background-color: #6b7280;
-      color: white;
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      z-index: 2;
-    }
-
-    .product-actions {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 8px;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
+      transition: opacity 0.3s ease;
 
-      .action-btn {
-        width: 2rem;
-        height: 2rem;
-        background: white;
+      &.show {
+        opacity: 1;
+      }
+
+      .icon-btn {
+        background: #fff;
+        border: none;
+        padding: 8px;
         border-radius: 50%;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #6b7280;
-        transition: all 0.2s;
-        
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: transform 0.2s;
+
         &:hover {
-          color: #2563eb;
-          background-color: #eff6ff;
           transform: scale(1.1);
         }
       }
     }
   }
 
+  /* ==== PHẦN THÔNG TIN SẢN PHẨM ==== */
   .product-info {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-
-    .product-category {
-      font-size: 0.75rem;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-    }
+    margin-top: 10px;
 
     .product-name {
-      font-size: 1.125rem;
+      font-size: 15px;
       font-weight: 600;
-      color: #111827;
-      transition: color 0.2s;
-      text-decoration: none;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      
-      &:hover {
-        color: #2563eb;
-      }
-    }
-
-    .product-rating {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      .stars {
-        display: flex;
-        gap: 0.25rem;
-      }
-
-      .rating-text {
-        font-size: 0.875rem;
-        color: #6b7280;
-      }
+      color: #222;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      min-height: 42px;
+      text-align: center;
     }
 
     .product-price {
       display: flex;
+      flex-direction: column; /* để giá mới ở trên, giá cũ bên dưới */
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
 
       .current-price {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: #2563eb;
+        color: #f97316; /* màu cam thương hiệu IMSports */
+        font-weight: 700;
+        font-size: 16px;
       }
 
-      .original-price {
-        font-size: 0.875rem;
-        color: #6b7280;
+      .old-price {
         text-decoration: line-through;
-      }
-    }
-
-    .product-description {
-      font-size: 0.875rem;
-      color: #6b7280;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .product-features {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-
-      .feature-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.875rem;
-        color: #6b7280;
-
-        .feature-icon {
-          flex-shrink: 0;
-        }
-      }
-    }
-
-    .product-actions-bottom {
-      padding-top: 0.5rem;
-
-      .add-to-cart-btn {
-        width: 100%;
-        padding: 0.5rem 1rem;
-        background-color: #2563eb;
-        color: white;
-        font-weight: 500;
-        border-radius: 0.5rem;
-        transition: background-color 0.2s;
-        
-        &:hover {
-          background-color: #1d4ed8;
-        }
-        
-        &.disabled {
-          background-color: #9ca3af;
-          cursor: not-allowed;
-          
-          &:hover {
-            background-color: #9ca3af;
-          }
-        }
+        color: #999;
+        font-size: 14px;
+        margin-top: 2px;
       }
     }
   }
-}
 
-@media (max-width: $mobile) {
-  .product-card {
-    .product-image-container {
-      .product-actions {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .product-info {
-      padding: 0.75rem;
-      gap: 0.5rem;
-
-      .product-name {
-        font-size: 1rem;
-      }
-
-      .product-price {
-        .current-price {
-          font-size: 1.125rem;
-        }
-      }
+  @media (max-width: 768px) {
+    .hover-icons {
+      display: none;
     }
   }
 }

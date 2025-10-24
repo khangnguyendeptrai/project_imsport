@@ -116,3 +116,40 @@ export const categories = [
   { id: 4, name: "Sports", slug: "sports" },
   { id: 5, name: "Books", slug: "books" }
 ];
+[
+  {
+    "id": 1,
+    "name": "Giày chạy bộ nam",
+    "price": 1200000,
+    "category": "men",
+    "description": "Giày thể thao nhẹ, thoáng khí",
+    "discount": 10
+  },
+  {
+    "id": 2,
+    "name": "Áo thể thao nữ",
+    "price": 800000,
+    "category": "women",
+    "description": "Chất liệu cotton cao cấp",
+    "discount": 5
+  },
+    {
+    "id": 3,
+    "name": "Áo thể thao nữ",
+    "price": 800000,
+    "category": "women",
+    "description": "Chất liệu cotton cao cấp",
+    "discount": 5
+  },
+    {
+    "id": 4,
+    "name": "Áo thể thao nữ",
+    "price": 800000,
+    "category": "women",
+    "description": "Chất liệu cotton cao cấp",
+    "discount": 5
+  },
+  [
+ 
+]
+]
