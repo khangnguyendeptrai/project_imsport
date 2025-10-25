@@ -29,7 +29,7 @@ export default function FilterContainer() {
 
             {/* --- Sidebar icon (mobile) --- */}
             <div
-                className={`md:hidden absolute top-1/3 transform -translate-y-1/2 transition-all duration-500 z-50`}
+                className={`md:hidden fixed  top-1/3 transform -translate-y-1/2 transition-all duration-500 z-[200]`}
                 style={{ right: `${buttonRightPosition}px` }}
             >
                 
@@ -64,12 +64,12 @@ export default function FilterContainer() {
 
             {/* --- Drawer (mobile) --- */}
             <div
-                className={` md:hidden fixed inset-0 z-40 transition-all duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={` md:hidden fixed inset-0 z-[150] transition-all duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
                 <div
                     ref={drawerRef} 
-                    className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-99" 
+                    className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]" 
                 >
                     <FilterByCategories data={dataFilter} />
                 </div>
