@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-
+import breadcrumbBG from "../../assets/images/breadcrumb-bg.png"
 const Breadcrumb = ({ data }) => {
   const location = useLocation();
   const currentSlug = location.pathname.replace("/", ""); // ví dụ "/giay" → "giay"
@@ -33,7 +33,13 @@ const Breadcrumb = ({ data }) => {
   }
 
   return (
-    <div className="container py-3">
+    <div 
+      className="w-full py-3 bg-cover bg-top" 
+      style={{ backgroundImage: `url(${breadcrumbBG})` }}
+    >
+
+
+    <div className="container py-3  "  >
       <nav className="text-sm text-gray-600 p-10">
         {breadcrumbItems.map((item, index) => (
           <span key={index}>
@@ -59,6 +65,7 @@ const Breadcrumb = ({ data }) => {
           </span>
         ))}
       </nav>
+    </div>
     </div>
   );
 };
