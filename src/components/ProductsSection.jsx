@@ -31,6 +31,7 @@ const products = [
   { id: 9, image: khoacrun, imageHide: khoacrunhide, name: "Áo Khoác Chạy Bộ Nam On Running Men's Weather Jacket - Desert/Cinder", originalPrice: "7,060,000 VNĐ", price: "5,648,000 VNĐ", isDiscount: 20 },
   { id: 10, image: aotrail, imageHide: aotrailhide, name: "Áo Khoác Chống Nước Nam NNormal Trail Rain Jacket Black Men - Green", price: "6,360,000 VNĐ", originalPrice: "7,950,000 VNĐ", isDiscount: 20 },
   
+  
 ];
 
 // 👉 Tách nhóm sản phẩm
@@ -71,47 +72,69 @@ const ProductSlider = ({ title, items }) => (
     </div>
 
     {/* --- Desktop Swiper carousel --- */}
-    <div className="relative w-[95%] max-w-[2000px] hidden md:block">
+    {/* --- Desktop Swiper carousel --- */}
+<div className="relative w-[95%] max-w-[2000px] hidden md:block">
+
+  {/* 👉 Nếu ít hoặc bằng 6 sản phẩm thì hiển thị canh giữa, không dùng Swiper */}
+  {items.length <= 6 && (
+    <div className="flex justify-center gap-6 flex-wrap">
+      {items.map((item) => (
+        <div key={item.id} className="group relative w-[200px] overflow-hidden">
+          {item.isDiscount !== 0 && <DiscountBadge />}
+          <a href={`/product/${item.id}`} className="block relative overflow-hidden">
+            <div className="relative w-full aspect-[1/1.1] overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-auto object-cover group-hover:scale-0 transition-all duration-500"
+              />
+              <img
+                src={item.imageHide}
+                alt={item.name}
+                className="w-full h-auto object-cover absolute top-0 right-full group-hover:right-0 transition-all duration-500"
+              />
+            </div>
+          </a>
+          <div className="px-1 pb-2 mt-2 text-center">
+            <a
+              href={`/product/${item.id}`}
+              className="line-clamp-2 font-medium text-sm"
+              title={item.name}
+            >
+              {item.name}
+            </a>
+            {item.isDiscount !== 0 && item.originalPrice && (
+              <p className="text-xs text-[#adadad] line-through mt-1">
+                {item.originalPrice}
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {/* 👉 Nếu nhiều hơn 6 sản phẩm thì hiển thị Swiper đầy đủ + vùng mờ + nút chuyển */}
+  {items.length > 6 && (
+    <>
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={6}
         spaceBetween={10}
-        loop={items.length > 6} // chỉ loop nếu >6 sản phẩm
-        navigation={items.length > 6 ? { nextEl: ".next-btn", prevEl: ".prev-btn" } : false}
-        autoplay={
-          items.length > 6
-            ? {
-              delay: 2500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }
-            : false
-        }
+        loop={true}
+        navigation={{ nextEl: ".next-btn", prevEl: ".prev-btn" }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         speed={300}
-        allowTouchMove={items.length > 6}
         className="mySwiper"
       >
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="group relative overflow-hidden">
               {item.isDiscount !== 0 && <DiscountBadge />}
-              <div className="absolute top-1/2 left-2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col gap-y-1 z-10">
-                <a
-                  href={`/product/${item.id}`}
-                  title="Xem nhanh"
-                  className="w-8 h-8 bg-white hover:bg-[#673AB7] rounded flex items-center justify-center"
-                >
-                  <MagnifyingGlassPlusIcon className="h-4 w-4 text-[#333] group-hover:text-white" />
-                </a>
-                <a
-                  href={`/product/${item.id}`}
-                  title="Xem chi tiết"
-                  className="w-8 h-8 bg-white hover:bg-[#673AB7] rounded flex items-center justify-center"
-                >
-                  <EyeIcon className="h-4 w-4 text-[#333] group-hover:text-white" />
-                </a>
-              </div>
-
               <a href={`/product/${item.id}`} className="block relative overflow-hidden">
                 <div className="relative w-full aspect-[1/1.1] overflow-hidden">
                   <img
@@ -126,7 +149,6 @@ const ProductSlider = ({ title, items }) => (
                   />
                 </div>
               </a>
-
               <div className="px-1 pb-2 mt-2 text-center">
                 <a
                   href={`/product/${item.id}`}
@@ -146,21 +168,20 @@ const ProductSlider = ({ title, items }) => (
         ))}
       </Swiper>
 
-      {/* ✅ Chỉ hiện navigation và che hai bên nếu có hơn 6 sản phẩm */}
-      {items.length > 6 && (
-        <>
-          <button className="prev-btn absolute left-[17%] top-1/3 -translate-y-1/2 bg-[#ff6a00] hover:bg-[#ff8533] text-white w-8 h-8 rounded-full shadow-md z-10">
-            {"<"}
-          </button>
-          <button className="next-btn absolute right-[17%] top-1/3 -translate-y-1/2 bg-[#ff6a00] hover:bg-[#ff8533] text-white w-8 h-8 rounded-full shadow-md z-10">
-            {">"}
-          </button>
+      {/* ✅ Giữ vùng mờ và nút điều hướng */}
+      <button className="prev-btn absolute left-[17%] top-1/3 -translate-y-1/2 bg-[#ff6a00] hover:bg-[#ff8533] text-white w-8 h-8 rounded-full shadow-md z-10">
+        {"<"}
+      </button>
+      <button className="next-btn absolute right-[17%] top-1/3 -translate-y-1/2 bg-[#ff6a00] hover:bg-[#ff8533] text-white w-8 h-8 rounded-full shadow-md z-10">
+        {">"}
+      </button>
 
-          <div className="pointer-events-none absolute top-0 left-0 h-full w-[16%] bg-white/80 z-10"></div>
-          <div className="pointer-events-none absolute top-0 right-0 h-full w-[16%] bg-white/80 z-10"></div>
-        </>
-      )}
-    </div>
+      <div className="pointer-events-none absolute top-0 left-0 h-full w-[16%] bg-white/80 z-10"></div>
+      <div className="pointer-events-none absolute top-0 right-0 h-full w-[16%] bg-white/80 z-10"></div>
+    </>
+  )}
+</div>
+
   </div>
 );
 

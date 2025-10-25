@@ -1,5 +1,4 @@
-@import '../variables.scss';
-
+@use '../variables' as *;
 .product-card {
   background: white;
   border-radius: 0.5rem;
