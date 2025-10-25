@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import ProductCard from '../components/ProductCard';
-import { products, categories } from '../data/products';
+import React from 'react';
 import '../styles/pages/Home.scss';
 import MainBanner from '../components/MainBanner';
 import BrandBanner from '../components/BrandBanner';
