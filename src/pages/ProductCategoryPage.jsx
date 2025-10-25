@@ -1,11 +1,7 @@
 import React from "react";
 import ProductGridPage from "./ProductGridPage";
 
-interface ProductCategoryPageProps {
-  category: "men" | "women" | "watch";
-}
-
-const ProductCategoryPage: React.FC<ProductCategoryPageProps> = ({ category }) => {
+const ProductCategoryPage = ({ category }) => {
   const pages = {
     men: {
       title: "ĐỒ NAM",
@@ -65,7 +61,7 @@ const ProductCategoryPage: React.FC<ProductCategoryPageProps> = ({ category }) =
     },
     women: {
       title: "ĐỒ NỮ",
-      description: `
+     description: `
         <h2><strong>Đồ Chạy Bộ Nữ – Thoải Mái, Phong Cách & Hiệu Suất Tối Ưu</strong></h2>
           <p>Bạn là một nữ runner đang tìm kiếm trang phục chạy bộ hoàn hảo? Bộ sưu tập <strong>đồ chạy bộ nữ</strong> tại IMSPORTS mang đến sự kết hợp giữa <strong>thoải mái, thời trang và hiệu suất</strong>, giúp bạn tự tin bứt phá trên mọi cung đường.</p>
 
@@ -110,7 +106,7 @@ const ProductCategoryPage: React.FC<ProductCategoryPageProps> = ({ category }) =
     },
     watch: {
       title: "ĐỒNG HỒ GPS",
-      description: `
+     description: `
         <h3>Đồng hồ chạy bộ GPS là gì?</h3>
         <p>Ở thời điểm hiện tại, môn thể thao marathon đã trở nên vô cùng phổ biến với đông đảo người yêu thể thao. Sự gia tăng số lượng người tham gia đã thúc đẩy sự ra đời của các công cụ hỗ trợ cho người chạy bộ. Trong số đó, <strong>đồng hồ chạy bộ GPS</strong> là một thiết bị hết sức hữu ích cho các vận động viên.</p>
         <p>Đồng hồ chạy bộ là một thiết bị điện tử đeo tay được thiết kế đặc biệt để đo và ghi lại thông tin liên quan đến hoạt động chạy bộ của người sử dụng. Nó cung cấp cho người dùng các dữ liệu quan trọng như thời gian, khoảng cách đã chạy, tốc độ, nhịp tim, và nhiều thông số khác. Thiết bị này giúp người dùng theo dõi và cải thiện hiệu suất chạy bộ, đồng thời cung cấp thông tin hữu ích để theo dõi sức khỏe và thể lực.</p>
@@ -190,6 +186,7 @@ const ProductCategoryPage: React.FC<ProductCategoryPageProps> = ({ category }) =
 
         <h3>Mua đồng hồ chạy bộ ở đâu?</h3>
         <p><strong>Imsports</strong> là một nhà phân phối chính hãng đồng hồ chạy bộ, đồng thời là điểm đến lý tưởng để bạn tìm kiếm sản phẩm từ hai thương hiệu hàng đầu là Garmin và Coros. Tại Imsports, bạn sẽ có cơ hội trải nghiệm sự hoàn hảo với việc mua đồng hồ chạy bộ chính hãng.</p>
+
       `,
     },
   };
