@@ -19,7 +19,7 @@ const ProductCard = ({ item, quickView, isList = false }) => {
           <img src={item.imageHide} alt="collection" className='w-full h-full object-cover absolute top-0 right-full group-hover:right-0 transition-all duration-500' />
         </a>
       </div>
-      <div className='px-4 pb-5 md:text-end text-center'>
+      <div className='px-4 pb-5  text-center'>
         <a href='/' className='line-clamp-2 font-semibold text-base text-center' title={item.name}>{item.name}</a>
         <div className='my-1 md:mr-5 '>
           <p className='text-[15px] font-bold  text-[#ff8c00] '>{item.price}</p>

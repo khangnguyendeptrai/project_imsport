@@ -89,7 +89,7 @@ const ProductList = () => {
   return (
     <div>
         <div className='container mx-auto'>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[870px]'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 '>
                 {data.data.map((item) => (
                     <ProductCard key={item.id} item={item} quickView={quickView} isList={true} />
                 ))}

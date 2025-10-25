@@ -4,6 +4,7 @@ import FilterByCategories from "./FilterByCategories";
 import Breadcrumb from "./Breadcrumb";
 import { dataFilter } from "../../data/dataFilter";
 import { FaAlignRight } from "react-icons/fa"; 
+import ProductList from "../ProductList";
 
 export default function FilterContainer() {
 
@@ -53,9 +54,13 @@ export default function FilterContainer() {
             </div>
 
             {/* --- Sidebar filter (desktop) --- */}
-            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
-                <FilterByCategories  data={dataFilter}/>
-            </div>
+            <div className="container flex ">
+                <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
+                    <FilterByCategories  data={dataFilter}/>
+                </div>
+                <ProductList/>
+            </div>
+           
 
             {/* --- Drawer (mobile) --- */}
             <div

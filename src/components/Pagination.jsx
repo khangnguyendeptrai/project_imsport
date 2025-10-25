@@ -10,8 +10,6 @@ const Pagination = () => {
     const [inputPage, setInputPage] = useState(currentPage)
     const totalPages = data.length
     const visibleCount = 4
-    console.log(searchParams.get("page"));
-    // console.log("curent " + currentPage);
 
    useEffect(() => {
   setCurrentPage(Number(searchParams.get("page")) || 1);
