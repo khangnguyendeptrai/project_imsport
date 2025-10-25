@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../styles/components/Header.scss"
-import { Link, useNavigate } from "react-router-dom";
+import "../styles/components/Header.scss";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 // Assets
 import logo from "../assets/images/logo.png";
@@ -20,15 +20,17 @@ import {
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
-  // const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [cartCount] = useState(3);
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null); // submenu nào đang mở
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
+  const location = useLocation();
+  const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setActiveSubmenu(null); // reset submenu khi đóng mở menu
+    setActiveSubmenu(null);
   };
 
   const openSubmenu = (menu) => {
@@ -179,6 +181,21 @@ export default function Header() {
             </Link>
           </div>
 
+          <div className="mobile-nav-item">
+            <Link to="/women" className="mobile-nav-link" onClick={toggleMenu}>
+              <span className="label">Women</span>
+              <span
+                className="arrow-icon"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  openSubmenu("women");
+                }}
+              >
+                ›
+              </span>
+            </Link>
+          </div>
 
           {/* Women có submenu */}
           <div className="mobile-nav-item">
@@ -234,10 +251,18 @@ export default function Header() {
               </nav>
             </div>
             <nav>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Road Running Shoes
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Trail Running Shoes
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Sandals
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Hiking Shoes
+              </Link>
             </nav>
           </>
         )}
@@ -245,14 +270,24 @@ export default function Header() {
         {activeSubmenu === "women" && (
           <div className="mobile-submenu">
             <div className="mobile-nav-header">
-              <button className="back-btn" onClick={closeSubmenu}>‹</button>
+              <button className="back-btn" onClick={closeSubmenu}>
+                ‹
+              </button>
               <span>Women</span>
             </div>
             <nav>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Road Running Shoes
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Trail Running Shoes
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Sandals
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Hiking Shoes
+              </Link>
             </nav>
           </div>
         )}
@@ -260,13 +295,21 @@ export default function Header() {
         {activeSubmenu === "gps" && (
           <div className="mobile-submenu">
             <div className="mobile-nav-header">
-              <button className="back-btn" onClick={closeSubmenu}>‹</button>
+              <button className="back-btn" onClick={closeSubmenu}>
+                ‹
+              </button>
               <span>GPS Watch</span>
             </div>
             <nav>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Garmin</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Coros</Link>
-              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Suunto</Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Garmin
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Coros
+              </Link>
+              <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                Suunto
+              </Link>
             </nav>
           </div>
         )}
