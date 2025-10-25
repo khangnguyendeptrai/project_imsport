@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 1) Tailwind-friendly (base layer) */
+@layer base {
+    .scrollbar-hide-buttons::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    /* mở rộng: ẩn tất cả các biến thể (direction/vertical/horizontal) */
+    .scrollbar-hide-buttons::-webkit-scrollbar-button:single-button {
+        display: none;
+    }
+
+    .scrollbar-hide-buttons::-webkit-scrollbar-button:vertical {
+        display: none;
+    }
+
+    .scrollbar-hide-buttons::-webkit-scrollbar-button:horizontal {
+        display: none;
+    }
+
+    .scrollbar-hide-buttons::-webkit-scrollbar-button:decrement {
+        display: none;
+    }
+
+    .scrollbar-hide-buttons::-webkit-scrollbar-button:increment {
+        display: none;
+    }
+}
+
+/* 2) "Forcer" bằng global rule (nếu bị ghi đè) */
+.scrollbar-hide-buttons::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+.scrollbar-hide-buttons::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+.scrollbar-hide-buttons::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+.scrollbar-hide-buttons::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #673AB7;
+  
+}
+
+
+/* 3) (tuỳ chọn) ẩn góc scrollbar */
+.scrollbar-hide-buttons::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
