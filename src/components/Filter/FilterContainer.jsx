@@ -3,77 +3,85 @@ import { useState, useRef, useLayoutEffect } from "react";
 import FilterByCategories from "./FilterByCategories";
 import Breadcrumb from "./Breadcrumb";
 import { dataFilter } from "../../data/dataFilter";
-import { FaAlignRight } from "react-icons/fa"; 
+import { FaAlignRight } from "react-icons/fa";
 import ProductList from "../ProductList";
+import ProductGridPage from "../../pages/ProductGridPage";
+import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
 export default function FilterContainer() {
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [drawerWidth, setDrawerWidth] = useState(0); 
-    const drawerRef = useRef(null); 
+    const [isOpen, setIsOpen] = useState(false);
+    const [drawerWidth, setDrawerWidth] = useState(0);
+    const drawerRef = useRef(null);
 
-    useLayoutEffect(() => {
-        if (isOpen && drawerRef.current) {
-            setDrawerWidth(drawerRef.current.offsetWidth);
-        }
-    }, [isOpen]); 
+    useLayoutEffect(() => {
+        if (isOpen && drawerRef.current) {
+            setDrawerWidth(drawerRef.current.offsetWidth);
+        }
+    }, [isOpen]);
 
-    const buttonRightPosition = isOpen ? drawerWidth : 0;
+    const buttonRightPosition = isOpen ? drawerWidth : 0;
 
     // --- Tách style chung ra cho dễ đọc ---
     const buttonStyle = "bg-[#673AB7] text-white p-2 shadow-lg text-xl w-10 h-10 flex items-center justify-center";
 
-    return (
-        <>  
-        <Breadcrumb data={dataFilter}/>
+    return (
+        <>
+            <Breadcrumb data={dataFilter} />
 
-            {/* --- Sidebar icon (mobile) --- */}
-            <div
-                className={`md:hidden fixed  top-1/3 transform -translate-y-1/2 transition-all duration-500 z-[200]`}
-                style={{ right: `${buttonRightPosition}px` }}
-            >
-                
+            {/* --- Sidebar icon (mobile) --- */}
+            <div
+                className={`md:hidden fixed  top-1/3 transform -translate-y-1/2 transition-all duration-500 z-[200]`}
+                style={{ right: `${buttonRightPosition}px` }}
+            >
+
                 {/* SỬA Ở ĐÂY: Quay lại 2 button riêng biệt */}
-                {isOpen ? (
+                {isOpen ? (
                     // --- Nút ĐÓNG (✕) ---
-                    <button
-                        onClick={() => setIsOpen(false)}
-                        className={`${buttonStyle} font-black`} // Thêm style chung
-                    >
-                        ✕
-                    </button>
-                ) : (
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        className={`${buttonStyle} font-black`} // Thêm style chung
+                    >
+                        ✕
+                    </button>
+                ) : (
                     // --- Nút MỞ (Icon) ---
-                    <button
-                        onClick={() => setIsOpen(true)}
-                        className={buttonStyle} // Thêm style chung
-                    >
-                        <FaAlignRight />
-                    </button>
-               )}
-            </div>
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className={buttonStyle} // Thêm style chung
+                    >
+                        <FaAlignRight />
+                    </button>
+                )}
+            </div>
 
-            {/* --- Sidebar filter (desktop) --- */}
+            {/* --- Sidebar filter (desktop) --- */}
             <div className="container flex ">
                 <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
-                    <FilterByCategories  data={dataFilter}/>
-                </div>
-                <ProductList/>
-            </div>
-           
+                    <FilterByCategories data={dataFilter} />
+                </div>
+                <div className="flex-1">
+                    {/* <ProductGridPage /> */}
+                    {/* <ProductList /> */}
+                    <ProductCategoryPage category="men" />
 
-            {/* --- Drawer (mobile) --- */}
-            <div
-                className={` md:hidden fixed inset-0 z-[150] transition-all duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
-            >
-                <div
-                    ref={drawerRef} 
-                    className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]" 
-                >
-                    <FilterByCategories data={dataFilter} />
-                </div>
-            </div>
-      _</>
-    );
+
+                </div>
+            </div>
+
+
+            {/* --- Drawer (mobile) --- */}
+            <div
+                className={` md:hidden fixed inset-0 z-[150] transition-all duration-500 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
+            >
+                <div
+                    ref={drawerRef}
+                    className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]"
+                >
+                    <FilterByCategories data={dataFilter} />
+                </div>
+            </div>
+            _</>
+    );
 }

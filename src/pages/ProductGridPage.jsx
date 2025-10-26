@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import CategoryDescription from "../components/CategoryDescription";
 import "../styles/pages/ProductGridPage.scss";
+import ProductList from "../components/ProductList";
 
 const ProductGridPage = ({ category, title, description }) => {
   const [products, setProducts] = useState([]);
@@ -105,8 +106,7 @@ const ProductGridPage = ({ category, title, description }) => {
         </div>
       </div>
 
-      {/* === GRID SẢN PHẨM === */}
-      {loading ? (
+      {/* {loading ? (
         <p className="loading">Đang tải sản phẩm...</p>
       ) : sortedProducts.length > 0 ? (
         <div className="products-grid">
@@ -116,7 +116,8 @@ const ProductGridPage = ({ category, title, description }) => {
         </div>
       ) : (
         <p className="no-products">Không tìm thấy sản phẩm nào.</p>
-      )}
+      )} */}
+      <ProductList />
 
       {/* === MÔ TẢ DANH MỤC === */}
       <CategoryDescription description={description} />
