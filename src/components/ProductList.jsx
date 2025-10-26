@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide, productImg6, productImg6Hide, tagGift } from '../assets/ExportImage'
 import ProductCard from './ProductCard'
 import ProductDetailPopup from './ProductDetailPopup'
@@ -14,6 +14,7 @@ const data =
             imageHide: productImg1Hide,
             name: 'Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - KAKI',
             price: '1,850,000 VNĐ',
+            brand: "Adidas",
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
@@ -25,6 +26,7 @@ const data =
             imageHide: productImg2Hide,
             name: 'Norda 001 | Giày Chạy Địa Hình Nam Norda 001 - Glitch',
             price: "5,907,500 VNĐ",
+            brand: "Nike",
             originalPrice: "6,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 15,
@@ -36,6 +38,7 @@ const data =
             imageHide: productImg3Hide,
             name: 'Bondi 9 Wide | Giày Chạy Bộ Nam Hoka Bondi 9 Wide - BBLC',
             price: "3,999,000 VNĐ",
+            brand: "Hoka",
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
@@ -47,6 +50,7 @@ const data =
             imageHide: productImg4Hide,
             name: 'Oso Flaco (Winged)| Dép Chạy Nam LUNA Sandals Oso Flaco Winged Ed. Mountain Crystal',
             price: "2,065,000 VNĐ",
+            brand: "LUNA",
             originalPrice: "2,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 30,
@@ -58,6 +62,7 @@ const data =
             imageHide: productImg5Hide,
             name: 'Light Speed Compression | Quần Bó Cơ Nam 2XU Light Speed Compression Shorts Mens - BLK/BRF',
             price: "1,691,500 VNĐ",
+            brand: "2XU",
             originalPrice: "1,990,000 VNĐ",
             isBestSeller: true,
             isDiscount: 14,
@@ -69,32 +74,82 @@ const data =
             imageHide: productImg6Hide,
             name: 'Mono 2.0 (Winged)| Dép Chạy Nam LUNA Sandals Mono 2.0 Winged Ed - Desert Canyon',
             price: "2,065,000 VNĐ",
+            brand: "LUNA",
             originalPrice: "2,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 30,
             isGift: false,
         },
+        {
+            id: 7,
+            image: productImg3,
+            imageHide: productImg3Hide,
+            name: 'Bondi 9 Wide | Giày Chạy Bộ Nam Hoka Bondi 9 Wide - BBLC',
+            price: "3,999,000 VNĐ",
+            brand: "Hoka",
+            originalPrice: 0,
+            isBestSeller: false,
+            isDiscount: 0,
+            isGift: true,
+        },
+        {
+            id: 8,
+            image: productImg4,
+            imageHide: productImg4Hide,
+            name: 'Oso Flaco (Winged)| Dép Chạy Nam LUNA Sandals Oso Flaco Winged Ed. Mountain Crystal',
+            price: "2,065,000 VNĐ",
+            brand: "LUNA",
+            originalPrice: "2,950,000 VNĐ",
+            isBestSeller: false,
+            isDiscount: 30,
+            isGift: false,
+        },
+        {
+            id: 9,
+            image: productImg5,
+            imageHide: productImg5Hide,
+            name: 'Light Speed Compression | Quần Bó Cơ Nam 2XU Light Speed Compression Shorts Mens - BLK/BRF',
+            price: "1,691,500 VNĐ",
+            brand: "2XU",
+            originalPrice: "1,990,000 VNĐ",
+            isBestSeller: true,
+            isDiscount: 14,
+            isGift: false,
+        },
     ]
 }
 const ProductList = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
-    const [searchParams] = useSearchParams();
-    const page = parseInt(searchParams.get("page")) || 1;
+    const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1)
+    // const page = parseInt(searchParams.get("page")) || 1;
+    const productPerPage = 3;
+    const indexOfLastProduct = currentPage * productPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+    const currentProducts = data.data.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    console.log('currentProducts', Math.ceil(data.data.length / productPerPage));
+    const totalPage = Math.ceil(data.data.length / productPerPage);
+    
     const quickView = (id) => {
-        console.log('quickView ', id)
         setProduct(data.data.find(item => item.id === id))
         setModalOpen(true)
+    }
+    const handlePage = (page) => {
+        if (page < 1 || page > data.data.length) return
+        setCurrentPage(page)
+        setSearchParams({ page }); // Gắn ?page=pageNumber lên URL
     }
   return (
     <div>
         <div className='container mx-auto'>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 '>
-                {data.data.map((item) => (
+                {currentProducts.map((item) => (
                     <ProductCard key={item.id} item={item} quickView={quickView} isList={true} />
                 ))}
             </div>
-            <Pagination />
+            {totalPage > 1 && <Pagination currentPage={currentPage} handlePage={handlePage} totalPage={totalPage} />}
         </div>
         {modalOpen && <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />}
     </div>

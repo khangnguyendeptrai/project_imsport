@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     if (!isOpen) return null;
+    const [quantity, setQuantity] = useState(1);
+    useEffect(() => {
+        setQuantity(1);
+    }, [product]);
     return (
         <>
             <div onClick={() => onClose()} className="fixed inset-0 bg-black/50 z-50">
@@ -66,7 +70,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                             <p className='text-[#333] font-normal text-sm mt-4'>Số lượng: </p>
                             <div className='flex gap-x-2 items-center mt-2'>
                                 <div>
-                                    <input name='a' className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' value="1" type="number" />
+                                    <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={quantity} onFocus={(e) => e.target.select()} type="number" />
                                 </div>
                                 <div>
                                     <button className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>
