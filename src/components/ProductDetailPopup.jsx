@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProductDetailPopup = ({ isOpen, product, onClose }) => {
+    const navigate = useNavigate();
     if (!isOpen) return null;
     const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         setQuantity(1);
     }, [product]);
+    const handleAddToCart = (product) => {
+        console.log('handleAddToCart ', product);
+        const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        cartItem.push(product);
+        localStorage.setItem('cart', JSON.stringify(cartItem));
+        navigate('/cart');
+    }
     return (
         <>
             <div onClick={() => onClose()} className="fixed inset-0 bg-black/50 z-[200]">
@@ -19,9 +27,9 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                     </button>
                     <div className='grid grid-cols-1 min-[1000px]:grid-cols-2'>
                         <div className='col-span-1 px-4'>
-                            <a href='/'>
+                            <Link to={`/product/${product.id}`}>
                                 <img src={product.image} alt="collection" className='w-full h-full object-cover' />
-                            </a>
+                            </Link>
                         </div>
                         <div className='col-span-1 p-4'>
                             <h3>
@@ -74,7 +82,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                                     <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={quantity} onFocus={(e) => e.target.select()} type="number" />
                                 </div>
                                 <div>
-                                    <button className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>
+                                    <button onClick={() => handleAddToCart(product)} className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>
                                 </div>
                             </div>
                         </div>

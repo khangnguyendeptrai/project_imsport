@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../components/Filter/Breadcrumb'
 import { dataFilter } from '../data/dataFilter'
-import { dataCartDefault } from '../data/CartData'
+
 
 const Cart = () => {
-    const [dataCart, setDataCart] = useState(dataCartDefault);
+    const [dataCart, setDataCart] = useState([]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        setDataCart(cartItem);
+    }, []);
+
     const handleQuantityChange = (id, value) => {
         const newQuantity = parseInt(value) || 1;
         setDataCart(prev =>
