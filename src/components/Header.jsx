@@ -124,7 +124,7 @@ export default function Header() {
       <nav className="main-navigation container">
         <Link to="/about" className="nav-link">Giới Thiệu</Link>
         <div className="nav-dropdown">
-          <Link to="/men" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/do-nam" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -134,7 +134,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/women" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/do-nu" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span> </Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -144,7 +144,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/dong-ho-tai-nghe" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Coros</Link></li>
