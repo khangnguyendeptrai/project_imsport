@@ -10,6 +10,7 @@ import ProductCategoryPage from "./pages/ProductCategoryPage";
 import "./App.css";
 
 import FilterContainer from './components/Filter/FilterContainer';
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
           <Route path="product/:id" element={<ProductDetail />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route  path='filter' element ={<FilterContainer/>}/>
-           <Route path="/:category" element={<FilterContainer/>} />
-           
+          {/* <Route path='filter' element={<FilterContainer />} /> */}
+          <Route path="/:category" element={<ProductCategoryPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </Router>

@@ -5,7 +5,7 @@ import Breadcrumb from "./Breadcrumb";
 import { dataFilter } from "../../data/dataFilter";
 import { FaAlignRight } from "react-icons/fa";
 import ProductList from "../ProductList";
-import ProductGridPage from "../../pages/ProductGridPage";
+import ProductGridPage from "../ProductGridPage";
 import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
 export default function FilterContainer() {
@@ -27,7 +27,7 @@ export default function FilterContainer() {
 
     return (
         <>
-            <Breadcrumb data={dataFilter} />
+            {/* <Breadcrumb data={dataFilter} /> */}
 
             {/* --- Sidebar icon (mobile) --- */}
             <div
@@ -56,18 +56,7 @@ export default function FilterContainer() {
             </div>
 
             {/* --- Sidebar filter (desktop) --- */}
-            <div className="container flex ">
-                <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
-                    <FilterByCategories data={dataFilter} />
-                </div>
-                <div className="flex-1">
-                    {/* <ProductGridPage /> */}
-                    {/* <ProductList /> */}
-                    <ProductCategoryPage category="men" />
-
-
-                </div>
-            </div>
+            
 
 
             {/* --- Drawer (mobile) --- */}
@@ -82,6 +71,7 @@ export default function FilterContainer() {
                     <FilterByCategories data={dataFilter} />
                 </div>
             </div>
-            _</>
+            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={dataFilter} /> </div>
+            </>
     );
 }

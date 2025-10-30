@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     if (!isOpen) return null;
@@ -8,7 +9,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     }, [product]);
     return (
         <>
-            <div onClick={() => onClose()} className="fixed inset-0 bg-black/50 z-50">
+            <div onClick={() => onClose()} className="fixed inset-0 bg-black/50 z-[200]">
                 <div onClick={(e) => e.stopPropagation()} className="bg-white  shadow-xl w-[1000px] top-[5%] left-1/2 -translate-x-1/2  relative ">
                     <button
                         onClick={() => onClose()}
@@ -24,7 +25,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                         </div>
                         <div className='col-span-1 p-4'>
                             <h3>
-                                <a href='/' className='text-[21px] font-normal  text-[#333333] hover:text-[#673AB7] mt-4 mb-1 block '>{product.name}</a>
+                                <Link to={`/product/${product.id}`} className='text-[21px] font-normal  text-[#333333] hover:text-[#673AB7] mt-4 mb-1 block '>{product.name}</Link>
                             </h3>
                             <div className='flex gap-2 divide-x-[1px] divide-[#898989] py-3'>
                                 <p className='text-[#898989] text-sm'><span className='font-semibold'>Mã SP: </span> {product.id}</p>

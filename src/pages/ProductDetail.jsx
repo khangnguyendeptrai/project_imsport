@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductGallery from "../components/ProductGallery";
 import ProductInfo from "../components/ProductInfo";
 
@@ -12,6 +12,9 @@ import mafate6 from "../assets/images/giayhokahide.jpeg";
 import bg from "../assets/images/breadcrumb-bg.png";
 
 const ProductDetailPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const images = [mafate1, mafate2, mafate3, mafate4, mafate5, mafate6];
 
   const highlights = [

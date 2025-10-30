@@ -12,6 +12,7 @@ const data =
             imageHide: productImg1Hide,
             name: 'Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - KAKI',
             price: '1,850,000 VNĐ',
+            brand: "Adidas",
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
@@ -23,6 +24,7 @@ const data =
             imageHide: productImg2Hide,
             name: 'Norda 001 | Giày Chạy Địa Hình Nam Norda 001 - Glitch',
             price: "5,907,500 VNĐ",
+            brand: "Nike",
             originalPrice: "6,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 15,
@@ -34,6 +36,7 @@ const data =
             imageHide: productImg3Hide,
             name: 'Bondi 9 Wide | Giày Chạy Bộ Nam Hoka Bondi 9 Wide - BBLC',
             price: "3,999,000 VNĐ",
+            brand: "Hoka",
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
@@ -45,6 +48,7 @@ const data =
             imageHide: productImg4Hide,
             name: 'Oso Flaco (Winged)| Dép Chạy Nam LUNA Sandals Oso Flaco Winged Ed. Mountain Crystal',
             price: "2,065,000 VNĐ",
+            brand: "LUNA",
             originalPrice: "2,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 30,
@@ -56,6 +60,7 @@ const data =
             imageHide: productImg5Hide,
             name: 'Light Speed Compression | Quần Bó Cơ Nam 2XU Light Speed Compression Shorts Mens - BLK/BRF',
             price: "1,691,500 VNĐ",
+            brand: "2XU",
             originalPrice: "1,990,000 VNĐ",
             isBestSeller: true,
             isDiscount: 14,
@@ -67,6 +72,7 @@ const data =
             imageHide: productImg6Hide,
             name: 'Mono 2.0 (Winged)| Dép Chạy Nam LUNA Sandals Mono 2.0 Winged Ed - Desert Canyon',
             price: "2,065,000 VNĐ",
+            brand: "LUNA",
             originalPrice: "2,950,000 VNĐ",
             isBestSeller: false,
             isDiscount: 30,
@@ -76,13 +82,7 @@ const data =
 }
 
 const CollectionProduct = () => {
-    const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
-    const quickView = (id) => {
-        console.log('quickView ', id)
-        setProduct(data.data.find(item => item.id === id))
-        setModalOpen(true)
-    }
     return (
         <>
             <div className='container mx-auto !pt-10'>
@@ -98,15 +98,13 @@ const CollectionProduct = () => {
                     <div className='col-span-1 px-4'>
                         <div className='grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-4'>
                             {data.data.map((item) => (
-                                <ProductCard key={item.id} item={item} quickView={quickView} />
+                                <ProductCard key={item.id} item={item} />
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
-            {modalOpen &&
-                <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-            }
+            
         </>
     )
 }
