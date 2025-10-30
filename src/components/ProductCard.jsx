@@ -13,7 +13,7 @@ const ProductCard = ({ item, isList = false }) => {
     setModalOpen(true)
   }
   const formatPrice = (price) => {
-    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
+    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '');
   }
   return (
     <div key={item.id} className='col-span-1 group'>
@@ -31,12 +31,12 @@ const ProductCard = ({ item, isList = false }) => {
       </div>
       <div className='px-4 pb-5 md:text-end text-center'>
         <Link to={`/product/${item.id}`} className='line-clamp-2 font-semibold text-base text-center' title={item.name}>{item.name}</Link>
-        <div className='my-1 md:mr-5 '>
-          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(item.price)}</p>
-          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{item.originalPrice}</p>}
+        <div className='my-1 text-center md:mr-3 '>
+          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(item.price)} VNĐ</p>
+          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{formatPrice(item.originalPrice)}</p>}
         </div>
         {!isList && (
-          <a href='/' className='md:block hidden text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</a>
+          <button onClick={() => quickView(item.id)} className='md:block hidden w-full text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</button>
         )}
       </div>
       {modalOpen &&

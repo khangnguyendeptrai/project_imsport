@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../components/Filter/Breadcrumb'
 import { dataFilter } from '../data/dataFilter'
+import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -9,8 +10,10 @@ const Cart = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        console.log('cartItem ', cartItem);
         setDataCart(cartItem);
     }, []);
+    console.log(dataCart.reduce((total, item) => total + Number(item.price) * Number(item.quantity), 0));
 
     const handleQuantityChange = (id, value) => {
         const newQuantity = parseInt(value) || 1;
@@ -19,12 +22,16 @@ const Cart = () => {
                 item.id === id ? { ...item, quantity: newQuantity } : item
             )
         );
+        localStorage.setItem('cart', JSON.stringify(dataCart));
     };
     const formatPrice = (price) => {
         return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
     }
     const handleDelete = (id) => {
-        setDataCart(prev => prev.filter(item => item.id !== id));
+        const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        const newCartItem = cartItem.filter(item => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(newCartItem));
+        setDataCart(newCartItem);
     }
     return (
         <>
@@ -53,7 +60,9 @@ const Cart = () => {
                                                 <td className='text-left py-2'><a href='/' className='hover:text-[#673AB7] text-[#333333]'>{item.name}</a></td>
                                                 <td className='text-center py-2 text-[#858688] font-semibold text-sm'>{formatPrice(item.price)}</td>
                                                 <td className='text-center py-2'>
-                                                    <input type="number" min={1} className='w-20 h-10 px-2 border-[1px] border-[#ddd] rounded-full  text-[#363636] text-center outline-none' onFocus={(e) => e.target.select()} defaultValue={1} value={item.quantity} onChange={(e) => handleQuantityChange(item.id, e.target.value)} />
+                                                    <input type="number" min={1} className='w-20 h-10 px-2 border-[1px] border-[#ddd] rounded-full  text-[#363636] text-center outline-none' onFocus={(e) => e.target.select()} defaultValue={1} value={item.quantity}
+                                                        //  onBlur={(e) => handleQuantityChange(item.id, e.target.value)} 
+                                                        onChange={(e) => handleQuantityChange(item.id, e.target.value)} />
                                                 </td>
                                                 {/* Thành tiền = đơn giá * số lượng nhập ở trên */}
                                                 <td className='text-center py-2 text-[#858688] font-semibold text-sm'>{formatPrice(item.price * (Number(item.quantity) || 1))}</td>
@@ -63,6 +72,13 @@ const Cart = () => {
                                         ))}
                                     </tbody>
                                 </table>
+                                <div className=''>
+                                    <div className='flex gap-x-2 justify-end mt-8 text-[#ec0808] font-semibold text-lg'><span className='font-lighter text-[#1c1c1c] mr-2'>Tổng tiền:</span> {formatPrice(dataCart.reduce((total, item) => total + Number(item.price) * Number(item.quantity), 0))}</div>
+                                    <div className='flex gap-x-4 justify-end mt-2'>
+                                        <Link to='/' className='text-sm bg-[#f1f1f1] py-3 px-10 rounded-full text-black font-lighter'>Tiếp tục mua hàng</Link>
+                                        <Link to='/' className='text-sm bg-[#673AB7] py-3 px-10 rounded-full text-white font-lighter'>Đặt hàng</Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

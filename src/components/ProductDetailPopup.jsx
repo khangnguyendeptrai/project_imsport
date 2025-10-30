@@ -10,10 +10,14 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     }, [product]);
     const handleAddToCart = (product) => {
         console.log('handleAddToCart ', product);
+        product.quantity = quantity;
         const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
         cartItem.push(product);
         localStorage.setItem('cart', JSON.stringify(cartItem));
         navigate('/cart');
+    }
+    const formatPrice = (price) => {
+        return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
     }
     return (
         <>
@@ -39,7 +43,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                                 <p className='text-[#898989] text-sm'><span className='font-semibold'>Mã SP: </span> {product.id}</p>
                                 <p className='text-[#898989] text-sm pl-2'><span className='font-semibold'>Thương hiệu: </span> {product.brand}</p>
                             </div>
-                            <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{product.price}</h3>
+                            <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{formatPrice(product.price)   }</h3>
                             <div className='flex gap-x-2 border-t border-gray-100 pt-4'>
                                 <label className="cursor-pointer">
                                     <input
@@ -79,7 +83,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                             <p className='text-[#333] font-normal text-sm mt-4'>Số lượng: </p>
                             <div className='flex gap-x-2 items-center mt-2'>
                                 <div>
-                                    <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={quantity} onFocus={(e) => e.target.select()} type="number" />
+                                    <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={quantity} onFocus={(e) => e.target.select()} type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
                                 </div>
                                 <div>
                                     <button onClick={() => handleAddToCart(product)} className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>

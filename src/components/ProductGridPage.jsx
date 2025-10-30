@@ -152,7 +152,7 @@ const ProductGridPage = ({ category, title, description, productData }) => {
 
 
   return (
-    <div className="product-grid-page container">
+    <div className="product-grid-page">
       {/* === HEADER === */}
       <div className="grid-header">
         <div className="grid-header__left">
