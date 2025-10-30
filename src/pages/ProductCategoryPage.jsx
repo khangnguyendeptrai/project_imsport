@@ -212,7 +212,7 @@ const ProductCategoryPage = () => {
             title={selectedPage.categoriesType}
             category={category}
             description={selectedPage.description}
-            productData={selectedPage.products}
+            productData={selectedPage.products || []}
           />
         </div>
       </div>
