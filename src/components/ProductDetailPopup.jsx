@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useCart } from '../context/CartContext';
 const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     const navigate = useNavigate();
-    if (!isOpen) return null;
+    const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1);
+
+    if (!isOpen) return null;
     useEffect(() => {
         setQuantity(1);
     }, [product]);
     const handleAddToCart = (product) => {
-        console.log('handleAddToCart ', product);
-        product.quantity = quantity;
-        const cartItem = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-        cartItem.push(product);
-        localStorage.setItem('cart', JSON.stringify(cartItem));
+        console.log('handleAddToCart ', {...product, quantity: quantity });
+        addToCart({ ...product, quantity: quantity });
         navigate('/cart');
     }
     const formatPrice = (price) => {
-        return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
+        return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '')
+        .replace(/\s/g, '')         // xóa toàn bộ khoảng trắng bình thường
+        .replace(/\u00A0/g, '')  + ' VNĐ';
     }
     return (
         <>
@@ -83,7 +84,12 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                             <p className='text-[#333] font-normal text-sm mt-4'>Số lượng: </p>
                             <div className='flex gap-x-2 items-center mt-2'>
                                 <div>
-                                    <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={quantity} onFocus={(e) => e.target.select()} type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
+                                    <input className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' defaultValue={1} onFocus={(e) => e.target.select()} type="number" value={quantity === 0 ? '' : quantity} 
+                                    onChange={(e) => setQuantity(e.target.value === '' || Number(e.target.value) <= 0 ? 0 : Number(e.target.value))}
+                                     onBlur={(e) => {
+                                        if (e.target.value === '' || e.target.value <= 0)
+                                            setQuantity(1);
+                                    }} />
                                 </div>
                                 <div>
                                     <button onClick={() => handleAddToCart(product)} className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal'>Thêm vào giỏ hàng</button>

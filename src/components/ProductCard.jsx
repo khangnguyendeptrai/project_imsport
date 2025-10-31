@@ -32,8 +32,8 @@ const ProductCard = ({ item, isList = false }) => {
       <div className='px-4 pb-5 md:text-end text-center'>
         <Link to={`/product/${item.id}`} className='line-clamp-2 font-semibold text-base text-center' title={item.name}>{item.name}</Link>
         <div className='my-1 text-center md:mr-3 '>
-          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(item.price)} VNĐ</p>
-          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{formatPrice(item.originalPrice)}</p>}
+          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(item.price)}VNĐ</p>
+          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{formatPrice(item.originalPrice)}VNĐ</p>}
         </div>
         {!isList && (
           <button onClick={() => quickView(item.id)} className='md:block hidden w-full text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</button>

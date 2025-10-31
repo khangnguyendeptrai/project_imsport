@@ -40,7 +40,7 @@ const Breadcrumb = ({ data }) => {
 
 
     <div className="container py-3  "  >
-      <nav className="text-sm text-gray-600 p-10">
+      <nav className="text-sm text-gray-600 md:p-10 p-5">
         {breadcrumbItems.map((item, index) => (
           <span key={index}>
             {index > 0 && <span className="mx-2"> / </span>} 
