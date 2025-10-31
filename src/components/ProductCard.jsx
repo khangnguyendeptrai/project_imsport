@@ -6,7 +6,8 @@ import ProductAction from './ProductAction'
 import ProductDetailPopup from './ProductDetailPopup'
 import { Link } from 'react-router-dom'
 
-const ProductCard = ({ item, isList = false }) => {
+const ProductCard = ({ item, isList = false, isRelated = true }) => {
+
   const [modalOpen, setModalOpen] = useState(false)
   const quickView = (id) => {
     console.log('quickView ', id)
@@ -15,13 +16,22 @@ const ProductCard = ({ item, isList = false }) => {
   const formatPrice = (price) => {
     return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
   }
+  const handleRealAddToCart = (productToAdd) => {
+    console.log("Sản phẩm cần thêm vào giỏ hàng:", productToAdd);
+    // productToAdd sẽ là: { id: "...", name: "...", price: "...", selectedSize: "M", quantity: 2 }
+
+    // TẠI ĐÂY, bạn sẽ implement logic (Rule 4 và 5):
+    // 1. Kiểm tra xem sản phẩm với size này đã có trong giỏ hàng (cart) chưa.
+    // 2. Nếu chưa (Rule 4) => Thêm item mới vào cart.
+    // 3. Nếu đã có (Rule 5) => Cập nhật (cộng dồn) số lượng cho item đó.
+  };
   return (
     <div key={item.id} className='col-span-1 group'>
       <div className='relative overflow-hidden'>
         {item.isBestSeller && <BestSellerBadge />}
         {item.isDiscount !== 0 && <DiscountBadge />}
         {item.isGift && <GiftBadge />}
-        <ProductAction product={item} quickView={quickView} />
+        {isRelated && <ProductAction product={item} quickView={quickView} />}
 
 
         <Link to={`/product/${item.id}`} className=''>
@@ -40,7 +50,7 @@ const ProductCard = ({ item, isList = false }) => {
         )}
       </div>
       {modalOpen &&
-        <ProductDetailPopup product={item} isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+        <ProductDetailPopup product={item} isOpen={modalOpen} onClose={() => setModalOpen(false)} onAddToCart={handleRealAddToCart} />
       }
     </div>
   )

@@ -1,118 +1,165 @@
-@use '../variables' as *;
+/* --- 1. PHẦN KHUNG SẢN PHẨM LIÊN QUAN --- */
+/* --- 1. PHẦN KHUNG SẢN PHẨM LIÊN QUAN --- */
+.related-products {
+  max-width: 1200px;
+  margin: 4rem auto 2.5rem auto;
+  padding: 0 1rem;
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #222;
+    letter-spacing: 0.5px;
+  }
+
+  &__grid {
+    display: grid;
+    justify-items: center;
+    align-items: stretch; // FIX 1: Vẫn giữ để các thẻ cao bằng nhau
+
+    /* --- SỬA Ở ĐÂY: Định nghĩa layout theo kích thước màn hình --- */
+
+    /* 1. Mobile (Mặc định): 2 cột (theo yêu cầu) */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; // Giảm khoảng cách cho mobile
+
+    /* 2. Tablet (ví dụ: 768px trở lên): 3 cột */
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* 3. Desktop (ví dụ: 1024px trở lên): 4 cột (theo yêu cầu) */
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    /* --- SỬA Ở ĐÂY: Bỏ max-width --- */
+    /* max-width: 280px; */ // Xóa dòng này đi
+    
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex; 
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+
+/* --- 2. PHẦN THẺ SẢN PHẨM (PRODUCTCARD) --- */
 .product-card {
-  position: relative;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  height: 100%; // FIX 3: Bắt thẻ dãn 100%
+  display: flex;
+  flex-direction: column;
+  
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden; // Quan trọng: Phải có để border-radius hoạt động
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
-  .product-link {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .product-image {
+  &__image-wrapper {
     position: relative;
+    overflow: hidden; // Quan trọng cho hiệu ứng slide
+    aspect-ratio: 1 / 1;
+    background-color: #f9f9f9;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+    /* --- HIỆU ỨNG LƯỚT --- */
+    transition: transform 0.4s ease-in-out; 
+
+    &--secondary {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* --- SỬA: LƯỚT TỪ TRÁI QUA --- */
+      transform: translateX(-100%); // Giấu ảnh 2 bằng cách đẩy sang TRÁI
+    }
+  }
+
+  /* --- SỬA: LƯỚT TỪ TRÁI QUA --- */
+  &:hover {
+    .product-card__image--primary {
+      transform: translateX(100%); // Đẩy ảnh 1 sang PHẢI
+    }
+    .product-card__image--secondary {
+      transform: translateX(0); // Đưa ảnh 2 từ TRÁI vào
+    }
+  }
+
+  &__info {
+    padding: 1rem;
+    text-align: center;
+    display: flex; // FIX 4: Bắt khối info dãn ra
+    flex-direction: column;
+    flex-grow: 1; 
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    line-height: 1.4;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    border-radius: 10px;
+    text-overflow: ellipsis;
+    min-height: 2.8em; 
+  }
 
-    img {
-      width: 100%;
-      transition: transform 0.4s ease;
+  &__bottom-block {
+    margin-top: auto; // FIX 5: Đẩy khối (giá + nút) xuống đáy
+    padding-top: 0.5rem;
+  }
+
+  &__price-block {
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    &--current {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ff8c00;
     }
-
-    &:hover img {
-      transform: scale(1.05);
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 5px 8px;
-      font-size: 12px;
-      border-radius: 4px;
-      color: #fff;
-
-      &.discount {
-        background: #b91c1c;
-      }
-
-      &.special {
-        background: #f97316;
-        right: 10px;
-        left: auto;
-      }
-    }
-
-    .hover-icons {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-
-      &.show {
-        opacity: 1;
-      }
-
-      .icon-btn {
-        background: #fff;
-        border: none;
-        padding: 8px;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        transition: transform 0.2s;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
+    &--old {
+      font-size: 0.875rem;
+      color: #adadad;
+      text-decoration: line-through;
     }
   }
 
-  /* ==== PHẦN THÔNG TIN SẢN PHẨM ==== */
-  .product-info {
-    margin-top: 10px;
-
-    .product-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: #222;
-      line-height: 1.4;
-      margin-bottom: 6px;
-      min-height: 42px;
-      text-align: center;
+  &__add-to-cart {
+    font-size: 0.875rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: none;
+    
+    @media (min-width: 768px) {
+      display: block;
+      display: none
     }
 
-    .product-price {
-      display: flex;
-      flex-direction: column; /* để giá mới ở trên, giá cũ bên dưới */
-      align-items: center;
-      justify-content: center;
-
-      .current-price {
-        color: #f97316; /* màu cam thương hiệu IMSports */
-        font-weight: 700;
-        font-size: 16px;
-      }
-
-      .old-price {
-        text-decoration: line-through;
-        color: #999;
-        font-size: 14px;
-        margin-top: 2px;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hover-icons {
-      display: none;
+    &:hover {
+      color: #673AB7;
     }
   }
 }

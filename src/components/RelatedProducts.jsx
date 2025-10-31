@@ -1,23 +1,53 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import "../styles/components/RelatedProducts.scss";
-const RelatedProducts = ({ relatedProducts, onProductClick }) => {
-  if (!relatedProducts || relatedProducts.length === 0) return null;
+import '../styles/components/ProductCard.scss';
+
+// Import Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+// === 1. GỠ BỎ 'onProductClick' KHỎI PROPS ===
+const RelatedProducts = ({ relatedProducts, currentProductId, currentProductCategory }) => {
+
+  const filteredList = relatedProducts.filter(item => 
+    item.id !== currentProductId && 
+    item.category === currentProductCategory
+  );
+
+  if (!filteredList || filteredList.length === 0) return null;
 
   return (
-    <div className="related-products container mt-10">
-      <h2 className="text-2xl font-semibold mb-6 text-center">
+    <section className="related-products">
+      <h2 className="related-products__title">
         SẢN PHẨM LIÊN QUAN
       </h2>
 
-      <div className="product-grid grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6">
-        {relatedProducts.map((item, index) => (
-          <div key={index} onClick={() => onProductClick(item)}>
-            <ProductCard item={item} />
-          </div>
+      <Swiper
+        navigation={false}
+        loop={true} 
+        spaceBetween={16}
+        slidesPerView={2}
+        breakpoints={{
+          768: { slidesPerView: 3, spaceBetween: 24 },
+          1024: { slidesPerView: 4, spaceBetween: 32 },
+        }}
+        className="related-products__carousel"
+      >
+        {filteredList.map((item) => ( 
+          <SwiperSlide
+            key={item.id} 
+            className="related-products__item"
+            // === 2. GỠ BỎ 'onClick' KHỎI SLIDE ===
+            // onClick={() => onProductClick(item)} // <-- XÓA DÒNG NÀY
+          >
+            {/* Bây giờ, SwiperSlide sẽ không xử lý click nữa.
+              Nó sẽ để cho <ProductCard> bên trong tự xử lý.
+            */}
+            <ProductCard item={item} isRelated={false}  isList={true} />
+          </SwiperSlide>
         ))}
-      </div>
-    </div>
+      </Swiper>
+    </section>
   );
 };
 
