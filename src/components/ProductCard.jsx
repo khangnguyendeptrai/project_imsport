@@ -9,12 +9,16 @@ import { Link } from 'react-router-dom'
 const ProductCard = ({ item, isList = false, isRelated = true }) => {
 
   const [modalOpen, setModalOpen] = useState(false)
+  console.log("item" + JSON.stringify(item));
+  
   const quickView = (id) => {
     console.log('quickView ', id)
     setModalOpen(true)
   }
   const formatPrice = (price) => {
-    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '');
+    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '')
+    .replace(/\s/g, '')         // xóa toàn bộ khoảng trắng bình thường
+    .replace(/\u00A0/g, '')  + ' VNĐ';
   }
   const handleRealAddToCart = (productToAdd) => {
     console.log("Sản phẩm cần thêm vào giỏ hàng:", productToAdd);
@@ -42,8 +46,8 @@ const ProductCard = ({ item, isList = false, isRelated = true }) => {
       <div className='px-4 pb-5 md:text-end text-center'>
         <Link to={`/product/${item.id}`} className='line-clamp-2 font-semibold text-base text-center' title={item.name}>{item.name}</Link>
         <div className='my-1 text-center md:mr-3 '>
-          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(item.price)}VNĐ</p>
-          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{formatPrice(item.originalPrice)}VNĐ</p>}
+          <p className='text-[15px] font-bold  text-[#ff8c00] '>{formatPrice(Number(item.price))}</p>
+          {item.originalPrice !== 0 && <p className='text-sm font-normal  text-[#adadad] line-through '>{formatPrice(Number(item.originalPrice))}</p>}
         </div>
         {!isList && (
           <button onClick={() => quickView(item.id)} className='md:block hidden w-full text-sm font-normal text-center text-[#333333] hover:text-[#673AB7] my-1'>Thêm vào giỏ hàng</button>

@@ -62,6 +62,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg2,
       name: "Norda 001A | Giày Chạy Địa Hình Nam Norda 001A",
       price: 7300000,
+      originalPrice: 6950000,
       category: "Giày",
     },
     {
@@ -70,6 +71,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg3,
       name: "Norda 001 | Giày Chạy Địa Hình Nam Glitch",
       price: 5907500,
+      originalPrice: 6950000,
       category: "Giày",
     },
     {
@@ -78,6 +80,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: mafate2,
       name: "MAFATE 5 | GIÀY CHẠY ĐỊA HÌNH NỮ HOKA MAFATE 5 - NNR",
       price: 4599000,
+      originalPrice: 6950000,
       category: "Giày",
     },
     {
@@ -86,6 +89,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg4,
       name: "Speedgoat 6 Wide | Giày Chạy Địa Hình Nam Hoka",
       price: 3999000,
+      originalPrice: 6950000,
       category: "Giày",
     },
     {
@@ -94,6 +98,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg5,
       name: "Tomir 2.0 | Giày Chạy Địa Hình NNormal Tomir 2.0",
       price: 5990000,
+      originalPrice: 6950000,
       category: "Giày",
     },
     {
@@ -102,6 +107,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg1,
       name: "Sản Phẩm Mới | Giày Chạy Bộ Nam Nhanh Nhất",
       price: 3500000,
+      originalPrice: 0,
       category: "Giày",
     },
     {
@@ -110,6 +116,7 @@ const handleRealAddToCart = (productData) => {
       imageHide: relatedImg3,
       name: "Sản Phẩm Khác | Áo Khoác Chạy Mưa Siêu Nhẹ",
       price: 2100000,
+      originalPrice: 0,
       category: "Áo",
     },
   ];
