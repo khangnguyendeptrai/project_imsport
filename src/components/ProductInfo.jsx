@@ -15,7 +15,7 @@ const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
   }, []);
   return (
     <div className="w-full md:w-[90%] text-gray-800">
-      {/* Tên sản phẩm */}
+      {/* Tên sản phẩsm */}
       <h1 className="text-2xl font-semibold mb-3 break-words leading-snug">
         {name}
       </h1>
@@ -80,20 +80,33 @@ const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
       </div>
 
       {/* Số lượng + Nút giỏ hàng */}
-      <div className="pb-6 border-gray-200 mb-6 flex flex-wrap items-center gap-4">
-        <div className="w-full sm:w-auto">
-          <p className="font-medium mb-2">Số lượng:</p>
+      <p className="font-medium mb-2 sm:mb-0">Số lượng:</p>
+      <div className="pb-6 border-gray-200 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-6">
+        {/* --- Số lượng --- */}
+
+        <div className=" ">
+
           <input
             type="number"
             min="1"
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
+            value={quantity === null ? "" : quantity}
+            onChange={(e) => {
+              const val = e.target.value;
+              // Nếu người dùng xóa hết thì setQuantity(null)
+              if (val === "") {
+                setQuantity(null);
+              } else {
+                setQuantity(Number(val));
+              }
+            }}
             className="w-full sm:w-20 h-10 border border-gray-300 rounded-full text-center"
           />
+
         </div>
 
-        <div className="w-full sm:w-auto flex justify-center sm:justify-start gap-4 sm:mt-6">
-          <button className="bg-[#673AB7] text-white px-8 py-3 rounded-full uppercase font-medium hover:bg-[#7e4fd1] transition-all">
+        {/* --- Nút và icon --- */}
+        <div className="mt-4 sm:mt-0 flex justify-center sm:justify-start items-center gap-4 mx-5 sm:mx-0">
+          <button className="bg-[#673AB7] text-white px-12 py-3 rounded-full uppercase font-medium hover:bg-[#7e4fd1] transition-all">
             Thêm vào giỏ hàng
           </button>
 
@@ -102,6 +115,7 @@ const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
           </button>
         </div>
       </div>
+
 
       <div className="pt-2 border-t border-gray-200">
         <h3 className="text-red-600 font-semibold mb-3">Đặc điểm nổi bật</h3>
@@ -117,9 +131,9 @@ const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
         </ul>
 
 
-        <p className="text-gray-600 text-sm">Thông tin thêm về sản phẩm</p>
+        <p className="text-gray-600 text-sm ">Thông tin thêm về sản phẩm</p>
       </div>
-
+      <div className="pt-2 border-t border-gray-200"></div>
     </div>
   );
 };

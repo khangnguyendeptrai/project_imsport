@@ -107,7 +107,7 @@ const ProductGallery = ({ images }) => {
         </button>
       </div>
 
-      {/* Main image (PC zoom) */}
+      {/* Main image (PC zoom) s*/}
       <div className="relative flex-1 flex justify-center items-center">
         <img
           ref={imgRef}

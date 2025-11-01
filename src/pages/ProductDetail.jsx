@@ -1,8 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import ProductGallery from "../components/ProductGallery";
 import ProductInfo from "../components/ProductInfo";
+import ProductDescriptionTabs from "../components/ProductDescriptionTabs";
+import ProductDescriptionTabsV2 from "../components/ProductDescriptionTabsV2";
 
-// ảnh demo import từ thư mục assets
 import mafate1 from "../assets/images/aotrail.jpeg";
 import mafate2 from "../assets/images/giayhokahide.jpeg";
 import mafate3 from "../assets/images/aotrail.jpeg";
@@ -12,6 +14,8 @@ import mafate6 from "../assets/images/giayhokahide.jpeg";
 import bg from "../assets/images/breadcrumb-bg.png";
 
 const ProductDetailPage = () => {
+  const { id } = useParams(); // 🟢 Lấy id từ URL: /product/:id
+
   const images = [mafate1, mafate2, mafate3, mafate4, mafate5, mafate6];
 
   const highlights = [
@@ -26,6 +30,7 @@ const ProductDetailPage = () => {
 
   return (
     <div className="">
+      {/* Breadcrumb */}
       <div
         style={{
           backgroundImage: `url(${bg})`,
@@ -48,11 +53,9 @@ const ProductDetailPage = () => {
           </a>
         </div>
       </div>
-      <div className="container ">
-        {/* Breadcrumb */}
 
-
-        {/* Nội dung chính */}
+      {/* Nội dung chính */}
+      <div className="container">
         <div className="flex flex-col md:flex-row gap-10">
           {/* Ảnh bên trái */}
           <div className="md:w-1/2">
@@ -60,8 +63,7 @@ const ProductDetailPage = () => {
           </div>
 
           {/* Thông tin bên phải */}
-        <div className="md:w-3/5 flex-1 h-full">
-
+          <div className="md:w-3/5 flex-1 h-full">
             <ProductInfo
               name="MAFATE 5 | GIÀY CHẠY ĐỊA HÌNH NỮ HOKA MAFATE 5 - NNR"
               brand="HOKA"
@@ -72,6 +74,15 @@ const ProductDetailPage = () => {
             />
           </div>
         </div>
+
+        {/* 🟢 Hiển thị component tùy theo id */}
+        {id === "2" ? (
+          <ProductDescriptionTabs />
+        ) : id === "4" ? (
+          <ProductDescriptionTabsV2 />
+        ) : (
+          <ProductDescriptionTabs /> // mặc định
+        )}
       </div>
     </div>
   );
