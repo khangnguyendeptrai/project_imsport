@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/components/Header.scss";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -17,14 +17,14 @@ import {
   ShoppingCartIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
-  const [cartCount] = useState(3);
+  const { cartCount } = useCart();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
-
   const location = useLocation();
   const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
 
@@ -40,6 +40,8 @@ export default function Header() {
   const closeSubmenu = () => {
     setActiveSubmenu(null);
   };
+
+ 
 
   return (
     <header className="w-full shadow-sm border-b bg-white">
@@ -124,7 +126,7 @@ export default function Header() {
       <nav className="main-navigation container">
         <Link to="/about" className="nav-link">Giới Thiệu</Link>
         <div className="nav-dropdown">
-          <Link to="/men" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/do-nam" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -134,7 +136,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/women" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/do-nu" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span> </Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
@@ -144,7 +146,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="nav-dropdown">
-          <Link to="/GPS Watch" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+          <Link to="/dong-ho-tai-nghe" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Coros</Link></li>

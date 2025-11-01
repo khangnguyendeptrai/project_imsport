@@ -118,26 +118,21 @@ const data =
         },
     ]
 }
-const ProductList = () => {
+const ProductList = ({ products }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
     const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1)
     // const page = parseInt(searchParams.get("page")) || 1;
-    const productPerPage = 3;
+    const productPerPage = 20;
     const indexOfLastProduct = currentPage * productPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-    const currentProducts = data.data.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    console.log('currentProducts', Math.ceil(data.data.length / productPerPage));
-    const totalPage = Math.ceil(data.data.length / productPerPage);
+    const totalPage = Math.ceil(products.length / productPerPage);
     
-    const quickView = (id) => {
-        setProduct(data.data.find(item => item.id === id))
-        setModalOpen(true)
-    }
     const handlePage = (page) => {
-        if (page < 1 || page > data.data.length) return
+        if (page < 1 || page > products.length) return
         setCurrentPage(page)
         setSearchParams({ page }); // Gắn ?page=pageNumber lên URL
     }
@@ -146,12 +141,12 @@ const ProductList = () => {
         <div className='container mx-auto'>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 '>
                 {currentProducts.map((item) => (
-                    <ProductCard key={item.id} item={item} quickView={quickView} isList={true} />
+                    <ProductCard key={item.id} item={item} isList={true} />
                 ))}
             </div>
             {totalPage > 1 && <Pagination currentPage={currentPage} handlePage={handlePage} totalPage={totalPage} />}
         </div>
-        {modalOpen && <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />}
+        {/* {modalOpen && <ProductDetailPopup product={product} isOpen={modalOpen} onClose={() => setModalOpen(false)} />} */}
     </div>
   )
 }

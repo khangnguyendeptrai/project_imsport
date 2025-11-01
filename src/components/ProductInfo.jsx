@@ -1,35 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { useCart } from "../context/CartContext";
+
+import { useNavigate } from "react-router-dom";
 
 
 
-const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
+const ProductInfo = ({ product, sizes, highlights }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 640);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const handleAddToCart = (product) => {
+    console.log('handleAddToCart ', {...product, quantity: quantity });
+    addToCart({ ...product, quantity: quantity });
+    navigate('/cart');
+
+  }
+  const formatPrice = (price) => {
+    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
+  }
   return (
     <div className="w-full md:w-[90%] text-gray-800">
       {/* Tên sản phẩm */}
       <h1 className="text-2xl font-semibold mb-3 break-words leading-snug">
-        {name}
+        {product?.name}
       </h1>
 
       {/* Thương hiệu + Mã sản phẩm */}
       <p className="text-sm  mb-4 border-b border-gray-200 mb-6 pb-5">
         Thương hiệu:{" "}
-        <span className="text-[#898989]">{brand}</span> | Mã SP:{" "}
-        <span className="text-[#898989]">{code}</span>
+        <span className="text-[#898989]">{product?.brand}</span> | Mã SP:{" "}
+        <span className="text-[#898989]">{product?.id}</span>
       </p>
 
       {/* Giá */}
       <p className=" text-black pb-4 ">
-        Giá: <span className=" text-2xl">{price}</span>
+        Giá: <span className=" text-2xl">{formatPrice(Number(product?.price))}</span>
       </p>
 
       {/* Chọn size */}
@@ -93,7 +107,7 @@ const ProductInfo = ({ name, brand, code, price, sizes, highlights }) => {
         </div>
 
         <div className="w-full sm:w-auto flex justify-center sm:justify-start gap-4 sm:mt-6">
-          <button className="bg-[#673AB7] text-white px-8 py-3 rounded-full uppercase font-medium hover:bg-[#7e4fd1] transition-all">
+          <button onClick={() => handleAddToCart(product)} className="bg-[#673AB7] text-white px-8 py-3 rounded-full uppercase font-medium hover:bg-[#7e4fd1] transition-all">
             Thêm vào giỏ hàng
           </button>
 
