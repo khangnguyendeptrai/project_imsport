@@ -130,7 +130,7 @@ export default function Header() {
           </span></Link>
           <ul className="dropdown-menu">
             <li><Link to="/" className="dropdown-item">Áo</Link></li>
-            <li><Link to="/m" className="dropdown-item">Quần</Link></li>
+            <li><Link to="/" className="dropdown-item">Quần</Link></li>
             <li><Link to="/" className="dropdown-item">Giày chạy bộ</Link></li>
             <li><Link to="/" className="dropdown-item">Giày địa hình</Link></li>
           </ul>
