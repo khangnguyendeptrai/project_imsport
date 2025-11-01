@@ -52,7 +52,10 @@ import aotrail from "../assets/images/aotrail.jpeg"
 import aotrailhide from "../assets/images/aotrailhide.png"
 import thunnam from "../assets/images/thunnam.jpeg"
 import thunnamhide from "../assets/images/thunnamhide.png"
-
+import bgchitietanh from "../assets/images/bgchitietanh.jpg"
+import sizechitiet from "../assets/images/sizechitiet.jpg"
+import chitietao from "../assets/images/chitietao.jpg"
+import sizeao from "../assets/images/sizeao.png"
 
 export {imgbanner1, imgbanner2, imgbanner3, imgbanner4,
     imgbanner5, imgbanner6, imgbanner7, imgbanner8,
@@ -64,6 +67,6 @@ export {imgbanner1, imgbanner2, imgbanner3, imgbanner4,
     productImg1Hide, productImg2Hide, productImg3Hide, productImg4Hide, productImg5Hide, productImg6Hide,
     tagGift,buckethat,buckethathide,khoacrun,khoacrunhide,khoacnu,khoacnuhide,giaynamhide,giaynam,giaymafe,
     giaymafehide,giaykjehide,giaykje,giayhokahide,giayhoka,giaycloudbom,giaycloudbomhide,aotrail,
-    aotrailhide,thunnam,thunnamhide
+    aotrailhide,thunnam,thunnamhide,bgchitietanh,sizechitiet,chitietao,sizeao
     
 }

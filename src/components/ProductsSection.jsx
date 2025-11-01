@@ -34,7 +34,7 @@ const products = [
   
 ];
 
-// 👉 Tách nhóm sản phẩm
+// 👉 Tách nhóm sản phẩms
 const newProducts = products.filter(p => p.isDiscount === 0);
 const saleProducts = products.filter(p => p.isDiscount !== 0);
 
