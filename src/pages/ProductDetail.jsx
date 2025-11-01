@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import ProductGallery from "../components/ProductGallery";
-import ProductInfo from "../components/ProductInfo";
-import RelatedProducts from "../components/RelatedProducts";
+;
 
 // ẢNH SẢN PHẨM CHÍNH (MAFATE 5)
+import { useParams } from "react-router-dom";
+import ProductGallery from "../components/ProductGallery";
+import ProductInfo from "../components/ProductInfo";
+import ProductDescriptionTabs from "../components/ProductDescriptionTabs";
+import ProductDescriptionTabsV2 from "../components/ProductDescriptionTabsV2";
+import RelatedProducts from "../components/RelatedProducts";
+
 import mafate1 from "../assets/images/aotrail.jpeg";
 import mafate2 from "../assets/images/giayhokahide.jpeg";
 import mafate3 from "../assets/images/aotrail.jpeg";
 import mafate4 from "../assets/images/giayhokahide.jpeg";
 import bg from "../assets/images/breadcrumb-bg.png";
 import { dataFilter } from "../data/dataFilter";
-import { useParams } from "react-router-dom";
 
 // === 5 ẢNH MỚI CHO SẢN PHẨM LIÊN QUAN ===
 const relatedImg1 = "https://pos.nvncdn.com/be3294-43017/ps/20250904_nM1TbYwBHu.jpeg?v=1756982968";
@@ -152,6 +156,15 @@ const handleRealAddToCart = (productData) => {
             />
           </div>
         </div>
+
+        {/* 🟢 Hiển thị component tùy theo id */}
+        {id === "2" ? (
+          <ProductDescriptionTabs />
+        ) : id === "4" ? (
+          <ProductDescriptionTabsV2 />
+        ) : (
+          <ProductDescriptionTabs /> // mặc định
+        )}
 
         {/* Props (giữ nguyên) */}
         <RelatedProducts

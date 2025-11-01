@@ -34,7 +34,7 @@ const ProductInfo = ({ product, sizes, highlights }) => {
   }
   return (
     <div className="w-full md:w-[90%] text-gray-800">
-      {/* Tên sản phẩm */}
+      {/* Tên sản phẩsm */}
       <h1 className="text-2xl font-semibold mb-3 break-words leading-snug">
         {product?.name}
       </h1>
@@ -115,6 +115,7 @@ const ProductInfo = ({ product, sizes, highlights }) => {
             onFocus={(e) => e.target.select()} // Thêm để dễ chỉnh sửa
             className="w-full sm:w-20 h-10 border border-gray-300 rounded-full text-center"
           />
+
         </div>
 
         <div className="w-full sm:w-auto flex justify-center sm:justify-start gap-4 sm:mt-6">
