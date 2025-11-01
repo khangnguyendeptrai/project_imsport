@@ -37,7 +37,7 @@ const Cart = () => {
                         <div className='flex justify-between items-center'>
                             <h3 className='block md:hidden text-base font-normal text-[#363636] mb-3 uppercase  '>Giỏ hàng của bạn</h3>
                             {cart.length === 0 &&
-                                <div className='block md:hidden text-center text-sm text-[#673AB7]'>Cửa hàng</div>
+                                <Link to='/' className='block md:hidden text-center text-sm text-[#673AB7]'>Cửa hàng</Link>
                             }
                         </div>
                         {cart.length === 0 ? (
@@ -67,9 +67,9 @@ const Cart = () => {
                                         <div className=''>
                                             {cart.map((item) => (
                                                 <div key={item.id} className='border-y-[1px] border-[#ebebeb] py-4 flex gap-x-2'>
-                                                    <div className='text-center md:w-[15%] w-[25%]'><img src={item.image} alt={item.name} className='w-full object-cover' /></div>
+                                                    <div className='text-center md:w-[15%] w-[25%]'><Link to={`/product/${item.id}`}><img src={item.image} alt={item.name} className='w-full object-cover' /></Link></div>
                                                     <div className='md:flex md:w-[50%] w-[55%] items-center'>
-                                                        <div className='text-left md:w-[70%] w-full px-1'><a href='/' className='hover:text-[#673AB7] text-[#333333] md:font-normal font-semibold md:uppercase normal-case text-sm'>{item.name}</a></div>
+                                                        <div className='text-left md:w-[70%] w-full px-1'><Link to={`/product/${item.id}`} className='hover:text-[#673AB7] text-[#333333] md:font-normal font-semibold md:uppercase normal-case text-sm'>{item.name}</Link></div>
                                                         <div className='md:text-center text-start md md:w-[30%] px-1 w-full md:text-[#858688] text-[#673AB7] md:font-semibold font-normal text-sm '><span className='md:hidden inline-block text-[#898989]'>Giá:</span> {formatPrice(Number(item.price))}</div>
                                                     </div>
                                                     <div className='md:flex md:w-[35%] w-[20%] items-center'>
@@ -89,14 +89,14 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <div className=''>
-                                        <div className='flex gap-x-2 md:justify-end justify-between items-center mt-8 md:text-[#ec0808] text-[#673AB7] md:font-semibold font-normal md:text-lg text-base'><span className='text-[#1c1c1c] mr-2 uppercase md:normal-case'>Tổng tiền:</span> {formatPrice(Number(cart.reduce((total, item) => total + Number(item.price) * Number(item.quantity), 0)))}</div>
+                                        <div className='flex gap-x-2 md:justify-end justify-between items-center mt-8  text-[#673AB7] md:font-semibold font-normal md:text-lg text-base'><span className='text-[#1c1c1c] mr-2 uppercase md:normal-case'>Tổng tiền:</span> {formatPrice(Number(cart.reduce((total, item) => total + Number(item.price) * Number(item.quantity), 0)))}</div>
                                         <div className='flex md:flex-row flex-col-reverse gap-x-4 gap-y-2 justify-end mt-2'>
                                             <div
                                                 className="relative inline-block"
                                                 onMouseMove={handleMouseMove}
                                                 onMouseEnter={() => {setShow(true)}}
                                                 onMouseLeave={() => setShow(false)}>
-                                                <Link to='/' className='block text-center text-sm md:bg-[#f1f1f1] bg-[#673AB7] py-3 px-10 rounded-full md:text-black text-white font-lighter uppercase md:normal-case'>Tiếp tục mua hàng</Link>
+                                                <Link to='/' className='block text-center text-sm bg-[#f1f1f1] py-3 px-10 rounded-full text-black  font-lighter uppercase md:normal-case'>Tiếp tục mua hàng</Link>
                                                 {show && (
                                                     <span
                                                         className="absolute bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity duration-100"
@@ -110,8 +110,8 @@ const Cart = () => {
                                                 )}
                                             </div>
                                             <Link to='/' className='block md:hidden text-center text-sm bg-[#673AB7] py-2.5 px-10 mt-3 rounded-full text-white font-light uppercase'>Tiến hành thanh toán</Link>
-                                            <div className='relative group/icon'>
-                                                <Tooltip to="/" label="Đặt hàng" tooltip="Tiến hành thanh toán" />
+                                            <div className='relative group/icon hidden md:block'>
+                                                <Tooltip className to="/" label="Đặt hàng" tooltip="Tiến hành thanh toán" />
                                                 {/* <Link to='/' className='hidden md:block text-center text-sm bg-[#673AB7] py-2.5 px-10 rounded-full text-white font-light  md:normal-case'>Đặt hàng</Link> */}
                                                 
                                             </div>

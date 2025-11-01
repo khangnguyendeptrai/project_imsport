@@ -126,12 +126,15 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                                     {/* --- THAY ĐỔI 5: Gán State cho Số lượng --- */}
                                     <input 
                                         className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full' 
-                                        type="number" 
-                                        min="1" // Đảm bảo số lượng luôn > 0
+                                        type="number" // Đảm bảo số lượng luôn > 0
                                         value={quantity} // Dùng 'value' thay vì 'defaultValue'
                                         // Cập nhật state khi thay đổi, đảm bảo là số và ít nhất là 1
-                                        onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                                        onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
                                         onFocus={(e) => e.target.select()} 
+                                        onBlur={(e) => {
+                                            if (e.target.value === '' || e.target.value <= 0)
+                                                setQuantity(1);
+                                        }}
                                     />
                                 </div>
                                 <div>

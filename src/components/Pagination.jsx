@@ -55,7 +55,7 @@ const Pagination = ({totalPage, currentPage, handlePage}) => {
                 e.preventDefault()
                 handlePage(Number(inputPage))
             }}>
-                <input type="text" placeholder='Page' className='h-9 w-24 md:w-auto border-[#ddd] border-[1px] rounded-md text-center' value={inputPage} onChange={(e) => setInputPage(e.target.value)} />
+                <input type="text" placeholder='Page' className='h-9 w-24 md:w-auto border-[#ddd] border-[1px] rounded-md text-center' value={inputPage} onChange={(e) => {(Number(e.target.value) > 0 && Number(e.target.value)) <= totalPages && setInputPage(e.target.value)}} />
                 <button type='submit' className='w-12 h-9 ml-3 bg-[#222] border-[#222] text-white cursor-pointer hover:bg-[#222] hover:border-[#222] hover:text-white rounded-md '>Go</button>
             </form>
         </div>
