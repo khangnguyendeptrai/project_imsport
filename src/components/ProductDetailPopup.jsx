@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 // --- THAY ĐỔI 1: Thêm prop 'onAddToCart' ---
 // Component này sẽ nhận thêm một hàm 'onAddToCart' từ component cha
 // để xử lý logic nghiệp vụ (Rules 4, 5)
-const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
+const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     if (!isOpen) return null;
-
+    const { addToCart } = useCart();
     // --- THAY ĐỔI 2: Quản lý State ---
     const [quantity, setQuantity] = useState(1);
     const [selectedSize, setSelectedSize] = useState(null); // State mới để lưu size đã chọn
+    const navigate = useNavigate();
 
     // Reset state mỗi khi mở popup (hoặc khi sản phẩm thay đổi)
     useEffect(() => {
@@ -32,7 +35,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
     const isAddToCartDisabled = !selectedSize || quantity <= 0;
 
     // Hàm xử lý khi nhấn nút
-    const handleAddToCart = () => {
+    const handleAddToCart = (product) => {
         // (Rule 2): Chỉ chạy khi nút không bị disabled
         if (isAddToCartDisabled) return;
 
@@ -135,7 +138,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
                                     {/* --- THAY ĐỔI 6: Áp dụng Logic cho Nút --- */}
                                     <button 
                                         className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal disabled:opacity-50 disabled:cursor-not-allowed'
-                                        onClick={handleAddToCart} // (Rule 2)
+                                        onClick={() => handleAddToCart(product)} // (Rule 2)
                                         disabled={isAddToCartDisabled} // (Rule 3)
                                     >
                                         Thêm vào giỏ hàng

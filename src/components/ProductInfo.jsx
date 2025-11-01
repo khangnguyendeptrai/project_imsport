@@ -22,7 +22,8 @@ const ProductInfo = ({ product, sizes, highlights }) => {
 
   const handleAddToCart = (product) => {
     if (isAddToCartDisabled) return;
-
+    console.log("product" + JSON.stringify(product));
+    
     console.log('handleAddToCart ', {...product, quantity: quantity });
     addToCart({ ...product, quantity: quantity });
     navigate('/cart');
@@ -120,7 +121,7 @@ const ProductInfo = ({ product, sizes, highlights }) => {
           {/* --- THAY ĐỔI 4: Áp dụng Logic cho Nút --- */}
           <button
             className="bg-[#673AB7] text-white px-8 py-3 rounded-full uppercase font-medium hover:bg-[#7e4fd1] transition-all disabled:opacity-50 disabled:cursor-not-allowed" // Thêm class disabled
-            onClick={handleAddToCart} // Thêm onClick
+            onClick={() => handleAddToCart(product)} // Thêm onClick
             disabled={isAddToCartDisabled} // Thêm trạng thái disabled
           >
             Thêm vào giỏ hàng
