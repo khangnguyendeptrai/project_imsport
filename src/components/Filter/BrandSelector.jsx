@@ -6,27 +6,22 @@ const mockupBrands = [
   'On', 'Nike', 'Adidas'
 ];
 
-// Component nhận prop `data`
 export default function BrandSelector({ data }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Dùng data prop, nếu không có thì dùng mockup
   const brandsToDisplay = data && data.length > 0 ? data : mockupBrands;
 
-  // Đọc trực tiếp các brand đã chọn từ URL (ví dụ: 'norda,hoka')
   const getBrandsFromUrl = () => {
     const urlBrands = searchParams.get('brand');
     return urlBrands ? urlBrands.split(',') : [];
   };
 
-  // Logic khi click vào một thương hiệu
   const handleBrandClick = (brand) => {
     const brandAsParam = brand.toLowerCase();
-
     const currentSelected = getBrandsFromUrl();
     const isSelected = currentSelected.includes(brandAsParam);
-    let newSelected = [];
 
+    let newSelected;
     if (isSelected) {
       newSelected = currentSelected.filter((b) => b !== brandAsParam);
     } else {
@@ -44,24 +39,23 @@ export default function BrandSelector({ data }) {
     }, { replace: true });
   };
 
-  return (
-    <div className="max-h-48 overflow-y-auto p-1
-      scrollbar-hide-buttons">
-      <div className="flex flex-col gap-1">
+  const selectedBrands = getBrandsFromUrl();
 
+  return (
+    <div className="max-h-[190px] overflow-y-auto  scrollbar-hide-buttons">
+      <div className="flex flex-col gap-1">
         {brandsToDisplay.map((brand) => {
+          const isSelected = selectedBrands.includes(brand.toLowerCase());
           return (
             <button
               key={brand}
               onClick={() => handleBrandClick(brand)}
-              // === CLASSNAME ĐÃ XÓA FOCUS BORDER ===
-              className="
-                w-full p-2 text-left text-sm rounded-md
-                text-gray-700 
-                hover:text-black
-                transition-colors duration-150
-                outline-none
-              "
+              className={`w-full p-2 text-left text-sm rounded-md outline-none transition-colors duration-150
+                ${isSelected
+                  ? 'bg-purple-800 text-white'
+                  : 'bg-white text-black hover:text-purple-800'
+                }
+              `}
             >
               {brand}
             </button>

@@ -41,7 +41,7 @@ export default function SizeSelector({ data }) {
   const selectedSizes = getSizesFromUrl();
 
   return (
-    <div className="max-h-48 overflow-y-auto p-2 mt-2  
+    <div className="max-h-[190px] overflow-y-auto p-2 mt-2  
     scrollbar-hide-buttons
      
 ">

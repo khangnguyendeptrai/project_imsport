@@ -16,8 +16,16 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
         setQuantity(1);
         setSelectedSize(null);
     }, [product, isOpen]); // Thêm 'isOpen' để reset mỗi khi mở lại
-
     
+    const formatPrice = (price) => {
+        return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '')
+        .replace(/\s/g, '')         // xóa toàn bộ khoảng trắng bình thường
+        .replace(/\u00A0/g, '')  + ' VNĐ';
+    }
+     useEffect(() => {
+        setQuantity(1);
+    }, [product]);
+ 
     // --- THAY ĐỔI 3: Logic cho nút "Thêm vào giỏ hàng" ---
     
     // (Rule 3): Nút bị vô hiệu hóa nếu chưa chọn size HOẶC số lượng <= 0
@@ -30,12 +38,9 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
 
         // Gửi thông tin (sản phẩm, size, số lượng) lên component cha
         // Component cha sẽ tự xử lý (Rule 4 và 5)
-        onAddToCart({
-            ...product,
-            selectedSize: selectedSize,
-            quantity: quantity
-        });
-        
+        console.log('handleAddToCart ', {...product, quantity: quantity });
+        addToCart({ ...product, quantity: quantity, selectedSize: selectedSize });
+        navigate('/cart'); 
         // Đóng popup sau khi thêm
         onClose();
     };
@@ -53,9 +58,9 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
                     <div className='grid grid-cols-1 min-[1000px]:grid-cols-2'>
                         {/* ... (Phần ảnh sản phẩm giữ nguyên) ... */}
                         <div className='col-span-1 px-4'>
-                            <a href='/'>
+                            <Link to={`/product/${product.id}`}>
                                 <img src={product.image} alt="collection" className='w-full h-full object-cover' />
-                            </a>
+                            </Link>
                         </div>
                         
                         {/* ... (Phần thông tin sản phẩm) ... */}
@@ -67,9 +72,7 @@ const ProductDetailPopup = ({ isOpen, product, onClose, onAddToCart }) => {
                                 <p className='text-[#898989] text-sm'><span className='font-semibold'>Mã SP: </span> {product.id}</p>
                                 <p className='text-[#898989] text-sm pl-2'><span className='font-semibold'>Thương hiệu: </span> {product.brand}</p>
                             </div>
-                            <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{product.price}</h3>
-                            
-                            {/* --- THAY ĐỔI 4: Gán State cho Lựa chọn Size --- */}
+                            <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{formatPrice(product.price)   }</h3>
                             <div className='flex gap-x-2 border-t border-gray-100 pt-4'>
                                 <label className="cursor-pointer">
                                     <input

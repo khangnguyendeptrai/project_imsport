@@ -1,64 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { useCart } from "../context/CartContext";
 
-// --- THAY ĐỔI 1: Thêm prop 'onAddToCart' ---
-// Component này sẽ nhận hàm xử lý logic giỏ hàng từ cha
-const ProductInfo = ({
-  name,
-  brand,
-  code,
-  price,
-  sizes,
-  highlights,
-  onAddToCart, // <-- Prop mới
-}) => {
+import { useNavigate } from "react-router-dom";
+
+
+
+const ProductInfo = ({ product, sizes, highlights }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 640);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // --- THAY ĐỔI 2: Logic cho nút "Thêm vào giỏ hàng" (Rule 3) ---
-  // Nút bị vô hiệu hóa nếu chưa chọn size HOẶC số lượng <= 0
   const isAddToCartDisabled = !selectedSize || quantity <= 0;
 
-  // Hàm xử lý khi nhấn nút "Thêm vào giỏ hàng" (Rule 2)
-  const handleAddToCart = () => {
+  const handleAddToCart = (product) => {
     if (isAddToCartDisabled) return;
 
-    // Gọi hàm onAddToCart từ component cha và gửi dữ liệu lên
-    // Component cha sẽ tự xử lý logic (Rule 4 và 5)
-    onAddToCart({
-      name,
-      brand,
-      code, // Dùng 'code' (Mã SP) làm ID
-      price,
-      selectedSize,
-      quantity,
-    });
-  };
+    console.log('handleAddToCart ', {...product, quantity: quantity });
+    addToCart({ ...product, quantity: quantity });
+    navigate('/cart');
 
+  }
+  const formatPrice = (price) => {
+    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
+  }
   return (
     <div className="w-full md:w-[90%] text-gray-800">
       {/* Tên sản phẩm */}
       <h1 className="text-2xl font-semibold mb-3 break-words leading-snug">
-        {name}
+        {product?.name}
       </h1>
 
       {/* Thương hiệu + Mã sản phẩm */}
       <p className="text-sm  mb-4 border-b border-gray-200 mb-6 pb-5">
-        Thương hiệu: <span className="text-[#898989]">{brand}</span> | Mã SP:{" "}
-        <span className="text-[#898989]">{code}</span>
+        Thương hiệu:{" "}
+        <span className="text-[#898989]">{product?.brand}</span> | Mã SP:{" "}
+        <span className="text-[#898989]">{product?.id}</span>
       </p>
 
       {/* Giá */}
       <p className=" text-black pb-4 ">
-        Giá: <span className=" text-2xl">{price}</span>
+        Giá: <span className=" text-2xl">{formatPrice(Number(product?.price))}</span>
       </p>
 
       {/* Chọn size (Giữ nguyên logic hiển thị) */}

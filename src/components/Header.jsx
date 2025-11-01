@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/components/Header.scss";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -17,14 +17,14 @@ import {
   ShoppingCartIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
-  const [cartCount] = useState(3);
+  const { cartCount } = useCart();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
-
   const location = useLocation();
   const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
 
@@ -40,6 +40,8 @@ export default function Header() {
   const closeSubmenu = () => {
     setActiveSubmenu(null);
   };
+
+ 
 
   return (
     <header className="w-full shadow-sm border-b bg-white">
