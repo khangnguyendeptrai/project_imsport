@@ -8,7 +8,7 @@ import ProductList from "../ProductList";
 import ProductGridPage from "../ProductGridPage";
 import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
-export default function FilterContainer() {
+export default function FilterContainer(data) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [drawerWidth, setDrawerWidth] = useState(0);
@@ -68,10 +68,10 @@ export default function FilterContainer() {
                     ref={drawerRef}
                     className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]"
                 >
-                    <FilterByCategories data={dataFilter} />
+                    <FilterByCategories data={data} />
                 </div>
             </div>
-            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={dataFilter} /> </div>
+            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} /> </div>
             </>
     );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GoTriangleRight } from "react-icons/go";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
@@ -8,117 +8,163 @@ import SizeSelector from "./SizeSelector";
 import BrandSelector from "./BrandSelector";
 
 const FilterByCategories = ({ data }) => {
-  const location = useLocation();
-  const currentSlug = location.pathname.substring(1);
+  const location = useLocation();
+  const currentSlug = location.pathname.substring(1);
 
-  const findDefaultOpenId = () => {
-    const activeParent = data.find(item => item.slug === currentSlug);
-    if (activeParent) return activeParent.id;
+  // 🧩 Chuẩn hóa dữ liệu (tránh lỗi nếu API trả về {data: [...]})
+  const normalizedData = Array.isArray(data)
+    ? data
+    : Array.isArray(data?.data)
+    ? data.data
+    : [];
 
-    const activeChildParent = data.find(item =>
-      item.categories?.some(cate => cate.slug === currentSlug)
-    );
-    if (activeChildParent) return activeChildParent.id;
+  // 🧠 State cho brand và size
+  const [brands, setBrands] = useState([]);
+  const [sizes, setSizes] = useState([]);
 
-    return null;
-  };
+  // 🧮 Khi data thay đổi → tự động trích xuất brand & size
+  useEffect(() => {
+    if (!normalizedData.length) return;
 
-  const [openCategoryId, setOpenCategoryId] = useState(findDefaultOpenId());
+    const brandSet = new Set();
+    const sizeSet = new Set();
 
-  const toggleCategory = (id) => {
-    setOpenCategoryId(openCategoryId === id ? null : id);
-  };
+    normalizedData.forEach((categoryGroup) => {
+      categoryGroup.categories?.forEach((cate) => {
+        cate.products?.forEach((product) => {
+          // --- Thêm brand ---
+          if (product.brand) brandSet.add(product.brand.trim());
 
-  return (
-    <div className="inline-block p-4 w-[256px] md:w-[300px]">
-      <CollapsibleSection title="DANH MỤC">
-        {data.map((item) => {
-          const isParentActive = item.slug === currentSlug;
-          const isChildOfThisParentActive = item.categories?.some(
-            (cate) => cate.slug === currentSlug
-          );
-          const shouldHighlightParent = isParentActive || isChildOfThisParentActive;
+          // --- Thêm size ---
+          if (product.size) {
+            product.size
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean)
+              .forEach((s) => sizeSet.add(s));
+          }
+        });
+      });
+    });
 
-          return (
-            <div key={item.id} className="mb-3">
-              <div className="flex items-center cursor-pointer select-none justify-between pr-1.5">
-                
-              {/* SỬA Ở ĐÂY 1: items-center -> items-start */}
-                <div className="flex items-center"> 
-                  <GoTriangleRight
-                    className={`mr-1 transition-transform duration-200  ${openCategoryId === item.id ? "rotate-90" : ""
-                      }`}
-                  />
-                  <Link to={`/${item.slug}`}>
-                    <span
-                      className={`text-sm cursor-pointer transition-colors duration-150 ${shouldHighlightParent
-                        ? "text-[#673AB7]" 
-                        : "text-gray-700 hover:text-[#673AB7]"
-                        }`}
-                    >
-                      {item.categoriesType}
-                    </span>
-                  </Link>
-                </div>
+    setBrands([...brandSet]);
+    setSizes([...sizeSet]);
 
-                <MdOutlineKeyboardArrowDown
-                  className={`text-lg cursor-pointer ${shouldHighlightParent
-                        ? "text-[#673AB7]" 
-                        : "text-gray-700 hover:text-[#673AB7]"
-                        }`}
-                  onClick={() => toggleCategory(item.id)}
-                />
-              </div>
+    console.log("🏷️ Brands:", [...brandSet]);
+    console.log("📏 Sizes:", [...sizeSet]);
+  }, [normalizedData]);
 
-              {openCategoryId === item.id && (
-                <ul className="list-none ml-5 text-xs pr-6">
-                  {item.categories.map((cate) => {
-                    const isChildActive = cate.slug === currentSlug;
+  // === Xác định menu nào mở mặc định ===
+  const findDefaultOpenId = () => {
+    const activeParent = normalizedData.find((item) => item.slug === currentSlug);
+    if (activeParent) return activeParent.id;
 
-                    return (
-                      <li
-                        key={cate.slug}
-                        /* SỬA Ở ĐÂY 2: items-center -> items-start */
-                        className="pt-1 mt-1 flex items-start gap-1"
-                      >
-                        <GoTriangleRight
-                          className={` flex-shrink-0 text-black text-sm mt-1 ${isChildActive ? "rotate-90" : ""
-                            }`}
-                        />
-                        <Link to={`/${cate.slug}`}>
-                          <span
-                            className={`text-sm cursor-pointer transition-colors duration-150 ${isChildActive
-                              ? "text-[#673AB7] " 
-                              : "text-gray-700 hover:text-[#673AB7] " 
-                              }`}
-                          >
-                            {cate.name}
-                          </span>
-                   </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </div>
-          );
-        })}
-      </CollapsibleSection>
+    const activeChildParent = normalizedData.find((item) =>
+      item.categories?.some((cate) => cate.slug === currentSlug)
+    );
+    if (activeChildParent) return activeChildParent.id;
 
-      <CollapsibleSection title="GIÁ">
-        <PriceRangeSlider />
-      </CollapsibleSection>
+    return null;
+  };
 
+  const [openCategoryId, setOpenCategoryId] = useState(findDefaultOpenId());
+  const toggleCategory = (id) => setOpenCategoryId(openCategoryId === id ? null : id);
 
-      <CollapsibleSection title="KÍCH CỠ">
-        <SizeSelector />
-      </CollapsibleSection>
+  // === Render ===
+  return (
+    <div className="inline-block p-4 w-[256px] md:w-[300px]">
+      <CollapsibleSection title="DANH MỤC">
+        {normalizedData.map((item) => {
+          const isParentActive = item.slug === currentSlug;
+          const isChildActive = item.categories?.some(
+            (cate) => cate.slug === currentSlug
+          );
+          const shouldHighlightParent = isParentActive || isChildActive;
 
-      <CollapsibleSection title="THƯƠG HIỆU">
-        <BrandSelector />
-      </CollapsibleSection>
-    </div>
-  );
+          return (
+            <div
+              key={item.id ?? item.slug ?? Math.random()}
+              className="mb-3"
+            >
+              <div className="flex items-start cursor-pointer justify-between pr-1.5">
+                <div className="flex items-center" onClick={() => toggleCategory(item.id)}>
+                  <GoTriangleRight
+                    className={`mr-1 transition-transform duration-200 ${
+                      openCategoryId === item.id ? "rotate-90" : ""
+                    }`}
+                  />
+                  <Link to={`/${item.slug}`}>
+                    <span
+                      className={`text-sm transition-colors duration-150 ${
+                        shouldHighlightParent
+                          ? "text-[#673AB7]"
+                          : "text-gray-700 hover:text-[#673AB7]"
+                      }`}
+                    >
+                      {item.categoriesType}
+                    </span>
+                  </Link>
+                </div>
+
+                <MdOutlineKeyboardArrowDown
+                  className={`text-lg cursor-pointer ${
+                    shouldHighlightParent
+                      ? "text-[#673AB7]"
+                      : "text-gray-700 hover:text-[#673AB7]"
+                  }`}
+                  onClick={() => toggleCategory(item.id)}
+                />
+              </div>
+
+              {openCategoryId === item.id && (
+                <ul className="list-none ml-5 text-xs pr-6 mt-2">
+                  {item.categories?.map((cate) => {
+                    const isChildActive = cate.slug === currentSlug;
+                    return (
+                      <li
+                        key={cate.slug ?? cate.name ?? Math.random()}
+                        className="pt-1 mt-1 flex items-start gap-1"
+                      >
+                        <GoTriangleRight
+                          className={`text-black text-sm mt-1 ${
+                            isChildActive ? "rotate-90" : ""
+                          }`}
+                        />
+                        <Link to={`/${cate.slug}`}>
+                          <span
+                            className={`text-sm transition-colors duration-150 ${
+                              isChildActive
+                                ? "text-[#673AB7]"
+                                : "text-gray-700 hover:text-[#673AB7]"
+                            }`}
+                          >
+                            {cate.name}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+      </CollapsibleSection>
+
+      <CollapsibleSection title="GIÁ">
+        <PriceRangeSlider />
+      </CollapsibleSection>
+
+      {/* 🔽 Truyền state xuống component con */}
+      <CollapsibleSection title="KÍCH CỠ">
+        <SizeSelector data={sizes} />
+      </CollapsibleSection>
+
+      <CollapsibleSection title="THƯƠNG HIỆU">
+        <BrandSelector data={brands} />
+      </CollapsibleSection>
+    </div>
+  );
 };
 
 export default FilterByCategories;

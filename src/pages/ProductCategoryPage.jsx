@@ -2,7 +2,7 @@ import React from "react";
 import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
-import { dataFilter } from "../data/dataFilter";
+import { dataNew } from "../data/dataNew";
 import FilterContainer from "../components/Filter/FilterContainer";
 import FilterByCategories from "../components/Filter/FilterByCategories";
 
@@ -197,15 +197,15 @@ const pages = {
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
 
-  const selectedPage = dataFilter.find(item => item.slug === category);
+  const selectedPage = dataNew.find(item => item.slug === category);
 
   return (
     <>
-      <Breadcrumb data={dataFilter} />
+      <Breadcrumb data={dataNew} />
       <div className="container flex ">
         <div className="md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
           {/* <FilterByCategories data={dataFilter} /> */}
-          <FilterContainer />
+          <FilterContainer data={dataNew} />
         </div>
         <div className="flex-1">
           <ProductGridPage
@@ -216,7 +216,7 @@ const ProductCategoryPage = () => {
           />
         </div>
       </div>
-     
+
 
 
     </>

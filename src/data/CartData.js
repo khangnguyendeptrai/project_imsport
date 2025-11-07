@@ -1,17 +1,5 @@
 import { productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide } from '../assets/ExportImage'
-export const dataCartDefault = [
-    {
-        id: 1,
-        image: productImg1,
-        imageHide: productImg1Hide,
-        name: 'Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - KAKI',
-        price: 1850000,
-        brand: "Adidas",
-        originalPrice: 0,
-        isBestSeller: false,
-        isDiscount: 0,
-        isGift: false,
-    },
+
     {
         id: 2,
         image: productImg2,
