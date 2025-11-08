@@ -15,6 +15,7 @@ import mafate3 from "../assets/images/aotrail.jpeg";
 import mafate4 from "../assets/images/giayhokahide.jpeg";
 import bg from "../assets/images/breadcrumb-bg.png";
 import { dataFilter } from "../data/dataFilter";
+import { dataNew } from "../data/dataNew";
 
 // === 5 ẢNH MỚI CHO SẢN PHẨM LIÊN QUAN ===
 const relatedImg1 = "https://pos.nvncdn.com/be3294-43017/ps/20250904_nM1TbYwBHu.jpeg?v=1756982968";
@@ -27,14 +28,19 @@ const relatedImg5 = "https://pos.nvncdn.com/be3294-43017/ps/20251006_Wqwz5ZVGeP.
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState();
+  const [images, setImages] = useState([]);
+  const [description, setDescription] = useState('');
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
-    setProduct(dataFilter[0].products.find(product => product.id === Number(id)));
+    console.log('dataNew', dataNew[0].categories[0].products.find(product => product.id === Number(id)));
+    setProduct(dataNew[0].categories[0].products.find(product => product.id === Number(id)));
+    setImages(dataNew[0].categories[0].products.find(product => product.id === Number(id)).thumbnail);
+    setDescription(dataNew[0].categories[0].products.find(product => product.id === Number(id)).description);
   }, []);
 
   // Dữ liệu cho sản phẩm chính (MAFATE 5)
-  const images = [mafate1, mafate2, mafate3, mafate4,];
+  // const images = [mafate1, mafate2, mafate3, mafate4,];
   const currentProductId = "SV-1168723-NNR"; // ID sản phẩm chính
   const currentProductCategory = "Giày"; // (Vì đang xem "MAFATE 5 | GIÀY...")
 
@@ -144,7 +150,7 @@ const handleRealAddToCart = (productData) => {
       <div className="container">
         <div className="flex flex-col md:flex-row gap-10">
           <div className="md:w-1/2">
-            <ProductGallery images={images} />
+            <ProductGallery images={images || []} />
           </div>
 
           <div className="md:w-3/5 flex-1 h-full">
@@ -158,13 +164,14 @@ const handleRealAddToCart = (productData) => {
         </div>
 
         {/* 🟢 Hiển thị component tùy theo id */}
-        {id === "2" ? (
+        {/* {id === "2" ? (
           <ProductDescriptionTabs />
         ) : id === "4" ? (
           <ProductDescriptionTabsV2 />
         ) : (
           <ProductDescriptionTabs /> // mặc định
-        )}
+        )} */}
+        <ProductDescriptionTabs description={description} />
 
         {/* Props (giữ nguyên) */}
         <RelatedProducts

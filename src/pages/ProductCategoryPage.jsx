@@ -197,7 +197,32 @@ const pages = {
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
   console.log('category', category);
-  const selectedPage = dataNew.find(item => item.slug === category);
+  const data = []
+  let categorieTitle = ''
+  let categorieDescription = ''
+  let selectedPage = dataNew.find(item => item.slug === category);
+  if (selectedPage) {
+
+    categorieTitle = selectedPage.categoriesType
+    selectedPage.categories.forEach(item => {
+      item.products.forEach(product => {
+        data.push(product);
+      });
+    });
+
+  }else {
+    selectedPage = dataNew.find(item =>  {
+      item.categories.forEach(item => {
+        if (item.slug === category) {
+          categorieTitle = item.name
+          item.products.forEach(product => {
+            data.push(product);
+          });
+        }
+      });
+    });
+  }
+  console.log('data', data);
   console.log('selectedPage', selectedPage);
   return (
     <>
@@ -209,10 +234,10 @@ const ProductCategoryPage = () => {
         </div>
         <div className="flex-1">
           <ProductGridPage
-            title={selectedPage?.categories[0]?.name || ""}
+            title={categorieTitle || ""}
             category={category}
             description={selectedPage?.description || ""}
-            productData={selectedPage?.categories[0].products || []}
+            productData={data}
           />
         </div>
       </div>

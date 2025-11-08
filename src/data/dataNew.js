@@ -1,3 +1,6 @@
+
+import { chitietao, sizeao } from "../assets/ExportImage";
+
 export const dataNew = [
   {
     id: 1,
@@ -11,8 +14,15 @@ export const dataNew = [
         products: [
           {
             id: 1,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250609_rmhy0z22Wk.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_rmhy0z22Wk.jpeg",
             imageHide: null,
+            thumbnail: [
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_rmhy0z22Wk.jpeg?v=1749535086",
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_tZaYYxHTW1.jpeg?v=1749466078",
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_wfv0nzo5lG.webp?v=1749466079",
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_Zm6rxfHwtN.webp?v=1749466080",
+            ],
             name: "Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - KAKI",
             price: 1850000,
             brand: "Raidlight",
@@ -20,50 +30,114 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 2,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg",
             imageHide: null,
             name: "Áo Khoác Gió Nam NNormal Trail Wind Jacket - Light Green",
             price: 4999000,
+            thumbnail: [
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg?v=1761295804",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9HF5aAnmFy.png?v=1760756571",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_5RKtpHQytY.png?v=1760756573",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",
+            ],
             brand: "NNormal",
             size: null,
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 3,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251018_l4UTnFHDzR.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_l4UTnFHDzR.jpeg",
             imageHide: null,
             name: "Áo Khoác Gió Nam NNormal Trail Wind Jacket - White",
             price: 4999000,
+            thumbnail: [
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg?v=1761295804",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9HF5aAnmFy.png?v=1760756571",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_5RKtpHQytY.png?v=1760756573",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",
+            ],
             brand: "NNormal",
             size: null,
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 4,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250827_V28O8cqMLz.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250827_V28O8cqMLz.jpeg",
             imageHide: null,
             name: "Áo Khoác Chống Nước Nam NNormal Trail Rain Jacket Black Men - Green",
             price: 6360000,
+            thumbnail: [
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg?v=1761295804",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_9HF5aAnmFy.png?v=1760756571",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_5RKtpHQytY.png?v=1760756573",
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",
+            ],
             brand: "NNormal",
             size: null,
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
+            description: `
+          <div class="p-0"> 
+            <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+            <p class="mb-8">
+            Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+            <br/>
+            Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+            </p>
+            <div class="mb-8">
+              <img src="${chitietao}" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+            </div>
+            <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+              <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
+              <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
+              <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
+                <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
+                  <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
+                    <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
+              <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
+              <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
+              <li>Không dùng thuốc tẩy</li>
+              <li>Không giặt khô</li>
+              <li>Không ủi (là)</li>
+              <li>Có thể sấy khô ở nhiệt độ thấp</li>
+              <li>Giặt mặt trái áo.</li>
+                  <li>Giặt riêng với đồ khác</li>
+                  Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
+            </ul>
+            <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
+            <img src="${sizeao}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+          </div>
+        `,
           },
           {
             id: 5,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250827_lYBAuUQNjy.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250827_lYBAuUQNjy.jpeg",
             imageHide: null,
             name: "Áo Khoác Chống Nước Nam NNormal Trail Rain Jacket Black Men - Black",
             price: 6360000,
@@ -72,11 +146,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 6,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250717_Lo42bIKt2h.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250717_Lo42bIKt2h.jpeg",
             imageHide: null,
             name: "Áo Chạy Địa Hình Nam Hoka Men's Skybreeze Sleeve Zip T-Shirt - ULT",
             price: 2599000,
@@ -85,11 +160,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 7,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
             imageHide: null,
             name: "Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - Black",
             price: 1850000,
@@ -98,11 +174,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 8,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250610_88Q7Ug8ZUq.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250610_88Q7Ug8ZUq.jpeg",
             imageHide: null,
             name: "Áo Chạy Trail Nam Raidlight R-Light Maillot Homme - Black",
             price: 2130000,
@@ -111,11 +188,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 9,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250610_nv3PLhJCMs.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250610_nv3PLhJCMs.jpeg",
             imageHide: null,
             name: "Áo Chạy Địa Hình Nam Raidlight Maillot Ultra Drylight Men's short sleeve trail top - White/Orange",
             price: 2125000,
@@ -124,11 +202,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 10,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250416_y280XLmvDC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250416_y280XLmvDC.jpeg",
             imageHide: null,
             name: "Áo Chạy Địa Hình Chống Nước Nam Raidlight Veste Top Extreme MP+ Men's - Lime",
             price: 5290000,
@@ -137,11 +216,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 11,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250416_LCn33ZcQMv.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250416_LCn33ZcQMv.jpeg",
             imageHide: null,
             name: "Áo Chạy Địa Hình Nam Raidlight Maillot Ultra Drylight Men's short sleeve trail top - White/Grey",
             price: 2125000,
@@ -150,11 +230,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 12,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_Un1aNjaHoV.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_Un1aNjaHoV.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing Tank M-Fluo Red",
             price: 1861500,
@@ -163,11 +244,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 13,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_9ORR3kd6nX.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_9ORR3kd6nX.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing Tank M-Black",
             price: 1861500,
@@ -176,11 +258,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 14,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_uuu1NfXOsy.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_uuu1NfXOsy.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing SS TShirt M-Shadow Lime",
             price: 2116500,
@@ -189,11 +272,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 15,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_lhoEUai9Kl.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_lhoEUai9Kl.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing SS TShirt M-Blues",
             price: 2116500,
@@ -202,11 +286,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 16,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_aF00Tp2vaz.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_aF00Tp2vaz.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing SS TShirt M-Black",
             price: 2116500,
@@ -215,11 +300,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 17,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_2g2wyfs4xw.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_2g2wyfs4xw.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing Postural SS Top M-Indigo/Blues",
             price: 2507500,
@@ -228,11 +314,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 18,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_4xTWCN8CfW.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_4xTWCN8CfW.jpeg",
             imageHide: null,
             name: "Trail Racing | Áo Chạy Trail Nam Compressport Trail Racing Postural SS Top M-Nile",
             price: 2507500,
@@ -241,11 +328,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 19,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20241116_xS6CTvLcs3.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20241116_xS6CTvLcs3.jpeg",
             imageHide: null,
             name: "Áo Chạy Trail Nam Raidlight R-Light Maillot Homme - Lime",
             price: 2130000,
@@ -254,9 +342,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Giày Chạy Bộ Nam",
@@ -264,7 +352,8 @@ export const dataNew = [
         products: [
           {
             id: 20,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_0xDjsKKRFN.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_0xDjsKKRFN.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance-T - Arctic/Eclipse",
             price: 2060000,
@@ -273,11 +362,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 21,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_aD2tq2Gkqh.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_aD2tq2Gkqh.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance-T Lumos - Black",
             price: 2699000,
@@ -286,11 +376,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 22,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_iLk7s2mlDA.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_iLk7s2mlDA.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance Long-T Lumos - Black",
             price: 2999000,
@@ -299,11 +390,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 23,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg",
             imageHide: null,
             name: "Áo Khoác Chạy Bộ Nam On Running Men's Weather Jacket - Desert/Cinder",
             price: 5648000,
@@ -312,11 +404,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 24,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_N5LQWAIyx5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_N5LQWAIyx5.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance-T - Acai/Black",
             price: 2060000,
@@ -325,11 +418,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 25,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250825_4nMUze9PPb.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_4nMUze9PPb.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance-T - Olive/Spirulina",
             price: 2060000,
@@ -338,11 +432,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 26,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250825_OLYXT2eGsC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_OLYXT2eGsC.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Pace Mesh-T - Black/Horizon",
             price: 2649000,
@@ -351,11 +446,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 27,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250825_1zyj40cA0N.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_1zyj40cA0N.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Pace Mesh-T - Black/Glacier",
             price: 2649000,
@@ -364,11 +460,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 28,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250814_YQhPmHeRZ7.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250814_YQhPmHeRZ7.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Pace Tank - Glacier/White",
             price: 2355000,
@@ -377,11 +474,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 29,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nam-On-Running-Men-s-Race-Singlet-Lime-3.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nam-On-Running-Men-s-Race-Singlet-Lime-3.jpg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Race Singlet - Lime",
             price: 2350000,
@@ -390,11 +488,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 30,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nam-ON-Running-Men-s-Performance-T-Lilac-Black.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nam-ON-Running-Men-s-Performance-T-Lilac-Black.jpg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Performance-T - Lilac/Black",
             price: 2060000,
@@ -403,11 +502,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 31,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/Ao-Ba-Lo-The-Thao-Nam-On-Running-Performance-Tank-Arctic-Eclipse-2.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/Ao-Ba-Lo-The-Thao-Nam-On-Running-Performance-Tank-Arctic-Eclipse-2.jpg",
             imageHide: null,
             name: "Áo Ba Lỗ Thể Thao Nam On Running Men's Performance Tank - Arctic/Eclipse",
             price: 2099000,
@@ -416,11 +516,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 32,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250421_QyW0VqRW95.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250421_QyW0VqRW95.jpeg",
             imageHide: null,
             name: "Áo Ba Lỗ Thể Thao Nam On Running Men's Performance Tank - Flame",
             price: 2099000,
@@ -429,11 +530,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 33,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250421_ZR1AE8csLV.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250421_ZR1AE8csLV.jpeg",
             imageHide: null,
             name: "Áo Ba Lỗ Thể Thao Nam On Running Men's Pace Tank - Lime",
             price: 2399000,
@@ -442,11 +544,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 34,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250421_WvhcYR5wMq.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250421_WvhcYR5wMq.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam On Running Men's Pace Mesh-T - Red",
             price: 2699000,
@@ -455,11 +558,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 35,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/Ao-Ba-Lo-The-Thao-Nam-On-Running-Core-Tank-Blue.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/Ao-Ba-Lo-The-Thao-Nam-On-Running-Core-Tank-Blue.jpg",
             imageHide: null,
             name: "Áo Ba Lỗ Thể Thao Nam On Running Men's Core Tank - Blue",
             price: 1499000,
@@ -468,11 +572,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 36,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250120_xVnLCYobQv.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250120_xVnLCYobQv.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam ON Running Men's Performance-T - Limelight/Lime",
             price: 2099000,
@@ -481,9 +586,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Áo Chạy Bộ",
@@ -491,7 +596,8 @@ export const dataNew = [
         products: [
           {
             id: 37,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Compressport Pro Racing SS TShirt M- Fluo Red-TR",
             price: 2850000,
@@ -500,11 +606,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 38,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_GVXEvgVKd8.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_GVXEvgVKd8.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Compressport Performance Singlet M - Fluo Red/White",
             price: 1690000,
@@ -513,11 +620,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 39,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250916_y034WbawPr.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250916_y034WbawPr.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Women's Race Vest - Blue",
             price: 3250000,
@@ -526,11 +634,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 40,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250916_EuhHxQDjEG.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250916_EuhHxQDjEG.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Men's Race Vest 2.0 - Master Mix (10 Years)",
             price: 3250000,
@@ -539,11 +648,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 41,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250916_VvXM7bsaev.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250916_VvXM7bsaev.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Men's Race Vest 2.0 - Black/Red Navy",
             price: 3250000,
@@ -552,11 +662,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 42,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251008_dk8h2t8pzg.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251008_dk8h2t8pzg.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam T8 Men's Iced Tee - Silver Blue",
             price: 990000,
@@ -565,11 +676,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 43,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250609_ayGSbPyIzu.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_ayGSbPyIzu.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Raidlight Dynamic SS Top Men 's - Blue",
             price: 1250000,
@@ -578,11 +690,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 44,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250609_NhuXdJIgPk.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250609_NhuXdJIgPk.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Raidlight Dynamic SS Top Men 's - Black",
             price: 1250000,
@@ -591,11 +704,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 45,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250416_a7vYgbu5NS.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250416_a7vYgbu5NS.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Raidlight T-shirt MC Men's - Blue/White",
             price: 1825000,
@@ -604,11 +718,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 46,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250416_S7UhU6KzC9.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250416_S7UhU6KzC9.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Raidlight T-shirt MC Men's - Blue/White/Red",
             price: 1825000,
@@ -617,11 +732,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 47,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250324_M9yWznzcSI.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250324_M9yWznzcSI.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam Hoka Airolite - HKB",
             price: 1399000,
@@ -630,11 +746,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 48,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250321_2TtucTogrp.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250321_2TtucTogrp.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam NNormal Race T-Shirt Men - Nature AI Print",
             price: 1640000,
@@ -643,11 +760,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 49,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250331_A9dXZyVJEp.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250331_A9dXZyVJEp.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam NNormal Race Tank Men - NN Dusty Pink",
             price: 1344000,
@@ -656,11 +774,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 50,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250321_eRXfJe7dHz.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250321_eRXfJe7dHz.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam NNormal Race Tank Men - NN Black",
             price: 1344000,
@@ -669,11 +788,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 51,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250321_S0fqfgLEE8.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250321_S0fqfgLEE8.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam NNormal Race Tank Men - Nature AI Print",
             price: 1344000,
@@ -682,11 +802,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 52,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250320_zRsigt0mmo.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250320_zRsigt0mmo.jpeg",
             imageHide: null,
             name: "SOAR - Áo Dài Tay Men's Race Base Layer - Black/Rainbow Dot",
             price: 3500000,
@@ -695,11 +816,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 53,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250320_n7YMkD7ChA.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250320_n7YMkD7ChA.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Men's Race Vest - White/Summer Rainbow",
             price: 0,
@@ -708,11 +830,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 54,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250320_UTpa30P1ud.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250320_UTpa30P1ud.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Men's Race Vest - Black Rainbow Dot",
             price: 1976500,
@@ -721,11 +844,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 55,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250320_j9izmP7o3l.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250320_j9izmP7o3l.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Men's Race Vest Black",
             price: 1976500,
@@ -734,11 +858,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 56,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250320_qDvuIFHtkB.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250320_qDvuIFHtkB.jpeg",
             imageHide: null,
             name: "SOAR - Áo Chạy Bộ Men's Race Tee - White/Summer Rainbow",
             price: 0,
@@ -747,11 +872,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 57,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_TpuPuUz6SS.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_TpuPuUz6SS.jpeg",
             imageHide: null,
             name: "SS TShirt | Áo Chạy Bộ Nam Áo Chạy Bộ Compressport Performance SS Tshirt M-Indigo",
             price: 1790000,
@@ -760,11 +886,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 58,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250308_6ZJdCAGrOJ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250308_6ZJdCAGrOJ.jpeg",
             imageHide: null,
             name: "SS TShirt | Áo Chạy Bộ Nam Compressport Performance SS Tshirt M-Sugar/Camo Print",
             price: 1790000,
@@ -773,11 +900,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 59,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250331_wNI7UoaBZo.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250331_wNI7UoaBZo.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nam NNormal Race Tank Men - Dusty Pink",
             price: 1344000,
@@ -786,11 +914,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 60,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20241226_CKEka3DKY0.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20241226_CKEka3DKY0.jpeg",
             imageHide: null,
             name: "Áo Dài Tay Nam 2XU Aero 1/2 Zip - Black/Grey",
             price: 1253000,
@@ -799,11 +928,64 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
-      }
-    ]
+            isGift: false,
+          },
+        ],
+      },
+    ],
+    description: `
+      <h2><strong>Đồ Chạy Bộ Nam – Sự Lựa Chọn Của Những Runner Đẳng Cấp</strong></h2>
+      <p>Bạn đang tìm kiếm trang phục và giày chạy bộ <strong>cao cấp</strong>, đáp ứng được cả yếu tố 
+      <em>hiệu suất, sự bền bỉ và tính thời trang</em>? Bộ sưu tập <strong>đồ chạy bộ nam</strong> tại 
+      <strong> IMSPORTS</strong> mang đến những sản phẩm <strong>tốt nhất thế giới</strong>, giúp bạn 
+      <strong> tối ưu trải nghiệm chạy và chinh phục mọi cung đường.</strong></p>
+
+      <h3>1. Vì sao runner cần đầu tư vào đồ chạy bộ chuyên dụng?</h3>
+      <ul>
+        <li>✓ <strong>Công nghệ vải tiên tiến:</strong> Thoáng khí, hút ẩm nhanh giúp cơ thể luôn khô ráo và thoải mái.</li>
+        <li>✓ <strong>Thiết kế tối ưu hiệu suất:</strong> Co giãn linh hoạt, ôm vừa vặn nhưng không bó chặt, hỗ trợ chuyển động tối đa.</li>
+        <li>✓ <strong>Trọng lượng siêu nhẹ:</strong> Giảm thiểu lực cản, cho cảm giác linh hoạt và tự do.</li>
+        <li>✓ <strong>Thương hiệu cao cấp:</strong> Chỉ mang đến những sản phẩm từ các thương hiệu thể thao hàng đầu thế giới.</li>
+      </ul>
+
+      <h3>2. Bộ sưu tập đồ chạy bộ nam tại IMSPORTS</h3>
+      <ul>
+        <li>👕 <strong>Áo chạy bộ nam:</strong> Áo tank top, áo thun, áo dài tay thoáng khí, co giãn tốt.</li>
+        <li>🩳 <strong>Quần chạy bộ nam:</strong> Siêu nhẹ, nhanh khô, hỗ trợ chuyển động tự nhiên.</li>
+        <li>🧥 <strong>Áo khoác chạy bộ:</strong> Giữ ấm, chống gió, bảo vệ cơ thể trong điều kiện khắc nghiệt.</li>
+        <li>👟 <strong>Giày chạy bộ:</strong> Êm ái, hỗ trợ tốt cho bàn chân, độ bám cao.</li>
+        <li>🥾 <strong>Giày chạy địa hình (trail running):</strong> 
+          <ul>
+            <li>• <strong>HOKA</strong> – Thương hiệu giày trail “quốc dân”, phù hợp với địa hình Việt Nam.</li>
+            <li>• <strong>NNormal & Norda</strong> – Hiệu suất cao, bám địa hình cực tốt.</li>
+          </ul>
+        </li>
+        <li>🩴 <strong>Dép phục hồi (recovery sandals):</strong> Giúp phục hồi cơ chân nhanh sau tập luyện.</li>
+        <li>🎽 <strong>Phụ kiện chạy bộ:</strong> Tất nén, mũ, bao tay, dây đai, mắt kính, túi nước,...</li>
+      </ul>
+
+      <h3>3. Những thương hiệu chạy bộ cao cấp tại IMSPORTS</h3>
+      <p>🔥 <strong>Giày chạy bộ nam:</strong> HOKA, NNormal, Norda, ON Running, Saucony, Xeroshoes, Salomon.</p>
+      <p>🔥 <strong>Trang phục chạy bộ:</strong> ON Running, Soar Running, 2XU, Compressport, Raidlight, T8, Runderwear.</p>
+
+      <h3>4. Cách chọn đồ chạy bộ nam phù hợp theo nhu cầu</h3>
+      <ul>
+        <li>☀️ <strong>Chạy bộ trong thời tiết nóng:</strong> Áo thoáng khí, quần short nhẹ, giày có độ thông thoáng cao.</li>
+        <li>🏃‍♂️ <strong>Chạy đường dài / marathon:</strong> Quần short có túi đựng gel, áo chống nắng, giày đệm êm.</li>
+        <li>⛰ <strong>Chạy địa hình (trail running):</strong> Giày HOKA, NNormal hoặc Norda; áo khoác gió, quần bó thoải mái.</li>
+        <li>💪 <strong>Tập luyện hàng ngày & chạy cự ly ngắn:</strong> Áo thun thể thao, quần short linh hoạt, dép recovery.</li>
+      </ul>
+
+      <h3>🔥 Sẵn sàng nâng tầm trải nghiệm chạy bộ của bạn?</h3>
+      <p>Tất cả sản phẩm tại <strong>IMSPORTS</strong> đều thuộc phân khúc 
+      <strong> chạy bộ cao cấp</strong>, giúp bạn <em>tận hưởng từng bước chạy với sự thoải mái và hiệu suất tối ưu nhất.</em></p>
+
+      <p>Cửa hàng thể thao IMSPORTS cung cấp đa dạng sản phẩm từ quần áo, giày, phụ kiện đến thiết bị chuyên dụng, 
+      mang đến cho cộng đồng runner Việt Nam những lựa chọn tốt nhất. Chúng tôi tự hào là địa chỉ uy tín hàng đầu 
+      cho các vận động viên và người yêu chạy bộ.</p>
+
+      <p>IMSPORTS – <em>Đồng hành cùng từng bước chạy của bạn!</em> 🏅</p>
+    `,
   },
   {
     id: 2,
@@ -817,8 +999,10 @@ export const dataNew = [
         products: [
           {
             id: 61,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250825_b4ruZkT1Wo.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_b4ruZkT1Wo.jpeg",
             name: "Light Speed Compression | Quần Bó Cơ Nữ 2XU Light Speed Mid-Rise Compression Shorts - BLK/GRF",
             price: 1799100,
             brand: "2XU",
@@ -827,11 +1011,12 @@ export const dataNew = [
             link: "https://imsports.vn/light-speed-compression-quan-bo-co-nu-2xu-light-speed-midrise-compression-shorts-blkgrf-p38669318.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 62,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251006_WBrbR1GSEJ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251006_WBrbR1GSEJ.jpeg",
             imageHide: null,
             name: "Quần Bó Cơ Nam 2XU Base Layer Compression - BLK/NRO",
             price: 1492500,
@@ -841,11 +1026,12 @@ export const dataNew = [
             link: "https://imsports.vn/quan-bo-co-nam-2xu-base-layer-compression-blknro-p39113821.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 63,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250723_oRCv9zADRi.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250723_oRCv9zADRi.jpeg",
             imageHide: null,
             name: "Light Speed React | Quần Bó Cơ Nữ 2XU Light Speed React Hi-Rise Compression - BLK/IDK",
             price: 3199200,
@@ -855,11 +1041,12 @@ export const dataNew = [
             link: "https://imsports.vn/light-speed-react-quan-bo-co-nu-2xu-light-speed-react-hirise-compression-blkidk-p39113078.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 64,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250709_9hntYIV8cp.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250709_9hntYIV8cp.jpeg",
             imageHide: null,
             name: "Quần Ngắn Thể Thao Nữ HOKA Novafly 6'' - Black",
             price: 1399000,
@@ -869,9 +1056,9 @@ export const dataNew = [
             link: "https://imsports.vn/quan-ngan-the-thao-nu-hoka-novafly-6-black-p39112878.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Giày Chạy Bộ Nữ",
@@ -879,7 +1066,8 @@ export const dataNew = [
         products: [
           {
             id: 65,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_kXQqhHKwJh.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_kXQqhHKwJh.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Race Crop - Lime",
             price: 3926000,
@@ -889,11 +1077,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-race-crop-lime-p39114083.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 66,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_1BttCDs6Jj.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_1BttCDs6Jj.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Race Crop - Black",
             price: 3926000,
@@ -903,11 +1092,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-race-crop-black-p39114079.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 67,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_MDVBHq5nzQ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_MDVBHq5nzQ.jpeg",
             imageHide: null,
             name: "Áo Khoác Thể Thao Nữ On Running Women's Zero Jacket - Glacier",
             price: 4711000,
@@ -917,11 +1107,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-khoac-the-thao-nu-on-running-womens-zero-jacket-glacier-p39114075.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 68,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_0YsbLrrobb.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_0YsbLrrobb.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Performance Long-T Lumos - Black",
             price: 2999000,
@@ -931,11 +1122,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-performance-longt-lumos-black-p39114065.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 69,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251030_FlC1zio0U5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251030_FlC1zio0U5.jpeg",
             imageHide: null,
             name: "Mach X 2 Wide | Giày Chạy Bộ Nữ Hoka Mach X 2 Wide - BCQ",
             price: 4550000,
@@ -945,11 +1137,12 @@ export const dataNew = [
             link: "https://imsports.vn/mach-x-2-wide-giay-chay-bo-nu-hoka-mach-x-2-wide-bcq-p39114053.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 70,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251020_7rVXdaBZGd.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251020_7rVXdaBZGd.jpeg",
             imageHide: null,
             name: "Áo Ngực Chạy Bộ Zoot Women's Elite Run Bra - Rose",
             price: 1750000,
@@ -959,11 +1152,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-nguc-chay-bo-zoot-womens-elite-run-bra-rose-p39113958.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 71,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251020_QBU4IkPQnR.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251020_QBU4IkPQnR.jpeg",
             imageHide: null,
             name: "Áo Ngực Chạy Bộ Zoot Women's Elite Run Bra - Jet Black",
             price: 1750000,
@@ -973,11 +1167,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-nguc-chay-bo-zoot-womens-elite-run-bra-jet-black-p39113955.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 72,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_TY9gpgGILH.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_TY9gpgGILH.jpeg",
             imageHide: null,
             name: "Clifton 10 Wide | Giày Chạy Bộ Nữ Hoka Clifton 10 Wide - SJD",
             price: 3599000,
@@ -987,11 +1182,12 @@ export const dataNew = [
             link: "https://imsports.vn/clifton-10-wide-giay-chay-bo-nu-hoka-clifton-10-wide-sjd-p39113932.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 73,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_kQDfNTNjBj.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_kQDfNTNjBj.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ Compressport Performance Singlet W - Flou Red/White",
             price: 1690000,
@@ -1001,12 +1197,14 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-compressport-performance-singlet-w-flou-redwhite-p39113885.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 74,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20251006_zxHy68oaiu.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251006_zxHy68oaiu.jpeg",
             name: "Bondi 9 Wide | Giày Chạy Bộ Nữ Hoka Bondi 9 Wide - TLSL",
             price: 3999000,
             brand: "Hoka",
@@ -1015,11 +1213,12 @@ export const dataNew = [
             link: "https://imsports.vn/bondi-9-wide-giay-chay-bo-nu-hoka-bondi-9-wide-tlsl-p39113825.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 75,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250908_sSiTxot016.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250908_sSiTxot016.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ T8 Women's Iced Tee - White",
             price: 990000,
@@ -1029,11 +1228,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-t8-womens-iced-tee-white-p39113632.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 76,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_LondkjwUnj.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_LondkjwUnj.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Performance-T - Grenadine/Black",
             price: 2060000,
@@ -1043,11 +1243,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-performancet-grenadineblack-p39113597.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 77,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_MDnXelC40W.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_MDnXelC40W.jpeg",
             imageHide: null,
             name: "Áo Ngực Thể Thao On Running Women's Performance Bra Lumos - Black",
             price: 2350000,
@@ -1057,11 +1258,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-nguc-the-thao-on-running-womens-performance-bra-lumos-black-p39113589.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 78,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_wCV8xiAePw.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_wCV8xiAePw.jpeg",
             imageHide: null,
             name: "Quần Chạy Bộ Nữ On Running Men's 3\" Performance 2/1 Shorts - Grenadine/Black",
             price: 2350000,
@@ -1071,11 +1273,12 @@ export const dataNew = [
             link: "https://imsports.vn/quan-chay-bo-nu-on-running-mens-3-performance-21-shorts-grenadineblack-p39113586.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 79,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_Oesrr4M1Eo.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250905_Oesrr4M1Eo.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Core Long-T - Grenadine",
             price: 2060000,
@@ -1085,11 +1288,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-core-longt-grenadine-p39113583.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 80,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_ezWL86Ilgl.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_ezWL86Ilgl.jpeg",
             imageHide: null,
             name: "Clifton 10 Wide | Giày Chạy Bộ Nữ Hoka Clifton 10 Wide - RMD",
             price: 3599000,
@@ -1099,11 +1303,12 @@ export const dataNew = [
             link: "https://imsports.vn/clifton-10-wide-giay-chay-bo-nu-hoka-clifton-10-wide-rmd-p39113500.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 81,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_V27NtnJLBm.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_V27NtnJLBm.jpeg",
             imageHide: null,
             name: "Mach 6 Wide | Giày Chạy Bộ Nữ Hoka Mach 6 Wide - RSLT",
             price: 3599000,
@@ -1113,11 +1318,12 @@ export const dataNew = [
             link: "https://imsports.vn/mach-6-wide-giay-chay-bo-nu-hoka-mach-6-wide-rslt-p39113494.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 82,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_oMpJ0fK46y.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_oMpJ0fK46y.jpeg",
             imageHide: null,
             name: "Bondi 9 Wide | Giày Chạy Bộ Nữ Hoka Bondi 9 Wide - ALBST",
             price: 3599100,
@@ -1127,11 +1333,12 @@ export const dataNew = [
             link: "https://imsports.vn/bondi-9-wide-giay-chay-bo-nu-hoka-bondi-9-wide-albst-p39113438.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 83,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_67xtpQk2M5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_67xtpQk2M5.jpeg",
             imageHide: null,
             name: "Mach 6 Wide | Giày Chạy Bộ Nữ Hoka Mach 6 Wide - TNDR",
             price: 3239100,
@@ -1141,12 +1348,14 @@ export const dataNew = [
             link: "https://imsports.vn/mach-6-wide-giay-chay-bo-nu-hoka-mach-6-wide-tndr-p39113431.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 84,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250910_qDwlTtJ8sz.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250910_qDwlTtJ8sz.jpeg",
             name: "Quần Chạy Bộ Nữ T8 Women's Sherpa Shorts - IMSports Limited",
             price: 1680000,
             brand: "T8",
@@ -1155,11 +1364,12 @@ export const dataNew = [
             link: "https://imsports.vn/quan-chay-bo-nu-t8-womens-sherpa-shorts-imsports-limited-p39113377.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 85,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250825_bEohill3mC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_bEohill3mC.jpeg",
             imageHide: null,
             name: "Giày Chạy Bộ Nữ On Running Cloudsurfer Max - Horizon/Ivory",
             price: 5200000,
@@ -1169,11 +1379,12 @@ export const dataNew = [
             link: "https://imsports.vn/giay-chay-bo-nu-on-running-cloudsurfer-max-horizonivory-p39113358.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 86,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_8PUDg7bxcr.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_8PUDg7bxcr.jpeg",
             imageHide: null,
             name: "Clifton 10 Wide | Giày Chạy Bộ Nữ Hoka Clifton 10 Wide - NYL",
             price: 2879200,
@@ -1183,11 +1394,12 @@ export const dataNew = [
             link: "https://imsports.vn/clifton-10-wide-giay-chay-bo-nu-hoka-clifton-10-wide-nyl-p39113327.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 87,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251008_bUefaud7eV.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251008_bUefaud7eV.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ T8 Women's Iced Tee - Silver Blue",
             price: 990000,
@@ -1197,11 +1409,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-t8-womens-iced-tee-silver-blue-p39113294.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 88,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250814_4MOvOkyePH.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250814_4MOvOkyePH.jpeg",
             imageHide: null,
             name: "Giày Chạy Bộ Nữ On Running Cloudboom Max - Lime/Raspberry",
             price: 5340000,
@@ -1211,11 +1424,12 @@ export const dataNew = [
             link: "https://imsports.vn/giay-chay-bo-nu-on-running-cloudboom-max-limeraspberry-p39113281.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 89,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250814_0bfZ14Me2h.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250814_0bfZ14Me2h.jpeg",
             imageHide: null,
             name: "Quần Chạy Bộ Nữ On Running Women's Pace Tights Short - Black/Black",
             price: 2355000,
@@ -1225,11 +1439,12 @@ export const dataNew = [
             link: "https://imsports.vn/quan-chay-bo-nu-on-running-womens-pace-tights-short-blackblack-p39113272.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 90,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250814_ZB4FXGf1Ze.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250814_ZB4FXGf1Ze.jpeg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ On Running Women's Pace Tank - Glacier/White",
             price: 2355000,
@@ -1239,11 +1454,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-on-running-womens-pace-tank-glacierwhite-p39113264.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 91,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250814_hJwCUbfdvT.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250814_hJwCUbfdvT.jpeg",
             imageHide: null,
             name: "Áo Ngực Thể Thao On Running Women's Endurance Bra Zip - Spirulina",
             price: 2750000,
@@ -1253,11 +1469,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-nguc-the-thao-on-running-womens-endurance-bra-zip-spirulina-p39113251.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 92,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_88misl3ZJF.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_88misl3ZJF.jpeg",
             imageHide: null,
             name: "Mach X 3 Wide | Giày Chạy Bộ Nữ Hoka Mach X 3 Wide - NNRS",
             price: 4599000,
@@ -1267,11 +1484,12 @@ export const dataNew = [
             link: "https://imsports.vn/mach-x-3-wide-giay-chay-bo-nu-hoka-mach-x-3-wide-nnrs-p39113198.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 93,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nu-T8-Women-s-Iced-Tee-Pure-Black-VS2-1.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/Ao-Chay-Bo-Nu-T8-Women-s-Iced-Tee-Pure-Black-VS2-1.jpg",
             imageHide: null,
             name: "Áo Chạy Bộ Nữ T8 Women's Iced Tee - Pure Black VS2",
             price: 990000,
@@ -1281,11 +1499,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-chay-bo-nu-t8-womens-iced-tee-pure-black-vs2-p39113066.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 94,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250717_dT4eza22AM.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250717_dT4eza22AM.jpeg",
             imageHide: null,
             name: "Áo Ngực Chạy Bộ 2Xu Aero Medium Impact Bra - BLK/BLK",
             price: 1272000,
@@ -1295,11 +1514,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-nguc-chay-bo-2xu-aero-medium-impact-bra-blkblk-p39112948.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 95,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_9dNLyXutyg.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_9dNLyXutyg.jpeg",
             imageHide: null,
             name: "Clifton 10 Wide | Giày Chạy Bộ Nữ Hoka Clifton 10 Wide - BHRS",
             price: 3239100,
@@ -1309,11 +1529,12 @@ export const dataNew = [
             link: "https://imsports.vn/clifton-10-wide-giay-chay-bo-nu-hoka-clifton-10-wide-bhrs-p39112929.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 96,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250708_PXZoG2KvbN.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250708_PXZoG2KvbN.jpeg",
             imageHide: null,
             name: "Áo Ba Lỗ Thể Thao Nữ On Running Women's Pace Tank - Black",
             price: 2355000,
@@ -1323,11 +1544,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-ba-lo-the-thao-nu-on-running-womens-pace-tank-black-p39112868.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 97,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250708_LTMdQibGzl.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250708_LTMdQibGzl.jpeg",
             imageHide: null,
             name: "Giày Chạy Bộ Nữ On Running Cloudsurfer Max - Ivory/Salmon",
             price: 4160000,
@@ -1337,11 +1559,12 @@ export const dataNew = [
             link: "https://imsports.vn/giay-chay-bo-nu-on-running-cloudsurfer-max-ivorysalmon-p39112863.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 98,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250708_YEiNlU1rKz.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250708_YEiNlU1rKz.jpeg",
             imageHide: null,
             name: "Giày Chạy Bộ Nữ On Running Cloudsurfer Max - White/White",
             price: 4160000,
@@ -1351,9 +1574,9 @@ export const dataNew = [
             link: "https://imsports.vn/giay-chay-bo-nu-on-running-cloudsurfer-max-whitewhite-p39112859.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Giày Chạy Địa Hình Nữ",
@@ -1361,7 +1584,8 @@ export const dataNew = [
         products: [
           {
             id: 99,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251018_X44P5PJsRk.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_X44P5PJsRk.jpeg",
             imageHide: null,
             name: "Áo Khoác Gió Nữ NNormal Trail Wind Jacket - White",
             price: 4999000,
@@ -1371,11 +1595,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-khoac-gio-nu-nnormal-trail-wind-jacket-white-p39113951.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 100,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251018_AxzvnupPy1.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251018_AxzvnupPy1.jpeg",
             imageHide: null,
             name: "Áo Khoác Gió Nữ NNormal Trail Wind Jacket - Light Green",
             price: 4999000,
@@ -1385,11 +1610,12 @@ export const dataNew = [
             link: "https://imsports.vn/ao-khoac-gio-nu-nnormal-trail-wind-jacket-light-green-p39113947.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 101,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_EdLLZPLSr1.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_EdLLZPLSr1.jpeg",
             imageHide: null,
             name: "Giày Sneaker Nữ HOKA Mafate Three2 - FLCK",
             price: 4399000,
@@ -1399,11 +1625,12 @@ export const dataNew = [
             link: "https://imsports.vn/giay-sneaker-nu-hoka-mafate-three2-flck-p39113906.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 102,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_jOyM3uv0PW.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_jOyM3uv0PW.jpeg",
             imageHide: null,
             name: "Giày Nữ Hoka Mafate X Hike - HSL",
             price: 5269150,
@@ -1413,12 +1640,14 @@ export const dataNew = [
             link: "https://imsports.vn/giay-nu-hoka-mafate-x-hike-hsl-p39113905.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 103,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250922_G1nElBNq5J.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250922_G1nElBNq5J.jpeg",
             name: "Mafate 5 | Giày Chạy Địa Hình Nữ Hoka Mafate 5 - BKGD",
             price: 4599000,
             brand: "Hoka",
@@ -1427,11 +1656,12 @@ export const dataNew = [
             link: "https://imsports.vn/mafate-5-giay-chay-dia-hinh-nu-hoka-mafate-5-bkgd-p39113719.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 104,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250922_VusBL5UwFD.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250922_VusBL5UwFD.jpeg",
             imageHide: null,
             name: "Tomir 2.0 | Giày Chạy Địa Hình Nữ NNormal Tomir 2.0 - Beige",
             price: 5990000,
@@ -1441,11 +1671,12 @@ export const dataNew = [
             link: "https://imsports.vn/tomir-2.0-giay-chay-dia-hinh-nu-nnormal-tomir-2.0-beige-p39113702.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 105,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250922_gIkJE1Iupl.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250922_gIkJE1Iupl.jpeg",
             imageHide: null,
             name: "Kjerag 02 | Giày Chạy Địa Hình NNormal Kjerag 02 - Burgundy",
             price: 6990000,
@@ -1455,11 +1686,12 @@ export const dataNew = [
             link: "https://imsports.vn/kjerag-02-giay-chay-dia-hinh-nnormal-kjerag-02-burgundy-p39113696.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 106,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_re6w6YEAU0.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_re6w6YEAU0.jpeg",
             imageHide: null,
             name: "Norda 001A | Giày Chạy Địa Hình Nữ Norda 001A - Loam",
             price: 7300000,
@@ -1469,11 +1701,12 @@ export const dataNew = [
             link: "https://imsports.vn/norda-001a-giay-chay-dia-hinh-nu-norda-001a-loam-p39113568.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 107,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_xX4QbH4If0.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_xX4QbH4If0.jpeg",
             imageHide: null,
             name: "Norda 001A | Giày Chạy Địa Hình Nữ Norda 001A - Calcite",
             price: 7300000,
@@ -1483,12 +1716,14 @@ export const dataNew = [
             link: "https://imsports.vn/norda-001a-giay-chay-dia-hinh-nu-norda-001a-calcite-p39113563.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 108,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250827_9LULTMEh8e.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250827_9LULTMEh8e.jpeg",
             name: "Mafate 5 | Giày Chạy Địa Hình Nữ Hoka Mafate 5 - NNR",
             price: 4599000,
             brand: "Hoka",
@@ -1497,11 +1732,12 @@ export const dataNew = [
             link: "https://imsports.vn/mafate-5-giay-chay-dia-hinh-nu-hoka-mafate-5-nnr-p39113445.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 109,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250826_ly4FUGqh0M.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250826_ly4FUGqh0M.jpeg",
             imageHide: null,
             name: "Speedgoat 6 | Giày Chạy Địa Hình Nữ Hoka Speedgoat 6 - WNG",
             price: 2799300,
@@ -1511,11 +1747,12 @@ export const dataNew = [
             link: "https://imsports.vn/speedgoat-6-giay-chay-dia-hinh-nu-hoka-speedgoat-6-wng-p39113399.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 110,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250904_Jgzv1RW7SJ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250904_Jgzv1RW7SJ.jpeg",
             imageHide: null,
             name: "Speedgoat 6 Wide | Giày Chạy Địa Hình Nữ Hoka Speedgoat 6 Wide - GMC",
             price: 3399150,
@@ -1525,11 +1762,12 @@ export const dataNew = [
             link: "https://imsports.vn/speedgoat-6-wide-giay-chay-dia-hinh-nu-hoka-speedgoat-6-wide-gmc-p39113346.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 111,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250903_gvHBu3Qjef.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250903_gvHBu3Qjef.jpeg",
             imageHide: null,
             name: "Norda 001A | Giày Chạy Địa Hình Nam Norda 001A - Pewter",
             price: 7300000,
@@ -1539,11 +1777,12 @@ export const dataNew = [
             link: "https://imsports.vn/norda-001a-giay-chay-dia-hinh-nam-norda-001a-pewter-p39113311.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 112,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250903_3lYMuwFQRc.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250903_3lYMuwFQRc.jpeg",
             imageHide: null,
             name: "Norda 001A | Giày Chạy Địa Hình Nữ Norda 001A - Pewter",
             price: 7300000,
@@ -1553,11 +1792,12 @@ export const dataNew = [
             link: "https://imsports.vn/norda-001a-giay-chay-dia-hinh-nu-norda-001a-pewter-p39113305.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 113,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250804_9GND7eHvAv.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250804_9GND7eHvAv.jpeg",
             imageHide: null,
             name: "Quần Bó Chạy Địa Hình Nữ HOKA Skybreeze Half",
             price: 2799000,
@@ -1567,12 +1807,14 @@ export const dataNew = [
             link: "https://imsports.vn/quan-bo-chay-dia-hinh-nu-hoka-skybreeze-half-p39113206.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 114,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250730_SV9255FrmH.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250730_SV9255FrmH.jpeg",
             name: "Mafate 5 | Giày Chạy Địa Hình Nữ Hoka Mafate 5 - SWRD",
             price: 3909150,
             brand: "Hoka",
@@ -1581,11 +1823,12 @@ export const dataNew = [
             link: "https://imsports.vn/mafate-5-giay-chay-dia-hinh-nu-hoka-mafate-5-swrd-p39113183.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
+            isGift: true,
           },
           {
             id: 115,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250903_dKRqIdcDcl.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250903_dKRqIdcDcl.jpeg",
             imageHide: null,
             name: "Norda 005 | Giày Chạy Địa Hình Nữ Norda 005 - NéVé",
             price: 7800000,
@@ -1595,11 +1838,12 @@ export const dataNew = [
             link: "https://imsports.vn/norda-005-giay-chay-dia-hinh-nu-norda-005-neve-p39113136.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 116,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250723_PqhHNDw4SX.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250723_PqhHNDw4SX.jpeg",
             imageHide: null,
             name: "Speedgoat 6 | Giày Chạy Địa Hình Nữ Hoka Speedgoat 6 - SKYW",
             price: 2799300,
@@ -1609,11 +1853,12 @@ export const dataNew = [
             link: "https://imsports.vn/speedgoat-6-giay-chay-dia-hinh-nu-hoka-speedgoat-6-skyw-p39113069.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 117,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250723_oHY6jCfkW5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250723_oHY6jCfkW5.jpeg",
             imageHide: null,
             name: "Mafate X | Giày Chạy Địa Hình Nữ Hoka Mafate X - BKSK",
             price: 4639200,
@@ -1623,11 +1868,12 @@ export const dataNew = [
             link: "https://imsports.vn/mafate-x-giay-chay-dia-hinh-nu-hoka-mafate-x-bksk-p39113041.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 118,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250723_1FEGJw3j8c.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250723_1FEGJw3j8c.jpeg",
             imageHide: null,
             name: "Speedgoat 6 | Giày Chạy Địa Hình Nữ Hoka Speedgoat 6 - RSLT",
             price: 3119220,
@@ -1637,9 +1883,9 @@ export const dataNew = [
             link: "https://imsports.vn/speedgoat-6-giay-chay-dia-hinh-nu-hoka-speedgoat-6-rslt-p39113014.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Giày Lifestyle Nữ",
@@ -1647,7 +1893,8 @@ export const dataNew = [
         products: [
           {
             id: 119,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251006_Wqwz5ZVGeP.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251006_Wqwz5ZVGeP.jpeg",
             imageHide: null,
             name: "Giày Đi Bộ Đường Dài HOKA Transport - RLTT",
             price: 3999000,
@@ -1657,9 +1904,9 @@ export const dataNew = [
             link: "https://imsports.vn/giay-di-bo-duong-dai-hoka-transport-rltt-p39113847.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Áo Chạy Bộ Nữ",
@@ -1667,7 +1914,8 @@ export const dataNew = [
         products: [
           {
             id: 120,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250916_gtMfKMs0aZ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250916_gtMfKMs0aZ.jpeg",
             imageHide: null,
             name: "SOAR - Áo Thi Đấu Women's Race Vest 2.0 - Master Mix (10 Years)",
             price: 3250000,
@@ -1677,11 +1925,53 @@ export const dataNew = [
             link: "https://imsports.vn/soar-ao-thi-dau-womens-race-vest-2.0-master-mix-10-years-p39113679.html",
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
-      }
-    ]
+            isGift: false,
+          },
+        ],
+      },
+    ],
+    description: `
+      <h2><strong>Đồ Chạy Bộ Nữ – Thoải Mái, Phong Cách & Hiệu Suất Tối Ưu</strong></h2>
+        <p>Bạn là một nữ runner đang tìm kiếm trang phục chạy bộ hoàn hảo? Bộ sưu tập <strong>đồ chạy bộ nữ</strong> tại IMSPORTS mang đến sự kết hợp giữa <strong>thoải mái, thời trang và hiệu suất</strong>, giúp bạn tự tin bứt phá trên mọi cung đường.</p>
+
+        <h3>1. Vì sao cần đầu tư vào đồ chạy bộ chuyên dụng?</h3>
+        <ul>
+          <li>✓ <strong>Thoáng khí & thấm hút mồ hôi:</strong> Chất liệu cao cấp giúp bạn luôn khô ráo, thoáng mát trong suốt quá trình chạy.</li>
+          <li>✓ <strong>Co giãn & ôm sát vừa vặn:</strong> Tạo sự thoải mái tối đa, không gây cọ xát hay khó chịu.</li>
+          <li>✓ <strong>Trọng lượng nhẹ & nhanh khô:</strong> Giúp tối ưu hiệu suất, đặc biệt với những buổi chạy đường dài hoặc cường độ cao.</li>
+          <li>✓ <strong>Phong cách thời trang hiện đại:</strong> Không chỉ dành cho chạy bộ, bạn còn có thể diện những bộ đồ này khi tập gym, yoga hoặc hoạt động ngoài trời.</li>
+        </ul>
+
+        <h3>2. Danh mục đồ chạy bộ nữ có gì?</h3>
+        <ul>
+          <li><strong>Áo chạy bộ nữ:</strong> Áo tank top, áo thun thể thao, áo dài tay, tích hợp công nghệ thoáng khí, chống nắng.</li>
+          <li><strong>Quần chạy bộ nữ:</strong> Từ quần short nhẹ nhàng, quần legging ôm sát đến quần 2 lớp linh hoạt.</li>
+          <li><strong>Váy chạy bộ nữ:</strong> Lựa chọn lý tưởng cho những ai yêu thích sự nữ tính nhưng vẫn đảm bảo hiệu suất thể thao.</li>
+          <li><strong>Áo khoác chạy bộ nữ:</strong> Bảo vệ khỏi gió lạnh, mưa nhẹ và điều kiện thời tiết khắc nghiệt.</li>
+          <li><strong>Áo ngực thể thao (running bra):</strong> Được thiết kế chuyên biệt để nâng đỡ, giảm chấn động khi chạy, mang lại sự thoải mái tối đa.</li>
+          <li><strong>Giày chạy bộ nữ:</strong> Đáp ứng mọi nhu cầu từ chạy đường nhựa, chạy địa hình đến thi đấu marathon.</li>
+          <li><strong>Dép chạy bộ nữ (recovery sandals):</strong> Phục hồi đôi chân sau những buổi chạy dài, giảm áp lực lên bàn chân.</li>
+          <li><strong>Phụ kiện chạy bộ nữ:</strong> Tất chạy bộ, mũ, găng tay, hỗ trợ tối đa trong quá trình luyện tập.</li>
+        </ul>
+
+        <h3>3. Những thương hiệu hàng đầu có mặt tại IMSPORTS</h3>
+        <p>Chúng tôi tự hào mang đến những sản phẩm từ <strong>các thương hiệu chạy bộ cao cấp</strong>, được các vận động viên tin dùng như:</p>
+        <ul>
+          <li>👟 <strong>Giày chạy bộ nữ:</strong> ON Running, HOKA, Altra, Salomon, Brooks Running.</li>
+          <li>👚 <strong>Trang phục chạy bộ nữ:</strong> 2XU, Compressport, Raidlight, T8, Soar Running, Runderwear.</li>
+        </ul>
+
+        <h3>4. Lựa chọn đồ chạy bộ nữ phù hợp – Bí quyết nâng cao trải nghiệm chạy</h3>
+        <ul>
+          <li><strong>Chạy trong thời tiết nóng ☀️ →</strong> Chọn áo thoáng khí, quần short nhẹ, giày chạy thông thoáng.</li>
+          <li><strong>Chạy đường dài / marathon 🏃‍♀️ →</strong> Quần legging ôm sát, áo chống nắng, giày đệm êm ái.</li>
+          <li><strong>Chạy địa hình (trail running) 🏔️ →</strong> Giày bám địa hình tốt, áo khoác nhẹ chống gió, quần có túi tiện lợi.</li>
+          <li><strong>Tập luyện & chạy hàng ngày 💪 →</strong> Áo thun thể thao, áo bra nâng đỡ, dép recovery sau chạy.</li>
+        </ul>
+
+        <h3>🔥 Sẵn sàng nâng tầm cuộc chạy của bạn?</h3>
+        <p>Khám phá ngay <strong>bộ sưu tập đồ chạy bộ nữ</strong> tại <strong>IMSPORTS</strong> và chọn cho mình trang phục phù hợp nhất! ✨</p>
+    `,
   },
   {
     id: 3,
@@ -1695,7 +1985,8 @@ export const dataNew = [
         products: [
           {
             id: 121,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/S2-Kinh-100-S2-Matte-White-Pink-HiPER-Vital-Pink-Mirror.jpg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/S2-Kinh-100-S2-Matte-White-Pink-HiPER-Vital-Pink-Mirror.jpg",
             imageHide: null,
             name: "S2® | Kính 100% S2® - Matte White/Pink HiPER Vital Pink Mirror",
             price: 3099200,
@@ -1704,11 +1995,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 122,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20230520_LH3HBmJ1vC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20230520_LH3HBmJ1vC.jpeg",
             imageHide: null,
             name: "Supernova | Kính Thể Thao Koo Supernova - Blue Matt Turquoise Mirror Lenses",
             price: 3316500,
@@ -1717,11 +2009,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 123,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20230520_sTQZ0ELrsV.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20230520_sTQZ0ELrsV.jpeg",
             imageHide: null,
             name: "Demos | Kính Thể Thao Koo Demos White Photochromic Pink Lenses",
             price: 3886000,
@@ -1730,11 +2023,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 124,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_7UMqZfINtK.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_7UMqZfINtK.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Vogel SL, Crystal Clear",
             price: 1000000,
@@ -1743,11 +2037,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 125,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_Ut8K3KAWL0.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_Ut8K3KAWL0.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Vogel SL, Crystal Smoke",
             price: 1000000,
@@ -1756,11 +2051,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 126,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_pAQbghsMqB.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_pAQbghsMqB.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Vogel SL, Gloss Black",
             price: 1000000,
@@ -1769,11 +2065,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 127,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_tZDCNj01pY.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_tZDCNj01pY.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Intense, Crystal Smoke",
             price: 799200,
@@ -1782,11 +2079,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 128,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_WqiclhMD2T.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_WqiclhMD2T.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Rail XC, Crystal Smoke, Interchangeable",
             price: 2080000,
@@ -1795,11 +2093,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 129,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250822_wiK4HJSsXA.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250822_wiK4HJSsXA.jpeg",
             imageHide: null,
             name: "Kính Chạy Bộ Tifosi - Rail Race, Matte White, Interchangeable",
             price: 2080000,
@@ -1808,9 +2107,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Mũ Chạy Bộ",
@@ -1818,7 +2117,8 @@ export const dataNew = [
         products: [
           {
             id: 130,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250526_vz4kLWTWpT.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250526_vz4kLWTWpT.jpeg",
             imageHide: null,
             name: "Mũ Chạy Bộ Rộng Vành Fractel B-Series - Vietnamese Version Limited",
             price: 1350000,
@@ -1827,11 +2127,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 131,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_M8hFd7sMAT.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_M8hFd7sMAT.jpeg",
             imageHide: null,
             name: "Mũ Thể Thao Compressport Trucker 6P Cap - Grey Dawn/Ceylon Yellow",
             price: 960000,
@@ -1840,11 +2141,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 132,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_v1IRT4kAOJ.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_v1IRT4kAOJ.jpeg",
             imageHide: null,
             name: "Mũ Thể Thao Compressport Trucker Cap - Dazz Blue/White",
             price: 840000,
@@ -1853,11 +2155,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 133,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251014_j6ALgVrgP6.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251014_j6ALgVrgP6.jpeg",
             imageHide: null,
             name: "Mũ Thể Thao Hoka Trail Run Hat - BLK",
             price: 899000,
@@ -1866,11 +2169,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 134,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251014_PeS2vBWQ6h.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251014_PeS2vBWQ6h.jpeg",
             imageHide: null,
             name: "Mũ Chạy Bộ Hoka Run Hat - BLK",
             price: 899000,
@@ -1879,11 +2183,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 135,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250811_TI1ZU5GtcW.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250811_TI1ZU5GtcW.jpeg",
             imageHide: null,
             name: "Mũ Trucker Cap BUFF UTMB 2025",
             price: 693000,
@@ -1892,11 +2197,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 136,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250807_aC6UphKYFn.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250807_aC6UphKYFn.jpeg",
             imageHide: null,
             name: "Mũ Thể Thao Hoka Trail Run Hat - CLU",
             price: 899000,
@@ -1905,11 +2211,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 137,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250807_s4iAcxJ1Qb.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250807_s4iAcxJ1Qb.jpeg",
             imageHide: null,
             name: "Mũ Thể Thao Hoka Trail Run Hat - WHT",
             price: 899000,
@@ -1918,11 +2225,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 138,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_xngq7cUru4.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_xngq7cUru4.jpeg",
             imageHide: null,
             name: "Mũ Chạy Bộ 2XU Run Cap Unisex - HYC/WHT",
             price: 499000,
@@ -1931,11 +2239,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 139,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250718_LmhgZCOjhS.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250718_LmhgZCOjhS.jpeg",
             imageHide: null,
             name: "Mũ Chạy Bộ Hoka Run Hat - PAG",
             price: 899000,
@@ -1944,9 +2253,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Tất Chạy Bộ",
@@ -1954,7 +2263,8 @@ export const dataNew = [
         products: [
           {
             id: 140,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20230227_awv54mG1xy82Re5p.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20230227_awv54mG1xy82Re5p.jpeg",
             imageHide: null,
             name: "Tất chạy địa hình 1000 Mile Trail Sock Twin Pack (Bộ 2 đôi) - Grey/Purple + Grey/Blue",
             price: 590000,
@@ -1963,11 +2273,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 141,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20230407_bpMtxj53u5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20230407_bpMtxj53u5.jpeg",
             imageHide: null,
             name: "Tất xỏ ngón chạy bộ Injinji RUN Lightweight No Show - Clover",
             price: 369000,
@@ -1976,11 +2287,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 142,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_TElgc0OxYC.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_TElgc0OxYC.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ On Running Performance Run Sock High - Horizon/White",
             price: 784000,
@@ -1989,11 +2301,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 143,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_ovDBObFMw5.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_ovDBObFMw5.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ On Running Elite Run Sock High - Raspberry/Pink",
             price: 980000,
@@ -2002,11 +2315,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 144,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251031_nYa3kxzWRe.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251031_nYa3kxzWRe.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ On Running Elite Mid Sock - Raspberry/Pink",
             price: 882000,
@@ -2015,11 +2329,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 145,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251027_xpUHbYs3Jc.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251027_xpUHbYs3Jc.jpeg",
             imageHide: null,
             name: "Tất chạy bộ 2 lớp 1000 Mile Double Layer Sock Repreve - White",
             price: 420000,
@@ -2028,11 +2343,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 146,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251027_z0qhZADAol.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251027_z0qhZADAol.jpeg",
             imageHide: null,
             name: "All Terrain | Tất chạy bộ 2 lớp 1000 Mile All Terrain Repreve Sock - Black/Grey",
             price: 490000,
@@ -2041,11 +2357,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 147,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_3vYWJKuX4E.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_3vYWJKuX4E.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ Compresspot Pro Racing Socks v4.0 Ultralight Run High - JACARANDA/MAIZE",
             price: 560000,
@@ -2054,11 +2371,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 148,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251003_p0vDE8l1P6.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251003_p0vDE8l1P6.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Đường Dài Injinji Women Ultra Run Crew - Slate",
             price: 479000,
@@ -2067,11 +2385,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 149,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_Ulo37BipVL.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_Ulo37BipVL.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Trail Midweight Mini-Crew - Neptune",
             price: 429000,
@@ -2080,11 +2399,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 150,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_bVJiaFOrXD.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_bVJiaFOrXD.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Trail Midweight Mini-Crew - Mint",
             price: 429000,
@@ -2093,11 +2413,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 151,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_pCcyeNXcGg.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_pCcyeNXcGg.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Women Trail Midweight Mini-Crew - Periwinkle",
             price: 429000,
@@ -2106,11 +2427,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 152,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_x2xFcWE1sL.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_x2xFcWE1sL.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Women Trail Midweight Mini-Crew - Hibiscus",
             price: 429000,
@@ -2119,11 +2441,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 153,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_jtuk5Agn8D.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_jtuk5Agn8D.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Trail Midweight OCT - Granite",
             price: 579000,
@@ -2132,11 +2455,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 154,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_wNCor8X1kv.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_wNCor8X1kv.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Địa Hình Injinji Trail Midweight OCT - Storm",
             price: 579000,
@@ -2145,11 +2469,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 155,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_5hUblmyd8V.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_5hUblmyd8V.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Đường Dài Injinji Women Ultra Run Mini-Crew - Slate",
             price: 479000,
@@ -2158,11 +2483,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 156,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251001_2V8jo0uVQH.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_2V8jo0uVQH.jpeg",
             imageHide: null,
             name: "Tất Xỏ Ngón Chạy Đường Dài Injinji Ultra Run No Show - Pacific Blue",
             price: 449000,
@@ -2171,11 +2497,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 157,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250827_I07Mg9kTf6.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250827_I07Mg9kTf6.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ NNormal Race Sock Mid-Cut - Black",
             price: 695000,
@@ -2184,11 +2511,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 158,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250827_iNkR3wEDvn.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250827_iNkR3wEDvn.jpeg",
             imageHide: null,
             name: "Tất Chạy Bộ NNormal Race Sock Mid-Cut - Dusty Pink",
             price: 695000,
@@ -2197,9 +2525,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Bó Cơ - Tay - Chân",
@@ -2207,7 +2535,8 @@ export const dataNew = [
         products: [
           {
             id: 159,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251101_yphsbilvVn.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251101_yphsbilvVn.jpeg",
             imageHide: null,
             name: "[Quà Tặng] - Bó Calf Tay Nitecore Arm Sleeves - Vàng",
             price: 0,
@@ -2216,11 +2545,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 160,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_UcLjZFApD1.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_UcLjZFApD1.jpeg",
             imageHide: null,
             name: "Bó Cơ Ống Tay HOKA Airolite Armsleeves - Black",
             price: 799000,
@@ -2229,11 +2559,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 161,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_KLHeUryPno.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251016_KLHeUryPno.jpeg",
             imageHide: null,
             name: "Bó Bắp Chân Compressport Calf R2 3.0- STARGAZER/WHITE",
             price: 1190000,
@@ -2242,9 +2573,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Xà Cạp Giày",
@@ -2252,7 +2583,8 @@ export const dataNew = [
         products: [
           {
             id: 162,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251014_3FOn17Z5tt.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251014_3FOn17Z5tt.jpeg",
             imageHide: null,
             name: "Xà Cạp Giày HOKA Trail Footwear Gaiter - Blue",
             price: 999000,
@@ -2261,11 +2593,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 163,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251029_bXVjdInDXu.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251029_bXVjdInDXu.jpeg",
             imageHide: null,
             name: "Xà Cạp Trail Footwear Gaiter - Hồng",
             price: 119000,
@@ -2274,11 +2607,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 164,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251029_fRVNtaNWO4.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251029_fRVNtaNWO4.jpeg",
             imageHide: null,
             name: "Xà Cạp Trail Footwear Gaiter - Đen",
             price: 119000,
@@ -2287,11 +2621,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 165,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20251029_mVIEtMMCRk.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251029_mVIEtMMCRk.jpeg",
             imageHide: null,
             name: "Xà Cạp Trail Footwear Gaiter - Xanh",
             price: 119000,
@@ -2300,9 +2635,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Đèn Chạy Bộ",
@@ -2310,8 +2645,10 @@ export const dataNew = [
         products: [
           {
             id: 166,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20251001_RFEVu1O7A8.jpeg",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20251001_RFEVu1O7A8.jpeg",
             name: "UT27 MCT Pro | Đèn Đội Đầu Chạy Địa Hình Nitecore UT27 MCT Pro (2 x hlb1500)",
             price: 1272000,
             brand: "Nitecore",
@@ -2319,9 +2656,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
-          }
-        ]
+            isGift: true,
+          },
+        ],
       },
       {
         name: "Bao Tay Thể Thao",
@@ -2329,7 +2666,8 @@ export const dataNew = [
         products: [
           {
             id: 167,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250916_Vn0q87Wmny.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250916_Vn0q87Wmny.jpeg",
             imageHide: null,
             name: "Bao Tay Đeo Gậy LEKI Shark Frame Strap Mesh - Grey/Dark Anthracite",
             price: 950000,
@@ -2338,9 +2676,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Phụ Kiện Điện Tử",
@@ -2348,7 +2686,8 @@ export const dataNew = [
         products: [
           {
             id: 168,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250903_Uldfou7tGP.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250903_Uldfou7tGP.jpeg",
             imageHide: null,
             name: "Cáp Sạc Nhanh Nitecore NLink10 - USB Fast Charging Cable",
             price: 304000,
@@ -2357,12 +2696,14 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 169,
-            image: "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
-            imageHide: "https://pos.nvncdn.com/be3294-43017/ps/20250831_XfYOHTjavY.png",
+            image:
+              "https://web.nvnstatic.net/tp/T0194/img/store/43017/gift.png",
+            imageHide:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250831_XfYOHTjavY.png",
             name: "NB Plus | Sạc Dự Phòng Siêu Nhẹ Nitecore NB Plus (10,000mAh)",
             price: 1272000,
             brand: "Nitecore",
@@ -2370,9 +2711,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: true
-          }
-        ]
+            isGift: true,
+          },
+        ],
       },
       {
         name: "Áo Vest - Balo Chạy Bộ",
@@ -2380,7 +2721,8 @@ export const dataNew = [
         products: [
           {
             id: 170,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250825_Z4EsMJ6dFp.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250825_Z4EsMJ6dFp.jpeg",
             imageHide: null,
             name: "Áo Vest Chạy Địa Hình HOKA Trail Run 10L",
             price: 4319200,
@@ -2389,9 +2731,9 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
+            isGift: false,
+          },
+        ],
       },
       {
         name: "Khăn Ống Đa Năng",
@@ -2399,7 +2741,8 @@ export const dataNew = [
         products: [
           {
             id: 171,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_QneMm887w7.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_QneMm887w7.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff® CoolNet UV® - Tersea Teal",
             price: 550000,
@@ -2408,11 +2751,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 172,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_Euj4H11avO.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_Euj4H11avO.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff® CoolNet UV® - Malm Multi",
             price: 550000,
@@ -2421,11 +2765,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 173,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_9Kyw7sjqde.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_9Kyw7sjqde.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff® CoolNet UV® - Enob Khaki",
             price: 550000,
@@ -2434,11 +2779,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 174,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_PorD0rpFqd.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_PorD0rpFqd.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff® CoolNet UV® - Newa Multi",
             price: 550000,
@@ -2447,11 +2793,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 175,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_Pad7hwYgb1.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_Pad7hwYgb1.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff® CoolNet UV® - Solid Slate",
             price: 550000,
@@ -2460,11 +2807,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 176,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_zXcWgiL2t6.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_zXcWgiL2t6.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff Merino Lightweight Multistripes - Tempest",
             price: 730000,
@@ -2473,11 +2821,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 177,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_bOlAYrp8Gp.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_bOlAYrp8Gp.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff Merino Lightweight Multistripes - Maize",
             price: 730000,
@@ -2486,11 +2835,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 178,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_B8JCtN2hcz.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_B8JCtN2hcz.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff Original Ecostretch - Solid Night Blue",
             price: 540000,
@@ -2499,11 +2849,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 179,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_ql6comcIzK.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_ql6comcIzK.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff Merino Lightweight - Solid Pool",
             price: 730000,
@@ -2512,11 +2863,12 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
+            isGift: false,
           },
           {
             id: 180,
-            image: "https://pos.nvncdn.com/be3294-43017/ps/20250721_SCBxZhUjCq.jpeg",
+            image:
+              "https://pos.nvncdn.com/be3294-43017/ps/20250721_SCBxZhUjCq.jpeg",
             imageHide: null,
             name: "Khăn Ống Đa Năng Buff Merino Lightweight - Solid Pansy",
             price: 730000,
@@ -2525,10 +2877,10 @@ export const dataNew = [
             originalPrice: 0,
             isBestSeller: false,
             isDiscount: 0,
-            isGift: false
-          }
-        ]
-      }
-    ]
-  }
+            isGift: false,
+          },
+        ],
+      },
+    ],
+  },
 ];
