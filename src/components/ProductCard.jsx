@@ -9,10 +9,7 @@ import { Link } from 'react-router-dom'
 const ProductCard = ({ item, isList = false, isRelated = true }) => {
 
   const [modalOpen, setModalOpen] = useState(false)
-  console.log("item" + JSON.stringify(item));
-  
   const quickView = (id) => {
-    console.log('quickView ', id)
     setModalOpen(true)
   }
   const formatPrice = (price) => {
@@ -39,8 +36,8 @@ const ProductCard = ({ item, isList = false, isRelated = true }) => {
 
 
         <Link to={`/product/${item.id}`} className=''>
-          <img src={item.image} alt="collection" className='w-full h-full object-cover group-hover:scale-0 transition-all duration-500' />
-          <img src={item.imageHide} alt="collection" className='w-full h-full object-cover absolute top-0 right-full group-hover:right-0 transition-all duration-500' />
+          <img src={item.image} alt="collection" className='w-full h-full object-cover md:group-hover:scale-0 transition-all duration-500' />
+          <img src={item.imageHide} alt="collection" className='w-full h-full object-cover absolute top-0 right-full md:group-hover:right-0 transition-all duration-500' />
         </Link>
       </div>
       <div className='px-4 pb-5 md:text-end text-center'>

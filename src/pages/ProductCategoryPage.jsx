@@ -196,9 +196,9 @@ const pages = {
 };
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
-
+  console.log('category', category);
   const selectedPage = dataNew.find(item => item.slug === category);
-
+  console.log('selectedPage', selectedPage);
   return (
     <>
       <Breadcrumb data={dataNew} />
@@ -209,15 +209,13 @@ const ProductCategoryPage = () => {
         </div>
         <div className="flex-1">
           <ProductGridPage
-            title={selectedPage.categoriesType}
+            title={selectedPage?.categories[0]?.name || ""}
             category={category}
-            description={selectedPage.description}
-            productData={selectedPage.products || []}
+            description={selectedPage?.description || ""}
+            productData={selectedPage?.categories[0].products || []}
           />
         </div>
       </div>
-
-
 
     </>
   );
