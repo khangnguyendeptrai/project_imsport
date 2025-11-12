@@ -1,4 +1,4 @@
-export const categories_type= [
+export const categoriesType = [
   {
     "id": 1,
     "name": "Đồ Nam",
