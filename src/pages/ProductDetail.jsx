@@ -175,9 +175,9 @@ const handleRealAddToCart = (productData) => {
 
         {/* Props (giữ nguyên) */}
         <RelatedProducts
-          relatedProducts={relatedProducts}
-          currentProductId={currentProductId}
-          currentProductCategory={currentProductCategory}
+          // relatedProducts={relatedProducts}
+          currentProductId={id}
+          // currentProductCategory={currentProductCategory}
           
         />
       </div>

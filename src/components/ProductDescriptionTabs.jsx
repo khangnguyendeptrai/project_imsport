@@ -84,7 +84,7 @@ const ComponentContent = ({ data }) => {
   );
 };
 
-const ProductDescriptionTabs = () => {
+const ProductDescriptionTabs = ({ description }) => {
   const [activeTab, setActiveTab] = useState("Mô tả chi tiết");
   const tabs = ["Mô tả chi tiết","Thành phần"];
 
@@ -94,7 +94,7 @@ const ProductDescriptionTabs = () => {
         return (
           <div
             className="prose max-w-none text-gray-700"
-            dangerouslySetInnerHTML={{ __html: detailDescriptionHTML }}
+            dangerouslySetInnerHTML={{ __html: description }}
           />
         );
       case "Thành phần":
