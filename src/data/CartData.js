@@ -1,5 +1,6 @@
 import { productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide } from '../assets/ExportImage'
-
+export const CartData=
+[
     {
         id: 2,
         image: productImg2,

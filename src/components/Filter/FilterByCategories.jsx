@@ -10,7 +10,8 @@ import BrandSelector from "./BrandSelector";
 const FilterByCategories = ({ data }) => {
   const location = useLocation();
   const currentSlug = location.pathname.substring(1);
-
+  console.log("location",location);
+  
   // 🧩 Chuẩn hóa dữ liệu (tránh lỗi nếu API trả về {data: [...]})
   const normalizedData = Array.isArray(data)
     ? data
@@ -23,36 +24,50 @@ const FilterByCategories = ({ data }) => {
   const [sizes, setSizes] = useState([]);
 
   // 🧮 Khi data thay đổi → tự động trích xuất brand & size
-  useEffect(() => {
+   useEffect(() => {
     if (!normalizedData.length) return;
 
     const brandSet = new Set();
     const sizeSet = new Set();
 
-    normalizedData.forEach((categoryGroup) => {
-      categoryGroup.categories?.forEach((cate) => {
-        cate.products?.forEach((product) => {
-          // --- Thêm brand ---
-          if (product.brand) brandSet.add(product.brand.trim());
+    // === Lấy slug hiện tại (VD: "giay-chay-dia-hinh-nam" hoặc "do-nam") ===
+    const slug = currentSlug;
 
-          // --- Thêm size ---
-          if (product.size) {
-            product.size
-              .split(",")
-              .map((s) => s.trim())
-              .filter(Boolean)
-              .forEach((s) => sizeSet.add(s));
-          }
-        });
+    // === Tìm danh mục phù hợp ===
+    // 1️⃣ Nếu slug trùng cấp cha
+    const parent = normalizedData.find((item) => item.slug === slug);
+
+    // 2️⃣ Nếu slug trùng cấp con
+    let targetCategories = [];
+    if (parent) {
+      targetCategories = parent.categories || [];
+    } else {
+      const parentWithChild = normalizedData.find((item) =>
+        item.categories?.some((cate) => cate.slug === slug)
+      );
+      const foundCate = parentWithChild?.categories?.find(
+        (cate) => cate.slug === slug
+      );
+      if (foundCate) targetCategories = [foundCate];
+    }
+
+    // === Gom toàn bộ sản phẩm thuộc vùng đó ===
+    targetCategories.forEach((cate) => {
+      cate.products?.forEach((product) => {
+        if (product.brand) brandSet.add(product.brand.trim());
+        if (product.size) {
+          product.size
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean)
+            .forEach((s) => sizeSet.add(s));
+        }
       });
     });
 
     setBrands([...brandSet]);
     setSizes([...sizeSet]);
-
-    console.log("🏷️ Brands:", [...brandSet]);
-    console.log("📏 Sizes:", [...sizeSet]);
-  }, [normalizedData]);
+  }, [normalizedData, currentSlug]);
 
   // === Xác định menu nào mở mặc định ===
   const findDefaultOpenId = () => {

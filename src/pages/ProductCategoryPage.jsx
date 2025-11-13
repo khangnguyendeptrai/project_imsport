@@ -2,9 +2,13 @@ import React from "react";
 import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
-import { dataNew } from "../data/dataNew";
+// import { dataNew } from "../data/dataNew";
 import FilterContainer from "../components/Filter/FilterContainer";
 import FilterByCategories from "../components/Filter/FilterByCategories";
+// === Import 3 file JS gốc ===
+import { categoriesType } from "../data/categoriesType.js"
+import { categories } from "../data/categories.js";
+import { products } from "../data/products.js";
 
 const pages = {
   men: {
@@ -197,6 +201,25 @@ const pages = {
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
   console.log('category', category);
+  // === Gom dữ liệu lại ===
+  const dataNew = categoriesType.map((type) => {
+    const relatedCategories = categories
+      .filter((cat) => cat.categories_type_id === type.id)
+      .map((cat) => ({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug,
+        products: products.filter((p) => p.category_id === cat.id)
+      }));
+
+    return {
+      id: type.id,
+      categoriesType: type.name,
+      slug: type.slug,
+      description: type.description,
+      categories: relatedCategories
+    };
+  });
   const data = []
   let categorieTitle = ''
   let categorieDescription = ''
@@ -210,8 +233,8 @@ const ProductCategoryPage = () => {
       });
     });
 
-  }else {
-    selectedPage = dataNew.find(item =>  {
+  } else {
+    selectedPage = dataNew.find(item => {
       item.categories.forEach(item => {
         if (item.slug === category) {
           categorieTitle = item.name
@@ -224,6 +247,10 @@ const ProductCategoryPage = () => {
   }
   console.log('data', data);
   console.log('selectedPage', selectedPage);
+
+
+
+
   return (
     <>
       <Breadcrumb data={dataNew} />
