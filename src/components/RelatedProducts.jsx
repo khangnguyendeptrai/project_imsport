@@ -1,3 +1,5 @@
+// File: components/RelatedProducts.jsx
+
 import React, { useState, useEffect } from 'react';
 import ProductCard from "./ProductCard";
 import '../styles/components/ProductCard.scss';
@@ -6,86 +8,58 @@ import '../styles/components/ProductCard.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import { dataNew } from "../data/dataNew";
-// console.log(dataNew);
+// 1. Import mảng 'product' phẳng (nguồn dữ liệu chính)
+// Dùng 'as allProducts' để đổi tên, tránh trùng lặp với biến 'product' ở hàm filter
+import { product as allProducts } from "../data/products";
 
-const RelatedProducts = ({ currentProductId }) => { // <-- Chỉ nhận 1 prop
-  
+// 2. Nhận cả 'currentProductId' và 'categoryId' từ props
+const RelatedProducts = ({ currentProductId, categoryId }) => {
+
   const [filteredList, setFilteredList] = useState([]);
 
-  // useEffect này sẽ chạy lại MỖI KHI 'currentProductId' thay đổi
+  // useEffect sẽ chạy lại mỗi khi sản phẩm chính (id) hoặc danh mục (category) thay đổi
   useEffect(() => {
-    
-    let parentCategoryOfProduct = null;
 
-  for (const parentCat of dataNew) {
-    if (parentCat.categories) {
-      for (const subCat of parentCat.categories) {
-        if (subCat.products) {
-        
-          // --- THAY THẾ .some() BẰNG for...of ---
-          let found = false; // 1. Tạo biến cờ
-          for (const p of subCat.products) { // 2. Lặp qua mảng
-            // Sửa: Dùng == để so sánh lỏng (hoặc Number()) nếu có lỗi kiểu dữ liệu
-            if (p.id == currentProductId) { 
-              found = true; // 3. Đặt cờ là true
-              break; // 4. Thoát lặp ngay lập tức
-            }
-          }
-          // --- Hết phần thay thế ---
-
-          if (found) { // 5. Sử dụng biến cờ
-            parentCategoryOfProduct = parentCat; 
-            break;
-          }
-        }
-      }
-    }
-    if (parentCategoryOfProduct) break;
-  }
-
-    // --- 2. LẤY SẢN PHẨM LIÊN QUAN TỪ CHA ---
-    if (parentCategoryOfProduct) {
-      
-      // Lấy TẤT CẢ sản phẩm từ các danh mục con của cha đó
-      const allProducts = parentCategoryOfProduct.categories.flatMap(subCat => 
-        subCat.products || []
-      );
-
-      
-      // Lọc bỏ chính sản phẩm hiện tại
-      const related = allProducts.filter(product => 
-        product && product.id !== currentProductId
-      );
-      console.log(related);
-      
-
-      
-      // 3. Cập nhật state
-      setFilteredList(related);
-
-    } else {
-      setFilteredList([]); // Không tìm thấy sản phẩm
+    // 3. Nếu không có categoryId (ví dụ: sản phẩm không tồn tại),
+    // thì set danh sách rỗng và thoát
+    if (!categoryId) {
+      setFilteredList([]);
+      return;
     }
 
+    // 4. Lọc trực tiếp trên mảng 'allProducts' (đã import)
+    // KHÔNG cần dùng .find() nữa
+    const related = allProducts.filter(product => {
+      // Điều kiện 1: Phải cùng categoryId
+      // (Dùng == để so sánh lỏng, an toàn cho cả string và number)
+      // Điều kiện 2: Phải KHÁC sản phẩm hiện tại
+      return (
+        product.category_id == categoryId &&
+        product.id != currentProductId
+      );
+    });
 
-  }, [currentProductId]); // <-- Chỉ phụ thuộc vào currentProductId
+    // 5. Cập nhật state với danh sách đã lọc
+    setFilteredList(related);
+
+  }, [currentProductId, categoryId]); // 6. Phụ thuộc vào cả hai props
 
 
-  // 4. Render
+  // 7. Render: Nếu không có sản phẩm liên quan, không hiển thị gì cả
   if (!filteredList || filteredList.length === 0) {
     return null;
   }
 
+  // 8. Hiển thị Swiper carousel
   return (
     <section className="related-products">
       <h2 className="related-products__title">
         SẢN PHẨM LIÊN QUAN
       </h2>
-
       <Swiper
         navigation={false}
-        loop={true} 
+        // Chỉ 'loop' khi số sản phẩm nhiều hơn số slide hiển thị
+        loop={filteredList.length >= 4}
         spaceBetween={16}
         slidesPerView={2}
         breakpoints={{
@@ -94,17 +68,17 @@ const RelatedProducts = ({ currentProductId }) => { // <-- Chỉ nhận 1 prop
         }}
         className="related-products__carousel"
       >
-        {filteredList.map((item) => ( 
+        {filteredList.map((item) => (
           <SwiperSlide
-            key={item.id} 
+            key={item.id}
             className="related-products__item"
           >
             <ProductCard item={item} isRelated={false} isList={true} />
           </SwiperSlide>
         ))}
-        </Swiper>
+      </Swiper>
     </section>
   );
 };
 
-export default RelatedProducts
+export default RelatedProducts;

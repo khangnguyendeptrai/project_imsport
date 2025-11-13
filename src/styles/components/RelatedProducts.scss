@@ -4,7 +4,6 @@
   margin: 4rem auto 2.5rem auto;
   padding: 0 1rem;
 
-  // Thêm position relative để định vị mũi tên
   position: relative;
 
   &__title {
@@ -16,63 +15,57 @@
     letter-spacing: 0.5px;
   }
 
-  /* --- XÓA CODE GRID CŨ VÀ THÊM CODE CAROUSEL MỚI --- */
   &__carousel {
     // Tùy chỉnh màu và kích thước mũi tên
-    --swiper-navigation-color: #222; // Màu mũi tên
-    --swiper-navigation-size: 28px; // Kích thước mũi tên
+    --swiper-navigation-color: #222;
+    --swiper-navigation-size: 28px;
 
     .swiper-button-prev,
     .swiper-button-next {
-      // Đẩy mũi tên ra ngoài một chút cho đẹp
-      // (chỉ trên desktop)
       @media (min-width: 1024px) {
-        top: 45%; // Căn giữa theo chiều cao của ảnh
+        top: 45%;
       }
     }
 
     .swiper-button-prev {
       @media (min-width: 1024px) {
-        left: -15px; // Đẩy mũi tên trái ra ngoài
+        left: -15px;
       }
     }
 
     .swiper-button-next {
       @media (min-width: 1024px) {
-        right: -15px; // Đẩy mũi tên phải ra ngoài
+        right: -15px;
       }
     }
 
-    // Ẩn mũi tên trên Mobile (vì chỉ có 2 slide, trượt bằng tay)
+    // Ẩn mũi tên trên Mobile
     @media (max-width: 767px) {
       .swiper-button-prev,
       .swiper-button-next {
-        display: none;
+        display: none !important;
       }
+    }
+
+    /* ❌ ẨN TOÀN BỘ MŨI TÊN Ở MỌI KÍCH THƯỚC */
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none !important;
     }
   }
 
-  /* --- SỬA LẠI ITEM ĐỂ CHẠY VỚI SWIPER --- */
   &__item {
-    // Class này giờ nằm trên SwiperSlide
     width: 100%;
-
-    // RẤT QUAN TRỌNG: Để Swiper tính toán chiều cao
     height: auto;
-
     display: flex;
     flex-direction: column;
-
-    /* Đảm bảo .product-card bên trong (từ file ProductCard.scss)
-      vẫn có 'height: 100%' để tất cả các thẻ cao bằng nhau
-    */
     .product-card {
       height: 100%;
     }
 
-    // Giữ lại hiệu ứng hover
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+
     &:hover {
       transform: translateY(-6px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -80,7 +73,7 @@
   }
 }
 
-/* Đảm bảo product-card con hiển thị đều, ảnh không bị méo */
+/* --- 2. PHẦN THẺ SẢN PHẨM --- */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -100,12 +93,9 @@
 
   .info {
     padding: 1rem;
-
-    /* --- SỬA Ở ĐÂY --- */
-    display: flex; /* Thêm dòng này */
-    flex-direction: column; /* Thêm dòng này */
-    flex-grow: 1; /* Thêm dòng này (Quan trọng) */
-    /* ------------------ */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 
     h3 {
       font-size: 1rem;
@@ -117,10 +107,7 @@
     .price {
       color: #ff6600;
       font-weight: 600;
-
-      /* --- SỬA Ở ĐÂY --- */
-      margin-top: auto; /* Thay đổi dòng này (Quan trọng) */
-      /* ------------------ */
+      margin-top: auto;
     }
 
     .brand {
@@ -129,4 +116,16 @@
       margin-bottom: 0.5rem;
     }
   }
+}
+
+/* --- 3. ẨN ICON PHÓNG TO / MẮT TRONG PRODUCT CARD --- */
+.related-products .product-card__icons,
+.related-products .product-card__overlay,
+.related-products .product-card__icon {
+  display: none !important;
+}
+
+/* --- 4. ĐẢM BẢO CÁC SLIDE HIỂN THỊ ĐỀU --- */
+.related-products .swiper-wrapper {
+  align-items: stretch;
 }
