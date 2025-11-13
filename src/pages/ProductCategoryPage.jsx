@@ -2,7 +2,7 @@ import React from "react";
 import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
-// import { dataNew } from "../data/dataNew";
+import { dataNew } from "../data/dataNew";
 import FilterContainer from "../components/Filter/FilterContainer";
 import FilterByCategories from "../components/Filter/FilterByCategories";
 // === Import 3 file JS gốc ===
@@ -201,56 +201,42 @@ const pages = {
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
   console.log('category', category);
-  // === Gom dữ liệu lại ===
-  const dataNew = categoriesType.map((type) => {
-    const relatedCategories = categories
-      .filter((cat) => cat.categories_type_id === type.id)
-      .map((cat) => ({
-        id: cat.id,
-        name: cat.name,
-        slug: cat.slug,
-        products: products.filter((p) => p.category_id === cat.id)
-      }));
+  let data
+  const categoryType= categoriesType.find(item => item.slug === category);
+  console.log('categoryType', categoryType);
 
-    return {
-      id: type.id,
-      categoriesType: type.name,
-      slug: type.slug,
-      description: type.description,
-      categories: relatedCategories
-    };
-  });
-  const data = []
-  let categorieTitle = ''
-  let categorieDescription = ''
-  let selectedPage = dataNew.find(item => item.slug === category);
-  if (selectedPage) {
+  if(categoryType) {
+    const categoriesData = categories.filter(item => item.categories_type_id === categoryType.id);
+    console.log('categoriesData', categoriesData);
+    const categoryIds = categoriesData.map(c => c.id);
 
-    categorieTitle = selectedPage.categoriesType
-    selectedPage.categories.forEach(item => {
-      item.products.forEach(product => {
-        data.push(product);
-      });
-    });
-
-  } else {
-    selectedPage = dataNew.find(item => {
-      item.categories.forEach(item => {
-        if (item.slug === category) {
-          categorieTitle = item.name
-          item.products.forEach(product => {
-            data.push(product);
-          });
-        }
-      });
-    });
+    const dataProducts = products.filter(product =>
+      categoryIds.includes(product.category_id)
+    );      
+    data = {
+      id: categoryType.id,
+      categoriesType: categoryType.name,
+      slug: categoryType.slug,
+      description: categoryType.description,
+      categories: categoriesData,
+      products: dataProducts
+    }
+  }else {
+    const categoryData= categories.find(item => item.slug === category);
+    console.log('categoryData', categoryData);
+    const dataProducts = products.filter(product => product.category_id === categoryData.id);
+ 
+    data = {
+      id: categoryData.id,
+      categoriesType: categoryData.name,
+      slug: categoryData.slug,
+      description: categoriesType.find(item => item.id === categoryData.categories_type_id).description,
+      categories: [categoryData],
+      products: dataProducts
+    }
   }
   console.log('data', data);
-  console.log('selectedPage', selectedPage);
-
-
-
-
+  
   return (
     <>
       <Breadcrumb data={dataNew} />
@@ -261,10 +247,10 @@ const ProductCategoryPage = () => {
         </div>
         <div className="flex-1">
           <ProductGridPage
-            title={categorieTitle || ""}
+            title={data.categoriesType}
             category={category}
-            description={selectedPage?.description || ""}
-            productData={data}
+            description={data.description}
+            productData={data.products}
           />
         </div>
       </div>

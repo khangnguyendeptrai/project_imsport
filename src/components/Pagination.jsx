@@ -10,11 +10,6 @@ const Pagination = ({totalPage, currentPage, handlePage}) => {
     const totalPages = totalPage
     const visibleCount = 4
     const data = Array.from({ length: totalPages }, (_, index) => index + 1)
-        console.log(data);
-        
-
-    
-    
     let start = 1;
     let end = visibleCount
     if (currentPage > 2) {

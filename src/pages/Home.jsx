@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/pages/Home.scss';
 import MainBanner from '../components/MainBanner';
 import BrandBanner from '../components/BrandBanner';
@@ -8,6 +8,9 @@ import CollectionProduct from '../components/CollectionProduct';
 import ProductsSection from '../components/ProductsSection';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <MainBanner/>

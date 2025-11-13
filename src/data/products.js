@@ -1,3 +1,5 @@
+import { bgchitietanh, chitietao, sizeao, sizechitiet } from "../assets/ExportImage";
+
 export const products =[
   {
     "id": 1,
@@ -17,7 +19,48 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    description: `
+          <div class="p-0"> 
+            <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+            <p class="mb-8">
+            Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+            <br/>
+            Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+            </p>
+            <div class="mb-8">
+              <img src="https://pos.nvncdn.com/be3294-43017/ps/20250609_rmhy0z22Wk.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+            </div>
+            <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+              <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
+              <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
+              <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
+                <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
+                  <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
+                    <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
+              <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
+              <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
+              <li>Không dùng thuốc tẩy</li>
+              <li>Không giặt khô</li>
+              <li>Không ủi (là)</li>
+              <li>Có thể sấy khô ở nhiệt độ thấp</li>
+              <li>Giặt mặt trái áo.</li>
+                  <li>Giặt riêng với đồ khác</li>
+                  Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
+            </ul>
+            <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
+            <img src="${sizeao}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+          </div>
+        `,
   },
   {
     "id": 2,
@@ -37,7 +80,48 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    "description": `
+          <div class="p-0"> 
+            <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+            <p class="mb-8">
+            Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+            <br/>
+            Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+            </p>
+            <div class="mb-8">
+              <img src="https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+            </div>
+            <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+              <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
+              <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
+              <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
+                <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
+                  <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
+                    <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
+              <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
+              <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
+            </ul>
+            <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
+            <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+              <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
+              <li>Không dùng thuốc tẩy</li>
+              <li>Không giặt khô</li>
+              <li>Không ủi (là)</li>
+              <li>Có thể sấy khô ở nhiệt độ thấp</li>
+              <li>Giặt mặt trái áo.</li>
+                  <li>Giặt riêng với đồ khác</li>
+                  Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
+            </ul>
+            <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
+            <img src="${sizeao}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+          </div>
+        `,
   },
   {
     "id": 3,
@@ -57,8 +141,48 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
-  },
+    description: `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+      <p class="mb-8">
+      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+      <br/>
+      Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+      </p>
+      <div class="mb-8">
+        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251018_l4UTnFHDzR.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+      </div>
+      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
+        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
+        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
+          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
+            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
+              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
+        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
+        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
+        <li>Không dùng thuốc tẩy</li>
+        <li>Không giặt khô</li>
+        <li>Không ủi (là)</li>
+        <li>Có thể sấy khô ở nhiệt độ thấp</li>
+        <li>Giặt mặt trái áo.</li>
+            <li>Giặt riêng với đồ khác</li>
+            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
+      </ul>
+      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
+      <img src="${sizeao}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+    </div>
+  `,  },
   {
     "id": 4,
     "category_id": 1,
@@ -92,8 +216,48 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
-  },
+    description: `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+      <p class="mb-8">
+      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+      <br/>
+      Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+      </p>
+      <div class="mb-8">
+        <img src="https://pos.nvncdn.com/be3294-43017/ps/20250827_lYBAuUQNjy.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+      </div>
+      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
+        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
+        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
+          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
+            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
+              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
+        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
+        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
+        <li>Không dùng thuốc tẩy</li>
+        <li>Không giặt khô</li>
+        <li>Không ủi (là)</li>
+        <li>Có thể sấy khô ở nhiệt độ thấp</li>
+        <li>Giặt mặt trái áo.</li>
+            <li>Giặt riêng với đồ khác</li>
+            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
+      </ul>
+      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
+      <img src="${sizeao}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+    </div>
+  `,  },
   {
     "id": 6,
     "category_id": 1,
@@ -107,14 +271,31 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    "description":  `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+      <p class="mb-8">
+        Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+      </p>
+    </div>
+    <div class="mb-8">
+      <img src="https://pos.nvncdn.com/be3294-43017/ps/20250717_Lo42bIKt2h.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+    </div>
+    <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+    <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+      <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+    </ul>
+    `
   },
   {
     "id": 7,
     "category_id": 1,
     "name": "Áo Chạy Địa Hình Nam Raidlight Maillot de trail R-Light - Black",
     "image": "https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
-    "thumbnail": [],
+    "thumbnail": ["https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
+      "https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
+      "https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg",
+    ],
     "price": 1850000,
     "brand": "Raidlight",
     "size": null,
@@ -122,7 +303,21 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    "description":  `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+      <p class="mb-8">
+        Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+      </p>
+    </div>
+    <div class="mb-8">
+      <img src="https://pos.nvncdn.com/be3294-43017/ps/20250610_PWLLX2Dljt.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+    </div>
+    <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
+    <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+      <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
+    </ul>
+    `
   },
   {
     "id": 8,
@@ -1052,7 +1247,38 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    "description":  `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">ON Cloudboom Max – Đôi giày siêu nhẹ, tối đa đệm, dành cho Marathon</h3>
+      <p class="mb-8">
+        ON Cloudboom Max là lựa chọn hoàn hảo cho các runner ở mọi trình độ, đặc biệt trong các giải marathon. 
+        Với thiết kế tối ưu đệm êm tối đa (Max Cushioning) và khả năng phản hồi lực vượt trội, 
+        đôi giày giúp bạn duy trì tốc độ, giảm chấn động và tăng hiệu suất trên mỗi bước chạy.
+      </p>
+      <div class="mb-8">
+        <img src="${bgchitietanh}" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+      </div>
+      <h4 class="font-bold mt-4 mb-2">Đặc điểm nổi bật</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Ứng dụng công nghệ Helion™ HF hyper foam.</li>
+        <li>Tấm Speedboard® tinh chỉnh hỗ trợ chuyển động.</li>
+        <li>Thân giày siêu thoáng khí ôm sát bàn chân.</li>
+        <li>Đế ngoài bền bỉ.</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2">Thông số kỹ thuật</h4>
+      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
+        <li>Cushioning: Max</li>
+        <li>Road Running Style: Speed</li>
+        <li>Drop: 8mm</li>
+        <li>Trọng lượng: 250g</li>
+        <li>Chất liệu: Thân giày polyester tái chế và TPU, đế cao su, Speedboard® từ 80% CF</li>
+        <li>Công nghệ: CloudTec® giúp giảm chấn và hoàn trả năng lượng hiệu quả.</li>
+      </ul>
+      <h4 class="font-bold mt-6 mb-3 ">Bảng size giày ON Running</h4>
+      <img src="${sizechitiet}" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
+    </div>
+  `
+    
   },
   {
     "id": 70,
@@ -1067,7 +1293,19 @@ export const products =[
     "isBestSeller": false,
     "isDiscount": 0,
     "isGift": false,
-    "description": null
+    "description":  `
+    <div class="p-0"> 
+      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
+      <p class="mb-8">
+        Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
+        <br/>
+        Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
+      </p>
+      <div class="mb-8">
+        <img src="${chitietao}" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+      </div>
+    </div>
+    `
   },
   {
     "id": 71,
