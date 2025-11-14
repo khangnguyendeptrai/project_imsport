@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
@@ -200,7 +200,33 @@ const pages = {
 };
 const ProductCategoryPage = () => {
   const { category } = useParams(); // 👈 Lấy param từ URL
-  console.log('category', category);
+  // console.log('category', category);
+
+
+  const [filters, setFilters] = useState({
+    sizes: [],
+    brands: [],
+    price: null
+  });
+
+  const isFiltering =
+    (filters.sizes?.length > 0) ||
+    (filters.brands?.length > 0) ||
+    (filters.price && filters.price.min !== 0 );
+
+  useEffect(() => {
+    if (filters.reset) {
+      setFilters({
+        sizes: [],
+        brands: [],
+        price: null,
+        isFiltering: false,
+      });
+      return;
+    }
+
+    // các cập nhật filter bình thường tại đây
+  }, [filters]);
   // === Gom dữ liệu lại ===
   const dataNew = categoriesType.map((type) => {
     const relatedCategories = categories
@@ -245,11 +271,29 @@ const ProductCategoryPage = () => {
       });
     });
   }
-  console.log('data', data);
-  console.log('selectedPage', selectedPage);
+  // console.log('data', data);
+  // console.log('selectedPage', selectedPage);
 
+  const handleFilterChange = (newFilter) => {
+    setFilters((prev) => ({ ...prev, ...newFilter }));
+  };
+  const filteredProducts = data.filter((p) => {
+    const matchSize =
+      filters.sizes.length === 0 ||
+      filters.sizes.some((s) => p.size?.split(",").includes(s));
 
+    const matchBrand =
+      filters.brands.length === 0 || filters.brands.includes(p.brand?.trim().toLowerCase());
 
+    // console.log(filters.brands.includes(p.brand));
+    const matchPrice =
+      !filters.price ||
+      (p.price >= filters.price.min && p.price <= filters.price.max);
+    return matchSize && matchBrand && matchPrice;
+  });
+  console.log(isFiltering);
+
+  // console.log("data new"+filteredProducts);
 
   return (
     <>
@@ -257,14 +301,14 @@ const ProductCategoryPage = () => {
       <div className="container flex ">
         <div className="md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
           {/* <FilterByCategories data={dataFilter} /> */}
-          <FilterContainer data={dataNew} />
+          <FilterContainer data={dataNew} onFilterChange={handleFilterChange} />
         </div>
         <div className="flex-1">
           <ProductGridPage
             title={categorieTitle || ""}
             category={category}
             description={selectedPage?.description || ""}
-            productData={data}
+            productData={isFiltering ? filteredProducts : data}
           />
         </div>
       </div>

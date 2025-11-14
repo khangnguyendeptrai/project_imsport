@@ -8,8 +8,10 @@ import ProductList from "../ProductList";
 import ProductGridPage from "../ProductGridPage";
 import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
-export default function FilterContainer(data) {
-
+export default function FilterContainer({ data, onFilterChange }) {
+    const handleFilterChange = (filterData) => {
+        onFilterChange(filterData); // 📤 gửi lên ProductCategoryPage
+    };
     const [isOpen, setIsOpen] = useState(false);
     const [drawerWidth, setDrawerWidth] = useState(0);
     const drawerRef = useRef(null);
@@ -56,7 +58,7 @@ export default function FilterContainer(data) {
             </div>
 
             {/* --- Sidebar filter (desktop) --- */}
-            
+
 
 
             {/* --- Drawer (mobile) --- */}
@@ -68,10 +70,10 @@ export default function FilterContainer(data) {
                     ref={drawerRef}
                     className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]"
                 >
-                    <FilterByCategories data={data} />
+                    <FilterByCategories data={data} onFilterChange={handleFilterChange} />
                 </div>
             </div>
-            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} /> </div>
-            </>
+            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} onFilterChange={handleFilterChange} /> </div>
+        </>
     );
 }
