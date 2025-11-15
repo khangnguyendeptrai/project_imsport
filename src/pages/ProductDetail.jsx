@@ -68,72 +68,7 @@ const handleRealAddToCart = (productData) => {
     "Trọng lượng: 286g (Nữ), 332g (Nam)",
   ];
 
-  // === DỮ LIỆU SẢN PHẨM LIÊN QUAN ===
-  const relatedProducts = [
-    {
-      id: "NORDA-001A",
-      image: relatedImg1,
-      imageHide: relatedImg2,
-      name: "Norda 001A | Giày Chạy Địa Hình Nam Norda 001A",
-      price: 7300000,
-      originalPrice: 6950000,
-      category: "Giày",
-    },
-    {
-      id: "NORDA-001",
-      image: relatedImg2,
-      imageHide: relatedImg3,
-      name: "Norda 001 | Giày Chạy Địa Hình Nam Glitch",
-      price: 5907500,
-      originalPrice: 6950000,
-      category: "Giày",
-    },
-    {
-      id: "SV-1168723-NNR",
-      image: mafate1,
-      imageHide: mafate2,
-      name: "MAFATE 5 | GIÀY CHẠY ĐỊA HÌNH NỮ HOKA MAFATE 5 - NNR",
-      price: 4599000,
-      originalPrice: 6950000,
-      category: "Giày",
-    },
-    {
-      id: "SPEEDGOAT-6",
-      image: relatedImg3,
-      imageHide: relatedImg4,
-      name: "Speedgoat 6 Wide | Giày Chạy Địa Hình Nam Hoka",
-      price: 3999000,
-      originalPrice: 6950000,
-      category: "Giày",
-    },
-    {
-      id: "TOMIR-2.0",
-      image: relatedImg4,
-      imageHide: relatedImg5,
-      name: "Tomir 2.0 | Giày Chạy Địa Hình NNormal Tomir 2.0",
-      price: 5990000,
-      originalPrice: 6950000,
-      category: "Giày",
-    },
-    {
-      id: "NEW-PRODUCT-5",
-      image: relatedImg5,
-      imageHide: relatedImg1,
-      name: "Sản Phẩm Mới | Giày Chạy Bộ Nam Nhanh Nhất",
-      price: 3500000,
-      originalPrice: 0,
-      category: "Giày",
-    },
-    {
-      id: "NEW-PRODUCT-6",
-      image: relatedImg1,
-      imageHide: relatedImg3,
-      name: "Sản Phẩm Khác | Áo Khoác Chạy Mưa Siêu Nhẹ",
-      price: 2100000,
-      originalPrice: 0,
-      category: "Áo",
-    },
-  ];
+  
 
 
   return (
@@ -180,7 +115,7 @@ const handleRealAddToCart = (productData) => {
         {/* Props (giữ nguyên) */}
         <RelatedProducts
           currentProductId={id}
-          
+          categoryId={product?.category_id}
         />
       </div>
     </div>
