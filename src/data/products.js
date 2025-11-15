@@ -2389,7 +2389,7 @@ export const products =[
     "brand": "On Running",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 10,
     "isGift": false,
     "description": null
   },
@@ -2403,7 +2403,7 @@ export const products =[
     "brand": "Khác",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 100,
     "isGift": false,
     "description": null
   },
@@ -2431,7 +2431,7 @@ export const products =[
     "brand": "Khác",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 15,
     "isGift": false,
     "description": null
   },
@@ -2445,7 +2445,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 10,
     "isGift": false,
     "description": null
   },
@@ -2459,7 +2459,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 20,
     "isGift": false,
     "description": null
   },
@@ -2473,7 +2473,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 15,
     "isGift": false,
     "description": null
   },
@@ -2487,7 +2487,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 10,
     "isGift": false,
     "description": null
   },
@@ -2501,7 +2501,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 20,
     "isGift": false,
     "description": null
   },
@@ -2515,7 +2515,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 10,
     "isGift": false,
     "description": null
   },
@@ -2529,7 +2529,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 10,
     "isGift": false,
     "description": null
   },
@@ -2543,7 +2543,7 @@ export const products =[
     "brand": "Injinji",
     "originalPrice": 0,
     "isBestSeller": false,
-    "isDiscount": 0,
+    "isDiscount": 15,
     "isGift": false,
     "description": null
   },
