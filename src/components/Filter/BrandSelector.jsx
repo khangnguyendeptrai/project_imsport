@@ -1,15 +1,12 @@
 import { useSearchParams } from 'react-router-dom';
 
 // Data dự phòng
-const mockupBrands = [
-  'Norda', 'HOKA', '2XU', 'Compressport', 'Salomon', 'District Vision',
-  'On', 'Nike', 'Adidas'
-];
 
-export default function BrandSelector({ data }) {
+
+export default function BrandSelector({ data, onChange }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const brandsToDisplay = data && data.length > 0 ? data : mockupBrands;
+  const brandsToDisplay = data;
 
   const getBrandsFromUrl = () => {
     const urlBrands = searchParams.get('brand');
@@ -37,6 +34,11 @@ export default function BrandSelector({ data }) {
       }
       return newParams;
     }, { replace: true });
+    console.log("data brands",newSelected);
+    
+    if (onChange) {
+      onChange(newSelected);
+    }
   };
 
   const selectedBrands = getBrandsFromUrl();

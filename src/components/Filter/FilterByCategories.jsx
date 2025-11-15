@@ -7,24 +7,24 @@ import PriceRangeSlider from "./PriceRangeSlider";
 import SizeSelector from "./SizeSelector";
 import BrandSelector from "./BrandSelector";
 
-const FilterByCategories = ({ data }) => {
+const FilterByCategories = ({ data, onFilterChange }) => {
   const location = useLocation();
   const currentSlug = location.pathname.substring(1);
-  console.log("location",location);
-  
+  // console.log("location",location);
+
   // 🧩 Chuẩn hóa dữ liệu (tránh lỗi nếu API trả về {data: [...]})
   const normalizedData = Array.isArray(data)
     ? data
     : Array.isArray(data?.data)
-    ? data.data
-    : [];
+      ? data.data
+      : [];
 
   // 🧠 State cho brand và size
   const [brands, setBrands] = useState([]);
   const [sizes, setSizes] = useState([]);
 
   // 🧮 Khi data thay đổi → tự động trích xuất brand & size
-   useEffect(() => {
+  useEffect(() => {
     if (!normalizedData.length) return;
 
     const brandSet = new Set();
@@ -85,6 +85,27 @@ const FilterByCategories = ({ data }) => {
   const [openCategoryId, setOpenCategoryId] = useState(findDefaultOpenId());
   const toggleCategory = (id) => setOpenCategoryId(openCategoryId === id ? null : id);
 
+
+  const handleSizeChange = (sizes) => {
+    onFilterChange({ sizes }); // 📤 gửi lên FilterContainer
+  };
+
+  const handleBrandChange = (brands) => {
+    onFilterChange({ brands }); // 📤 gửi lên FilterContainer
+  };
+
+  const handlePriceChange = (price) => {
+    onFilterChange({ price });
+  };
+  useEffect(() => {
+    // 🔄 Mỗi khi đổi slug → reset filter về rỗng
+    onFilterChange({
+      sizes: [],
+      brands: [],
+      price: null,
+      reset: true, // flag để cha biết cần clear params
+    });
+  }, [currentSlug]);
   // === Render ===
   return (
     <div className="inline-block p-4 w-[256px] md:w-[300px]">
@@ -104,17 +125,15 @@ const FilterByCategories = ({ data }) => {
               <div className="flex items-start cursor-pointer justify-between pr-1.5">
                 <div className="flex items-center" onClick={() => toggleCategory(item.id)}>
                   <GoTriangleRight
-                    className={`mr-1 transition-transform duration-200 ${
-                      openCategoryId === item.id ? "rotate-90" : ""
-                    }`}
+                    className={`mr-1 transition-transform duration-200 ${openCategoryId === item.id ? "rotate-90" : ""
+                      }`}
                   />
                   <Link to={`/${item.slug}`}>
                     <span
-                      className={`text-sm transition-colors duration-150 ${
-                        shouldHighlightParent
-                          ? "text-[#673AB7]"
-                          : "text-gray-700 hover:text-[#673AB7]"
-                      }`}
+                      className={`text-sm transition-colors duration-150 ${shouldHighlightParent
+                        ? "text-[#673AB7]"
+                        : "text-gray-700 hover:text-[#673AB7]"
+                        }`}
                     >
                       {item.categoriesType}
                     </span>
@@ -122,11 +141,10 @@ const FilterByCategories = ({ data }) => {
                 </div>
 
                 <MdOutlineKeyboardArrowDown
-                  className={`text-lg cursor-pointer ${
-                    shouldHighlightParent
-                      ? "text-[#673AB7]"
-                      : "text-gray-700 hover:text-[#673AB7]"
-                  }`}
+                  className={`text-lg cursor-pointer ${shouldHighlightParent
+                    ? "text-[#673AB7]"
+                    : "text-gray-700 hover:text-[#673AB7]"
+                    }`}
                   onClick={() => toggleCategory(item.id)}
                 />
               </div>
@@ -141,17 +159,15 @@ const FilterByCategories = ({ data }) => {
                         className="pt-1 mt-1 flex items-start gap-1"
                       >
                         <GoTriangleRight
-                          className={`text-black text-sm mt-1 ${
-                            isChildActive ? "rotate-90" : ""
-                          }`}
+                          className={`text-black text-sm mt-1 ${isChildActive ? "rotate-90" : ""
+                            }`}
                         />
                         <Link to={`/${cate.slug}`}>
                           <span
-                            className={`text-sm transition-colors duration-150 ${
-                              isChildActive
-                                ? "text-[#673AB7]"
-                                : "text-gray-700 hover:text-[#673AB7]"
-                            }`}
+                            className={`text-sm transition-colors duration-150 ${isChildActive
+                              ? "text-[#673AB7]"
+                              : "text-gray-700 hover:text-[#673AB7]"
+                              }`}
                           >
                             {cate.name}
                           </span>
@@ -167,16 +183,16 @@ const FilterByCategories = ({ data }) => {
       </CollapsibleSection>
 
       <CollapsibleSection title="GIÁ">
-        <PriceRangeSlider />
+        <PriceRangeSlider onChange={handlePriceChange} />
       </CollapsibleSection>
 
       {/* 🔽 Truyền state xuống component con */}
       <CollapsibleSection title="KÍCH CỠ">
-        <SizeSelector data={sizes} />
+        <SizeSelector data={sizes} onChange={handleSizeChange} />
       </CollapsibleSection>
 
       <CollapsibleSection title="THƯƠNG HIỆU">
-        <BrandSelector data={brands} />
+        <BrandSelector data={brands} onChange={handleBrandChange} />
       </CollapsibleSection>
     </div>
   );

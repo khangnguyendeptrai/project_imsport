@@ -1,14 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
 
-const mockupSizes = [
-  'M4/W6', 'T1', 'XS', 'M5/W7', 'S/M', 'S', 'M5.5/W7.5', 'M',
-  'M6/W8', 'L', 'M7/W9', 'XL', 'M8/W10', 'XXL'
-];
 
-export default function SizeSelector({ data }) {
+
+export default function SizeSelector({ data, onChange  }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sizesToDisplay = data && data.length > 0 ? data : mockupSizes;
+  const sizesToDisplay = data ;
 
   const getSizesFromUrl = () => {
     const urlSizes = searchParams.get('size');
@@ -36,6 +33,10 @@ export default function SizeSelector({ data }) {
       }
       return newParams;
     }, { replace: true });
+
+      if (onChange) {
+      onChange(newSelected);
+    }
   };
 
   const selectedSizes = getSizesFromUrl();
