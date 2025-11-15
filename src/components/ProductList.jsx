@@ -122,14 +122,18 @@ const ProductList = ({ products }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [modalOpen, setModalOpen] = useState(false)
     const [product, setProduct] = useState(null)
-    const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1)
+    const [currentPage, setCurrentPage] = useState(searchParams.get("page") ?? 1)
     // const page = parseInt(searchParams.get("page")) || 1;
-    const productPerPage = 9;
+    const productPerPage = 10;
     const indexOfLastProduct = currentPage * productPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const totalPage = Math.ceil(products.length / productPerPage);
+    
+    useEffect(() => {
+        setCurrentPage(searchParams.get("page") ?? 1)
+    }, [searchParams]);
     
     const handlePage = (page) => {
         if (page < 1 || page > products.length) return

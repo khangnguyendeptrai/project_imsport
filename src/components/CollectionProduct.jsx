@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide, productImg6, productImg6Hide, tagGift } from '../assets/ExportImage'
 import ProductCard from './ProductCard'
+// import { products } from '../data/products'
+import { productsData } from '../data/ProductVariation'
 const data =
 {
     title: 'Đồ Nam',
@@ -81,7 +83,29 @@ const data =
 }
 
 const CollectionProduct = () => {
-    const [product, setProduct] = useState(null)
+    // const productMockup = products.filter(item => item.category_id === 1).slice(0, 6);
+    // const productMockup = products.slice(0, 6);
+    // const [products, setProducts] = useState(productsData)
+    const [products, setProducts] = useState()
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const response = await fetch(`https://t20fpenq6h.execute-api.ap-southeast-1.amazonaws.com/test/Gruop1DynamoDBManager`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    operation: "scan",
+                    payload: {}
+                  })
+            })
+            const data = await response.json()
+            console.log('data lấy từ aws dynamoDB', data.Items);
+            setProducts(data.Items)
+        }
+
+        fetchProducts()
+    }, [])
     return (
         <>
             <div className='container mx-auto !pt-10'>
@@ -96,14 +120,14 @@ const CollectionProduct = () => {
                     </div>
                     <div className='col-span-1 px-4'>
                         <div className='grid grid-cols-2 md:grid-cols-3 gap-x-1 gap-y-4'>
-                            {data.data.map((item) => (
+                            {products?.map((item) => (
                                 <ProductCard key={item.id} item={item} />
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </>
     )
 }

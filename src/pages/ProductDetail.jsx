@@ -16,6 +16,7 @@ import mafate4 from "../assets/images/giayhokahide.jpeg";
 import bg from "../assets/images/breadcrumb-bg.png";
 import { dataFilter } from "../data/dataFilter";
 import { dataNew } from "../data/dataNew";
+import { products } from "../data/products";
 
 // === 5 ẢNH MỚI CHO SẢN PHẨM LIÊN QUAN ===
 const relatedImg1 = "https://pos.nvncdn.com/be3294-43017/ps/20250904_nM1TbYwBHu.jpeg?v=1756982968";
@@ -29,14 +30,17 @@ const relatedImg5 = "https://pos.nvncdn.com/be3294-43017/ps/20251006_Wqwz5ZVGeP.
 const ProductDetailPage = () => {
   const [product, setProduct] = useState();
   const [images, setImages] = useState([]);
+  const [thumbnail, setThumbnail] = useState([]);
   const [description, setDescription] = useState('');
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log('dataNew', dataNew[0].categories[0].products.find(product => product.id === Number(id)));
-    setProduct(dataNew[0].categories[0].products.find(product => product.id === Number(id)));
-    setImages(dataNew[0].categories[0].products.find(product => product.id === Number(id)).thumbnail);
-    setDescription(dataNew[0].categories[0].products.find(product => product.id === Number(id)).description);
+    const product = products.find(item => item.id === Number(id));
+    console.log('product', product);
+    setProduct(product);
+    setImages(product.image);
+    setThumbnail(product?.thumbnail || []);
+    setDescription(product?.description || '');
   }, []);
 
   // Dữ liệu cho sản phẩm chính (MAFATE 5)
@@ -150,7 +154,7 @@ const handleRealAddToCart = (productData) => {
       <div className="container">
         <div className="flex flex-col md:flex-row gap-10">
           <div className="md:w-1/2">
-            <ProductGallery images={images || []} />
+            <ProductGallery images={thumbnail || []} />
           </div>
 
           <div className="md:w-3/5 flex-1 h-full">
