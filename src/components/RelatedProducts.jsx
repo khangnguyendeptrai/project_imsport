@@ -10,7 +10,7 @@ import 'swiper/css';
 
 // 1. Import mảng 'product' phẳng (nguồn dữ liệu chính)
 // Dùng 'as allProducts' để đổi tên, tránh trùng lặp với biến 'product' ở hàm filter
-import { products as allProducts } from "../data/products";
+import { product2 as allProducts } from "../data/product2";
 
 // 2. Nhận cả 'currentProductId' và 'categoryId' từ props
 const RelatedProducts = ({ currentProductId, categoryId }) => {

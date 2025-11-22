@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide, productImg6, productImg6Hide, tagGift } from '../assets/ExportImage'
 import ProductCard from './ProductCard'
-// import { products } from '../data/products'
+import ProductAPI from '../service/ProductAPI'
 import { productsData } from '../data/ProductVariation'
+// import { products } from '../data/products'
+
 const data =
 {
     title: 'Đồ Nam',
@@ -89,23 +91,16 @@ const CollectionProduct = () => {
     const [products, setProducts] = useState()
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch(`https://t20fpenq6h.execute-api.ap-southeast-1.amazonaws.com/test/Gruop1DynamoDBManager`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    operation: "scan",
-                    payload: {}
-                  })
-            })
-            const data = await response.json()
-            console.log('data lấy từ aws dynamoDB', data.Items);
-            setProducts(data.Items)
+            const response = await ProductAPI.getProducts()
+            console.log('data lấy từ aws dynamoDB', response);
+            setProducts(response)
         }
 
         fetchProducts()
     }, [])
+    // useEffect(() => {
+    //     setProducts(productsData)
+    // }, [])
     return (
         <>
             <div className='container mx-auto !pt-10'>
