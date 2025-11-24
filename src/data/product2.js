@@ -11,12 +11,27 @@ export const product2 = [
       "https://pos.nvncdn.com/be3294-43017/ps/20250609_Zm6rxfHwtN.webp?v=1749466080",
     ],
     price: 1850000,
+    originalPrice: 2000000,
+    variations: [
+      {
+        sku: "P1-M",
+        size: "M",
+        price: 1850000,
+        quantity: 10
+      },
+      {
+        sku: "P1-L",
+        size: "L",
+        price: 1850000,
+        quantity: 0
+      }
+    ],
     brand: "Raidlight",
     size: null,
-    originalPrice: 0,
     isBestSeller: false,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-06-09",
+    updatedAt: "2025-06-09",
     description: `
           <div class="p-0"> 
             <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -72,12 +87,32 @@ export const product2 = [
       "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",
     ],
     price: 4999000,
+    originalPrice: 5999000,
+    variations: [
+      {
+        sku: "P2-M",
+        size: "M",
+        price: 4999000,
+        quantity: 10
+      },
+      {
+        sku: "P2-L",
+        size: "L",
+        price: 4999000,
+        quantity: 0
+      },
+      {
+        sku: "P2-XL",
+        size: "XL",
+        price: 4999000,
+        quantity: 0
+      }
+    ],
     brand: "NNormal",
-    size: null,
-    originalPrice: 0,
     isBestSeller: false,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-10-18",
+    updatedAt: "2025-10-18",
     description: `
           <div class="p-0"> 
             <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -133,12 +168,39 @@ export const product2 = [
       "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",
     ],
     price: 4999000,
-    brand: "NNormal",
-    size: null,
     originalPrice: 0,
+    variations: [
+      {
+        sku: "P3-S",
+        size: "S",
+        price: 4999000,
+        quantity: 0
+      },
+      {
+        sku: "P3-M",
+        size: "M",
+        price: 4999000,
+        quantity: 10
+      },
+      {
+        sku: "P3-L",
+        size: "L",
+        price: 4999000,
+        quantity: 0
+      },
+      {
+        sku: "P3-XL",
+        size: "XL",
+        price: 4999000,
+        quantity: 0
+      }
+    ],
+    brand: "NNormal",
+    originalPrice: 4999000,
     isBestSeller: false,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-10-18",
+    updatedAt: "2025-10-18",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -184,23 +246,37 @@ export const product2 = [
   },
   {
     id: 4,
-    category_id: 3,
-    name: "Áo Khoác Chạy Bộ Nam On Running Men's Weather Jacket - Desert/Cinder",
-    image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg",
+    category_id: 4,
+    name: "Light Speed Compression | Quần Bó Cơ Nữ 2XU Light Speed Mid-Rise Compression Shorts - BLK/GRF",
+    image:
+      "https://pos.nvncdn.com/be3294-43017/ps/20251110_1sp2Oc4tfh.jpeg?v=1762757957",
     thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251031_aD2tq2Gkqh.jpeg?v=1761880038",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251031_e0tQyKSF7R.png?v=1761880040,",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251031_oLjLz6ZVJJ.png?v=1761880042",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251031_y6e9EK12fJ.png?v=1761880045",
+      "https://pos.nvncdn.com/be3294-43017/ps/20251110_1sp2Oc4tfh.jpeg?v=1762757957",
+      "https://pos.nvncdn.com/be3294-43017/ps/20251109_1WlOZHgbP3.jpeg?v=1762659756",
+      "https://pos.nvncdn.com/be3294-43017/ps/20251109_O6Z7vcDMKa.jpeg?v=1762659757",
+      "https://pos.nvncdn.com/be3294-43017/ps/20251109_WJsL7klLZu.jpeg?v=1762659758",
     ],
-    price: 5648000,
-    brand: "NNormal",
-
-    size: "s",
-    originalPrice: 0,
+    price: 1799100,
+    originalPrice: 1799100,
+    variations: [
+      {
+        sku: "P4-S",
+        size: "S",
+        price: 1799100,
+        quantity: 0
+      },
+      {
+        sku: "P4-M",
+        size: "M",
+        price: 1799100,
+        quantity: 10
+      },
+    ],
+    brand: "2XU",
     isBestSeller: false,
-    isDiscount: 0,
-    isGift: false,
+    isGift: true,
+    createdAt: "2025-10-15",
+    updatedAt: "2025-10-15",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -210,68 +286,7 @@ export const product2 = [
       Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
       </p>
       <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 24,
-    category_id: 3,
-    name: "Áo Chạy Bộ Nam On Running Men's Performance-T - Acai/Black",
-    image: "https://pos.nvncdn.com/be3294-43017/ps/20250905_N5LQWAIyx5.jpeg",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20250905_N5LQWAIyx5.jpeg",
-      "https://pos.nvncdn.com/be3294-43017/ps/20250905_rJRTJ50kBm.png?v=1757063689",
-      "https://pos.nvncdn.com/be3294-43017/ps/20250905_jF2Ipx2dIB.png?v=1757063693",
-      "https://pos.nvncdn.com/be3294-43017/ps/20250905_pogpNXDkd1.png?v=1757063696",
-    ],
-    price: 2060000,
-    brand: "On Running",
-    size: "s",
-    originalPrice: 0,
-    isBestSeller: false,
-    isDiscount: 0,
-    isGift: false,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-      Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
-      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20250905_N5LQWAIyx5.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
+        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
       </div>
       <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
       <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
@@ -307,129 +322,6 @@ export const product2 = [
   },
   {
     id: 5,
-    category_id: 3,
-    name: "Áo Chạy Bộ Nam Compressport Pro Racing SS TShirt M- Fluo Red-TR",
-    image: "https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg?v=1760583132",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_wNE9U4b2l7.webp?v=1760583135",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_2diOSksWA0.jpeg?v=1760583140",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_9SdaivYyJ5.webp?v=1760583140",
-    ],
-    price: 2850000,
-    brand: "Compressport",
-    size: "M",
-    originalPrice: 0,
-    isBestSeller: false,
-    isDiscount: 0,
-    isGift: false,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-      Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
-      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 6,
-    category_id: 4,
-    name: "Light Speed Compression | Quần Bó Cơ Nữ 2XU Light Speed Mid-Rise Compression Shorts - BLK/GRF",
-    image:
-      "https://pos.nvncdn.com/be3294-43017/ps/20251110_1sp2Oc4tfh.jpeg?v=1762757957",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251110_1sp2Oc4tfh.jpeg?v=1762757957",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251109_1WlOZHgbP3.jpeg?v=1762659756",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251109_O6Z7vcDMKa.jpeg?v=1762659757",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251109_WJsL7klLZu.jpeg?v=1762659758",
-    ],
-    price: 1799100,
-    brand: "2XU",
-    size: null,
-    originalPrice: 0,
-    isBestSeller: false,
-    isDiscount: 0,
-    isGift: true,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-      Được thiết kế dành riêng cho các vận động viên chạy bộ, Pace Mesh-T kết hợp giữa hiệu suất vượt trội và sự thoải mái tối đa.
-      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251016_SlgOHpasXk.jpeg" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/20250905_CmmW3bkZ0I.jpeg" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 7,
     category_id: 1,
     name: "Norda 001 | Giày Chạy Địa Hình Nam Norda 001 - Glitch",
     image:
@@ -441,12 +333,38 @@ export const product2 = [
       "https://pos.nvncdn.com/be3294-43017/ps/20250309_7E6QxYuSej.jpeg?v=1741507009",
     ],
     price: 1492500,
+    originalPrice: 1492500,
+    variations: [
+      {
+        sku: "P5-41",
+        size: "41",
+        price: 1492500,
+        quantity: 0
+      },
+      {
+        sku: "P5-42",
+        size: "42",
+        price: 1492500,
+        quantity: 20
+      },
+      {
+        sku: "P5-42.5",
+        size: "42.5",
+        price: 1492500,
+        quantity: 0
+      },
+      {
+        sku: "P5-43",
+        size: "43",
+        price: 1492500,
+        quantity: 10
+      },
+    ],
     brand: "2XU",
-    size: null,
-    originalPrice: 0,
     isBestSeller: false,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-09-03",
+    updatedAt: "2025-09-03",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -493,7 +411,7 @@ export const product2 = [
   `,
   },
   {
-    id: 8,
+    id: 6,
     category_id: 2,
     name: "Bondi 9 Wide | Giày Chạy Bộ Nam Hoka Bondi 9 Wide - BBLC",
     image:
@@ -506,11 +424,43 @@ export const product2 = [
     ],
     price: 1492500,
     brand: "2XU",
-    size: null,
-    originalPrice: 0,
+    variations: [
+      {
+        sku: "P6-41",
+        size: "41",
+        price: 1492500,
+        quantity: 0
+      },
+      {
+        sku: "P6-42",
+        size: "42",
+        price: 1492500,
+        quantity: 20
+      },
+      {
+        sku: "P6-42.5",
+        size: "42.5",
+        price: 1492500,
+        quantity: 0
+      },
+      {
+        sku: "P6-43",
+        size: "43",
+        price: 1492500,
+        quantity: 10
+      },
+      {
+        sku: "P6-44",
+        size: "44",
+        price: 1492500,
+        quantity: 0
+      },
+    ],
+    originalPrice: 3999000,
     isBestSeller: true,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-09-23",
+    updatedAt: "2025-09-23",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -557,7 +507,7 @@ export const product2 = [
   `,
   },
   {
-    id: 9,
+    id: 7,
     category_id: 4,
     name: "Light Speed Compression | Quần Bó Cơ Nữ 2XU Light Speed Mid-Rise Compression Shorts - BLK/GRF",
     image:
@@ -570,74 +520,31 @@ export const product2 = [
     ],
     price: 2400000,
     brand: "2XU",
-    size: null,
-    originalPrice: 0,
-    isBestSeller: true,
-    isDiscount: 0,
-    isGift: false,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-Được thiết kế tập trung vào sự nhẹ nhàng và thoải mái, lưỡi gà đi kèm với miếng lót đặc biệt, đảm bảo sự vừa vặn hoàn hảo cho đôi chân của bạn. Miếng lót này giữ cho bàn chân của bạn ổn định và thoải mái, giúp bạn tự tin di chuyển qua mọi loại địa hình khác nhau mà không lo sợ mất cân bằng.      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20250904_nM1TbYwBHu.jpeg?v=1756982968" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <p>Việc giày của bạn bị bẩn là điều hoàn toàn bình thường, đặc biệt nếu bạn mang chúng trên đường mòn! Tốt nhất nên tháo đế ra để giày khô nhanh hơn. Giặt bằng tay bằng xà phòng nhẹ và nước lạnh mang lại kết quả tốt nhất. Chúng tôi KHÔNG khuyên bạn nên sử dụng máy giặt hoặc nước nóng và chắc chắn KHÔNG để giày tiếp xúc với nhiệt độ cao vì sẽ làm hỏng các bộ phận của giày. 
-
-        Giày chạy địa hình Norda có xu hướng nhỏ, chúng tôi khuyên bạn nên tăng nửa size so với size giày đang mang.</p>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/content/20240404_cYVO2Dzh.png" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 20,
-    category_id: 4,
-    name: "Light Speed Compression | Quần Bó Cơ Nữ 2XU Light Speed Mid-Rise Compression Shorts - BLK/GRF",
-    image:
-      "https://pos.nvncdn.com/be3294-43017/ps/20251111_JTAX7dEVHX.jpeg?v=1762852689",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251111_JTAX7dEVHX.jpeg?v=1762852689",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251112_7uw52cJ4Jg.jpeg?v=1762940105",
-      "https://pos.nvncdn.com/be3294-43017/ps/20251112_evawXKY1wK.jpeg?v=1762940106",
+    variations: [
+      {
+        sku: "P7-S",
+        size: "S",
+        price: 2400000,
+        quantity: 0
+      },
+      {
+        sku: "P7-M",
+        size: "M",
+        price: 2400000,
+        quantity: 10
+      },
+      {
+        sku: "P7-L",
+        size: "L",
+        price: 2400000,
+        quantity: 0
+      },
     ],
-    price: 1799100,
-    brand: "2XU",
-    size: null,
-    originalPrice: 0,
+    originalPrice: 2400000,
     isBestSeller: true,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-09-08",
+    updatedAt: "2025-09-08",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -684,8 +591,8 @@ export const product2 = [
   `,
   },
   {
-    id: 10,
-    category_id: 4,
+    id: 8,
+    category_id: 5,
     name: "Mach X 2 Wide | Giày Chạy Bộ Nữ Hoka Mach X 2 Wide - BCQ",
     image:
       "https://pos.nvncdn.com/be3294-43017/ps/20251030_FlC1zio0U5.jpeg?v=1761807808",
@@ -697,11 +604,37 @@ export const product2 = [
     ],
     price: 4550000,
     brand: "2XU",
-    size: null,
-    originalPrice: 0,
+    variations: [
+      {
+        sku: "P8-38",
+        size: "38",
+        price: 4550000,
+        quantity: 0
+      },
+      {
+        sku: "P8-39",
+        size: "39",
+        price: 4550000,
+        quantity: 0
+      },
+      {
+        sku: "P8-40",
+        size: "40",
+        price: 4550000,
+        quantity: 0
+      },
+      {
+        sku: "P8-41",
+        size: "41",
+        price: 4550000,
+        quantity: 0
+      },
+    ],
+    originalPrice: 5500000,
     isBestSeller: true,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-11-24",
+    updatedAt: "2025-11-24",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -749,67 +682,6 @@ export const product2 = [
   },
   {
     id: 11,
-    category_id: 5,
-    name: "Kjerag 02 | Giày Chạy Địa Hình Nữ NNormal Kjerag 02 - Black",
-    image:
-      "https://pos.nvncdn.com/be3294-43017/ps/20251121_676SpccBGZ.jpeg?v=1763721808",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251121_676SpccBGZ.jpeg?v=1763721808",
-    ],
-    price: 6900000,
-    brand: "NNormal",
-    size: null,
-    originalPrice: 0,
-    isBestSeller: true,
-    isDiscount: 0,
-    isGift: false,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-Được thiết kế tập trung vào sự nhẹ nhàng và thoải mái, lưỡi gà đi kèm với miếng lót đặc biệt, đảm bảo sự vừa vặn hoàn hảo cho đôi chân của bạn. Miếng lót này giữ cho bàn chân của bạn ổn định và thoải mái, giúp bạn tự tin di chuyển qua mọi loại địa hình khác nhau mà không lo sợ mất cân bằng.      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251121_676SpccBGZ.jpeg?v=1763721808" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <p>Việc giày của bạn bị bẩn là điều hoàn toàn bình thường, đặc biệt nếu bạn mang chúng trên đường mòn! Tốt nhất nên tháo đế ra để giày khô nhanh hơn. Giặt bằng tay bằng xà phòng nhẹ và nước lạnh mang lại kết quả tốt nhất. Chúng tôi KHÔNG khuyên bạn nên sử dụng máy giặt hoặc nước nóng và chắc chắn KHÔNG để giày tiếp xúc với nhiệt độ cao vì sẽ làm hỏng các bộ phận của giày. 
-
-        Giày chạy địa hình Norda có xu hướng nhỏ, chúng tôi khuyên bạn nên tăng nửa size so với size giày đang mang.</p>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/content/20240404_cYVO2Dzh.png" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 12,
     category_id: 6,
     name: "Kjerag 02 | Giày Chạy Địa Hình Nữ NNormal Kjerag 02 - Black",
     image:
@@ -819,11 +691,31 @@ export const product2 = [
     ],
     price: 6900000,
     brand: "NNormal",
-    size: null,
-    originalPrice: 0,
+    variations: [
+      {
+        sku: "P11-38",
+        size: "38",
+        price: 6900000,
+        quantity: 0
+      },
+      {
+        sku: "P11-39",
+        size: "39",
+        price: 6900000,
+        quantity: 0
+      },
+      {
+        sku: "P11-40",
+        size: "40",
+        price: 6900000,
+        quantity: 0
+      },
+    ],
+    originalPrice: 6900000,
     isBestSeller: true,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-11-24",
+    updatedAt: "2025-11-24",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
@@ -833,67 +725,6 @@ export const product2 = [
 Được thiết kế tập trung vào sự nhẹ nhàng và thoải mái, lưỡi gà đi kèm với miếng lót đặc biệt, đảm bảo sự vừa vặn hoàn hảo cho đôi chân của bạn. Miếng lót này giữ cho bàn chân của bạn ổn định và thoải mái, giúp bạn tự tin di chuyển qua mọi loại địa hình khác nhau mà không lo sợ mất cân bằng.      </p>
       <div class="mb-8">
         <img src="https://pos.nvncdn.com/be3294-43017/ps/20251121_676SpccBGZ.jpeg?v=1763721808" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
-      </div>
-      <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Chất liệu CleanCloud® Polyester: Sử dụng sợi polyester tái chế từ khí thải carbon, mang lại cảm giác mềm mại và co giãn tuyệt vời.</li>
-        <li>Siêu nhẹ và thoáng khí: Thiết kế giúp duy trì sự mát mẻ và khô ráo trong suốt quá trình chạy.</li>
-        <li>Co giãn linh hoạt và mềm mại: Tạo cảm giác thoải mái tối đa, cho phép chuyển động tự nhiên mà không bị hạn chế.</li>
-        <li>Logo phản quang của On: Tăng khả năng nhận diện trong điều kiện ánh sáng yếu, đảm bảo an toàn khi chạy vào sáng sớm hoặc chiều tối.</li>
-          <li>Chi tiết đồ họa lấy cảm hứng từ văn hóa chạy bộ: Mang đến phong cách năng động và hiện đại.</li>
-            <li>Đường viền không may (bonded hems): Giảm thiểu ma sát, tăng cường sự thoải mái và độ bền cho sản phẩm.</li>
-              <li>Mắt cài số bib tích hợp: Giúp giữ số bib chắc chắn mà không làm hỏng áo.</li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Phom dáng & chất liệu</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Phom dáng: Regular fit – vừa vặn với cơ thể, không quá ôm sát.</li>
-        <li>Chất liệu chính: 81% Polyester, 19% Elastane.</li>
-        <li>Viền cổ: 97% Polyester tái chế, 3% Elastane. </li>
-      </ul>
-      <h4 class="font-bold mt-4 mb-2">Hướng dẫn bảo quản</h4>
-      <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
-        <li>Giặt tay hoặc máy ở chế độ lạnh và nhẹ nhàng</li>
-        <li>Không dùng thuốc tẩy</li>
-        <li>Không giặt khô</li>
-        <li>Không ủi (là)</li>
-        <li>Có thể sấy khô ở nhiệt độ thấp</li>
-        <li>Giặt mặt trái áo.</li>
-            <li>Giặt riêng với đồ khác</li>
-            Pace Mesh-T là lựa chọn hoàn hảo cho những runner đề cao cảm giác nhẹ, thoáng và hiệu suất. Dù là chạy luyện tập hay ngày thi đấu, chiếc áo này sẽ giúp bạn di chuyển tự nhiên và tự tin hơn mỗi km.
-      </ul>
-      <p>Việc giày của bạn bị bẩn là điều hoàn toàn bình thường, đặc biệt nếu bạn mang chúng trên đường mòn! Tốt nhất nên tháo đế ra để giày khô nhanh hơn. Giặt bằng tay bằng xà phòng nhẹ và nước lạnh mang lại kết quả tốt nhất. Chúng tôi KHÔNG khuyên bạn nên sử dụng máy giặt hoặc nước nóng và chắc chắn KHÔNG để giày tiếp xúc với nhiệt độ cao vì sẽ làm hỏng các bộ phận của giày. 
-
-        Giày chạy địa hình Norda có xu hướng nhỏ, chúng tôi khuyên bạn nên tăng nửa size so với size giày đang mang.</p>
-      <h4 class="font-bold mt-6 mb-3 ">Bảng size tham khảo</h4>
-      <img src="https://pos.nvncdn.com/be3294-43017/ps/content/20240404_cYVO2Dzh.png" alt="Bảng size giày" class="w-full h-auto object-cover mb-3"/>
-    </div>
-  `,
-  },
-  {
-    id: 13,
-    category_id: 7,
-    name: "Giày Sneaker Nữ HOKA Mafate Three2 - FLCK",
-    image:
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_EdLLZPLSr1.jpeg?v=1760608492",
-    thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251016_EdLLZPLSr1.jpeg?v=1760608492",
-    ],
-    price: 4399000,
-    brand: "Hoka",
-    size: null,
-    originalPrice: 0,
-    isBestSeller: true,
-    isDiscount: 0,
-    isGift: false,
-    description: `
-    <div class="p-0"> 
-      <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>
-      <p class="mb-8">
-      Hiệu suất cao – Siêu nhẹ – Thoáng khí tối đa
-      <br/>
-Được thiết kế tập trung vào sự nhẹ nhàng và thoải mái, lưỡi gà đi kèm với miếng lót đặc biệt, đảm bảo sự vừa vặn hoàn hảo cho đôi chân của bạn. Miếng lót này giữ cho bàn chân của bạn ổn định và thoải mái, giúp bạn tự tin di chuyển qua mọi loại địa hình khác nhau mà không lo sợ mất cân bằng.      </p>
-      <div class="mb-8">
-        <img src="https://pos.nvncdn.com/be3294-43017/ps/20251016_EdLLZPLSr1.jpeg?v=1760608492" alt="Hình ảnh chi tiết sản phẩm" class="w-full h-auto object-cover mb-3"/>
       </div>
       <h4 class="font-bold mt-4 mb-2">Tính năng nổi bật</h4>
       <ul class="list-disc list-inside ml-4 mb-4 space-y-1">
@@ -944,11 +775,37 @@ export const product2 = [
     ],
     price: 2999000,
     brand: "On Running",
-    size: null,
-    originalPrice: 0,
+    variations: [
+      {
+        sku: "P14-S",
+        size: "S",
+        price: 2999000,
+        quantity: 30
+      },
+      {
+        sku: "P14-M",
+        size: "M",
+        price: 2999000,
+        quantity: 20
+      },
+      {
+        sku: "P14-L",
+        size: "L",
+        price: 2999000,
+        quantity: 30
+      },
+      {
+        sku: "P14-XL",
+        size: "XL",
+        price: 2999000,
+        quantity: 0
+      },
+    ],
+    originalPrice: 2999000,
     isBestSeller: true,
-    isDiscount: 0,
     isGift: false,
+    createdAt: "2025-11-25",
+    updatedAt: "2025-11-25",
     description: `
     <div class="p-0"> 
       <h3 class="text-xl font-bold mb-3">Áo chạy bộ On Pace Mesh-T</h3>

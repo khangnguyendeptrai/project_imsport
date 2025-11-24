@@ -1,71 +1,90 @@
 import { useLocation, Link } from "react-router-dom";
 import breadcrumbBG from "../../assets/images/breadcrumb-bg.png"
-const Breadcrumb = ({ data }) => {
+import { categoriesType } from "../../data/categoriesType";
+import { categories } from "../../data/categories";
+const Breadcrumb = ({ category, subcategory }) => {
   const location = useLocation();
   const currentSlug = location.pathname.replace("/", ""); // ví dụ "/giay" → "giay"
 
   let breadcrumbItems = [{ name: "Trang chủ", slug: "/" }];
 
-  // Tìm slug cha (ví dụ "donam")
-  const parent = data.find(item => item.slug === currentSlug);
-
-  if (parent) {
-    // Trường hợp đang ở cấp cha
+  const categoryType = categoriesType.find(item => item.slug === category);
+  if (categoryType) {
     breadcrumbItems.push({
-      name: parent.categoriesType,
-      slug: `/${parent.slug}`,
-    });
-  } else {
-    // Trường hợp là slug con (ví dụ "giay")
-    data.forEach(item => {
-      const child = item.categories?.find(c => c.slug === currentSlug);
-      if (child) {
-        breadcrumbItems.push({
-          name: item.categoriesType,
-          slug: `/${item.slug}`,
-        });
-        breadcrumbItems.push({
-          name: child.name,
-          slug: `/${child.slug}`,
-        });
-      }
+      name: categoryType.name,
+      slug: `/${categoryType.slug}`,
     });
   }
 
+  if (subcategory) {
+    const categoryData = categories.find(item => item.slug === subcategory);
+    if (categoryData) {
+      breadcrumbItems.push({
+        name: categoryData.name,
+        slug: `/${categoryData.slug}`,
+      });
+    }
+  }
+
+  // const parent = data.find(item => item.slug === currentSlug);
+
+  // if (parent) {
+  //   // Trường hợp đang ở cấp cha
+  //   breadcrumbItems.push({
+  //     name: parent.categoriesType,
+  //     slug: `/${parent.slug}`,
+  //   });
+  // } else {
+  //   // Trường hợp là slug con (ví dụ "giay")
+  //   data.forEach(item => {
+  //     const child = item.categories?.find(c => c.slug === currentSlug);
+  //     if (child) {
+  //       breadcrumbItems.push({
+  //         name: item.categoriesType,
+  //         slug: `/${item.slug}`,
+  //       });
+  //       breadcrumbItems.push({
+  //         name: child.name,
+  //         slug: `/${child.slug}`,
+  //       });
+  //     }
+  //   });
+  // }
+
   return (
-    <div 
-      className="w-full py-3 bg-cover bg-top" 
-      style={{ backgroundImage: `url(${breadcrumbBG})` }}
-    >
+    <div
+      className="w-full py-3 bg-cover bg-top"
+      style={{ backgroundImage: `url(${breadcrumbBG})` }}
+    >
 
 
-    <div className="container py-3  "  >
-      <nav className="text-sm text-gray-600 md:p-10 p-5">
-        {breadcrumbItems.map((item, index) => (
-          <span key={index}>
-            {index > 0 && <span className="mx-2"> / </span>} 
-            
-            {index < breadcrumbItems.length - 1 ? (
-              // Link cho các mục cha (ĐÃ BỎ hover:underline)
-              <Link 
-                to={item.slug} 
-                className="text-blue-500 no-underline hover:text-blue-800"
-              >
-                {item.name}
-              </Link>
-            ) : (
-              // Link cho mục hiện tại (ĐÃ CHUYỂN TỪ <span> SANG <Link>)
-              <Link 
-                to={item.slug}
-                className="text-gray-800 font-medium no-underline hover:text-blue-800"
-              >
-                {item.name}
-              </Link>
-            )}
-          </span>
-        ))}
-      </nav>
-    </div>
+      <div className="container py-3  "  >
+        <nav className="text-sm text-gray-600 md:p-10 p-5">
+          {breadcrumbItems.map((item, index) => (
+            <span key={index}>
+              {index > 0 && <span className="mx-2"> / </span>}
+
+              {index < breadcrumbItems.length - 1 ? (
+                // Link cho các mục cha (ĐÃ BỎ hover:underline)
+                <Link
+                  to={item.slug}
+                  className="text-blue-500 no-underline hover:text-blue-800"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                // Link cho mục hiện tại (ĐÃ CHUYỂN TỪ <span> SANG <Link>)
+                <Link
+                  to={item.slug}
+                  className="text-gray-800 font-medium no-underline hover:text-blue-800"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </span>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 };

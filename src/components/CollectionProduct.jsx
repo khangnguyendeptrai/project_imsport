@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, productImg2Hide, productImg3, productImg3Hide, productImg4, productImg4Hide, productImg5, productImg5Hide, productImg6, productImg6Hide, tagGift } from '../assets/ExportImage'
 import ProductCard from './ProductCard'
 import ProductAPI from '../service/ProductAPI'
-import { productsData } from '../data/ProductVariation'
-// import { products } from '../data/products'
+// import { productsData } from '../data/ProductVariation'
+import { product2 } from '../data/product2'
 
 const data =
 {
@@ -89,18 +89,18 @@ const CollectionProduct = () => {
     // const productMockup = products.slice(0, 6);
     // const [products, setProducts] = useState(productsData)
     const [products, setProducts] = useState()
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const response = await ProductAPI.getProducts()
-            console.log('data lấy từ aws dynamoDB', response);
-            setProducts(response)
-        }
-
-        fetchProducts()
-    }, [])
     // useEffect(() => {
-    //     setProducts(productsData)
+    //     const fetchProducts = async () => {
+    //         const response = await ProductAPI.getProducts()
+    //         console.log('data lấy từ aws dynamoDB', response);
+    //         setProducts(response)
+    //     }
+
+    //     fetchProducts()
     // }, [])
+    useEffect(() => {
+        setProducts(product2.filter(item => item.category.categories_type_id === 1))
+    }, [])
     return (
         <>
             <div className='container mx-auto !pt-10'>

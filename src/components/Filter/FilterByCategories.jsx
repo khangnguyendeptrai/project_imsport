@@ -7,7 +7,7 @@ import PriceRangeSlider from "./PriceRangeSlider";
 import SizeSelector from "./SizeSelector";
 import BrandSelector from "./BrandSelector";
 
-const FilterByCategories = ({ data, onFilterChange }) => {
+const FilterByCategories = ({ data, products, onFilterChange }) => {
   const location = useLocation();
   const currentSlug = location.pathname.substring(1);
   // console.log("location",location);
@@ -52,19 +52,20 @@ const FilterByCategories = ({ data, onFilterChange }) => {
     }
 
     // === Gom toàn bộ sản phẩm thuộc vùng đó ===
-    targetCategories.forEach((cate) => {
-      cate.products?.forEach((product) => {
+    // targetCategories.forEach((cate) => {
+      products.forEach((product) => {
         if (product.brand) brandSet.add(product.brand.trim());
-        if (product.size) {
-          product.size
-            .split(",")
-            .map((s) => s.trim())
-            .filter(Boolean)
-            .forEach((s) => sizeSet.add(s));
+        if (product.variations) {
+          product.variations.forEach((variation) => {
+            if (variation.size) {
+              sizeSet.add(variation.size.trim());
+            }
+          });
         }
       });
-    });
-
+    // });
+      console.log(brandSet);
+      console.log(sizeSet);
     setBrands([...brandSet]);
     setSizes([...sizeSet]);
   }, [normalizedData, currentSlug]);
@@ -162,7 +163,7 @@ const FilterByCategories = ({ data, onFilterChange }) => {
                           className={`text-black text-sm mt-1 ${isChildActive ? "rotate-90" : ""
                             }`}
                         />
-                        <Link to={`/${cate.slug}`}>
+                        <Link to={`/${item.slug}/${cate.slug}`}>
                           <span
                             className={`text-sm transition-colors duration-150 ${isChildActive
                               ? "text-[#673AB7]"

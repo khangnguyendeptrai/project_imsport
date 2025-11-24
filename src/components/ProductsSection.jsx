@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import DiscountBadge from "./DiscountBadge";
 import { EyeIcon, MagnifyingGlassPlusIcon } from "@heroicons/react/24/outline";
-import { products } from "../data/products";
+import { product2 } from "../data/product2";
 import {
   buckethat, buckethathide,
   giaykje, giaykjehide,
@@ -35,8 +35,8 @@ import {
 // ];
 
 // 👉 Tách nhóm sản phẩms
-const newProducts = products.filter(p => p.isDiscount === 0).reverse().slice(0, 10);
-const saleProducts = products.filter(p => p.isDiscount !== 0);
+const newProducts = product2.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 7);
+const saleProducts = product2.filter(p => p.price < p.originalPrice);
 
 const ProductSlider = ({ title, items }) => (
   <div className="w-full flex flex-col items-center py-10 overflow-hidden">
@@ -46,7 +46,7 @@ const ProductSlider = ({ title, items }) => (
     <div className="grid grid-cols-2 gap-4 px-4 md:hidden">
       {items.map((item) => (
         <div key={item.id} className="group relative overflow-hidden">
-          {item.isDiscount !== 0 && <DiscountBadge />}
+          {item.price < item.originalPrice && <DiscountBadge discount={Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)} />}
           <div className="relative">
             <img
               src={item.image}
@@ -80,7 +80,7 @@ const ProductSlider = ({ title, items }) => (
     <div className="flex justify-center gap-6 flex-wrap">
       {items.map((item) => (
         <div key={item.id} className="group relative w-[200px] overflow-hidden">
-          {item.isDiscount !== 0 && <DiscountBadge />}
+          {item.price < item.originalPrice && <DiscountBadge discount={Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)} />}
           <a href={`/product/${item.id}`} className="block relative overflow-hidden">
             <div className="relative w-full aspect-[1/1.1] overflow-hidden">
               <img
@@ -105,7 +105,7 @@ const ProductSlider = ({ title, items }) => (
             </a>
             {item.isDiscount !== 0 && item.originalPrice && (
               <p className="text-xs text-[#adadad] line-through mt-1">
-                {item.originalPrice}
+                {item.originalPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', '')}VND
               </p>
             )}
           </div>
@@ -134,8 +134,8 @@ const ProductSlider = ({ title, items }) => (
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             <div className="group relative overflow-hidden">
-              {item.isDiscount !== 0 && <DiscountBadge />}
-              <a href={`/product/${item.id}`} className="block relative overflow-hidden">
+            {item.price < item.originalPrice && <DiscountBadge discount={Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)} />}
+            <a href={`/product/${item.id}`} className="block relative overflow-hidden">
                 <div className="relative w-full aspect-[1/1.1] overflow-hidden">
                   <img
                     src={item.image}

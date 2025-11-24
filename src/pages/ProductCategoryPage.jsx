@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
-import { dataNew } from "../data/dataNew";
 import FilterContainer from "../components/Filter/FilterContainer";
 import FilterByCategories from "../components/Filter/FilterByCategories";
 // === Import 3 file JS gốc ===
@@ -11,7 +10,9 @@ import { categories } from "../data/categories.js";
 import { products } from "../data/products.js";
 import { product2 } from "../data/product2.js";
 const ProductCategoryPage = () => {
-  const { category } = useParams(); // 👈 Lấy param từ URL
+  const { category, subcategory } = useParams(); // 👈 Lấy param từ URL
+  const [products, setProducts] = useState([]);
+  const [categoryTitle, setCategoryTitle] = useState(null);
   // console.log('category', category);
 
 
@@ -47,7 +48,6 @@ const ProductCategoryPage = () => {
         id: cat.id,
         name: cat.name,
         slug: cat.slug,
-        products: product2.filter((p) => p.category_id === cat.id)
       }));
 
     return {
@@ -59,40 +59,28 @@ const ProductCategoryPage = () => {
     };
   });
   console.log('dataNew', dataNew);
-  const data = []
-  let categorieTitle = ''
-  let selectedPage = dataNew.find(item => item.slug === category);
-  if (selectedPage) {
-    categorieTitle = selectedPage.categoriesType
-    selectedPage.categories.forEach(item => {
-      item.products.forEach(product => {
-        data.push(product);
-      });
-    });
+  
+  useEffect(() => {
+    if (subcategory) {
+      const categoryData = categories.find(item => item.slug === subcategory);
+      setProducts(product2.filter(item => item.category_id === categoryData.id));
+      setCategoryTitle(categories.find(item => item.slug === subcategory)?.name);
+    } else {
+      const categoryType = categoriesType.find(item => item.slug === category);
+      const categorySub = categories.filter(item => item.categories_type_id === categoryType.id);
+      setProducts(product2.filter(item => categorySub.some(c => c.id === item.category_id)));
+      setCategoryTitle(categoryType.name);
+    }
+  }, [category, subcategory]);
 
-  } else {
-    selectedPage = dataNew.find(item => {
-      item.categories.forEach(item => {
-        if (item.slug === category) {
-          categorieTitle = item.name
-          item.products.forEach(product => {
-            data.push(product);
-          });
-        }
-      });
-    });
-  }
-  // console.log('data', data);
-  // console.log('selectedPage', selectedPage);
 
   const handleFilterChange = (newFilter) => {
     setFilters((prev) => ({ ...prev, ...newFilter }));
   };
-  const filteredProducts = data.filter((p) => {
+  const filteredProducts = products.filter((p) => {
     const matchSize =
       filters.sizes.length === 0 ||
       filters.sizes.some((s) => p.size?.split(",").includes(s));
-
     const matchBrand =
       filters.brands.length === 0 || filters.brands.includes(p.brand?.trim().toLowerCase());
 
@@ -102,24 +90,24 @@ const ProductCategoryPage = () => {
       (p.price >= filters.price.min && p.price <= filters.price.max);
     return matchSize && matchBrand && matchPrice;
   });
-  console.log(isFiltering);
+  console.log("isFiltering", isFiltering);
 
   // console.log("data new"+filteredProducts);
 
   return (
     <>
-      <Breadcrumb data={dataNew} />
+      <Breadcrumb category={category} subcategory={subcategory} />
       <div className="container flex ">
         <div className="md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
           {/* <FilterByCategories data={dataFilter} /> */}
-          <FilterContainer data={dataNew} onFilterChange={handleFilterChange} />
+          <FilterContainer data={dataNew} products={products} onFilterChange={handleFilterChange} />
         </div>
         <div className="flex-1">
           <ProductGridPage
-            title={data.categoriesType}
+            title={categoryTitle}
             category={category}
-            description={selectedPage?.description || ""}
-            productData={isFiltering ? filteredProducts : data}
+            description={categoryTitle || ""}
+            productData={isFiltering ? filteredProducts : products}
           />
         </div>
       </div>

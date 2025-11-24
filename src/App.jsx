@@ -27,6 +27,7 @@ function App() {
           
           {/* <Route path='filter' element={<FilterContainer />} /> */}
           <Route path="/:category" element={<ProductCategoryPage />} />
+          <Route path="/:category/:subcategory" element={<ProductCategoryPage />} />
           <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>

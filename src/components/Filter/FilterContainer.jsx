@@ -8,7 +8,7 @@ import ProductList from "../ProductList";
 import ProductGridPage from "../ProductGridPage";
 import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
-export default function FilterContainer({ data, onFilterChange }) {
+export default function FilterContainer({ data, products, onFilterChange }) {
     const handleFilterChange = (filterData) => {
         onFilterChange(filterData); // 📤 gửi lên ProductCategoryPage
     };
@@ -70,10 +70,10 @@ export default function FilterContainer({ data, onFilterChange }) {
                     ref={drawerRef}
                     className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]"
                 >
-                    <FilterByCategories data={data} onFilterChange={handleFilterChange} />
+                    <FilterByCategories data={data} products={products} onFilterChange={handleFilterChange} />
                 </div>
             </div>
-            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} onFilterChange={handleFilterChange} /> </div>
+            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} products={products} onFilterChange={handleFilterChange} /> </div>
         </>
     );
 }
