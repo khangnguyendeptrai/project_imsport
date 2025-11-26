@@ -64,8 +64,6 @@ const FilterByCategories = ({ data, products, onFilterChange }) => {
         }
       });
     // });
-      console.log(brandSet);
-      console.log(sizeSet);
     setBrands([...brandSet]);
     setSizes([...sizeSet]);
   }, [normalizedData, currentSlug]);

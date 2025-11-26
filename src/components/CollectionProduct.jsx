@@ -3,8 +3,9 @@ import { imgCategoryCollection1, productImg1, productImg1Hide, productImg2, prod
 import ProductCard from './ProductCard'
 import ProductAPI from '../service/ProductAPI'
 // import { productsData } from '../data/ProductVariation'
-import { product2 } from '../data/product2'
 
+import { product2 } from '../data/product2'
+import { categories } from '../data/categories'
 const data =
 {
     title: 'Đồ Nam',
@@ -99,7 +100,8 @@ const CollectionProduct = () => {
     //     fetchProducts()
     // }, [])
     useEffect(() => {
-        setProducts(product2.filter(item => item.category.categories_type_id === 1))
+        const category = categories.filter(item => item.categories_type_id === 1)
+        setProducts(product2.filter(item => category.some(c => c.id === item.category_id)))
     }, [])
     return (
         <>

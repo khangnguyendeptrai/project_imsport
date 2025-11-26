@@ -10,8 +10,9 @@ const Cart = () => {
     const { cart, updateQuantity, removeFromCart, totalPrice } = useCart();
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [show, setShow] = useState(false);
-
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleMouseMove = (e) => {
         setPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
@@ -29,7 +30,7 @@ const Cart = () => {
     }
     return (
         <>
-            <Breadcrumb data={dataFilter} />
+            <Breadcrumb data={dataFilter} otherSlugName="Giỏ hàng" />
             <div className="container">
                 <div className="w-full">
                     <div className="col-span-1">

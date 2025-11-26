@@ -77,7 +77,11 @@ const ProductGridPage = ({ category, title, description, productData }) => {
       ) : (
         <p className="no-products">Không tìm thấy sản phẩm nào.</p>
       )} */}
-      <ProductList products={products} />
+      {products.length > 0 ? (
+        <ProductList products={products} />
+      ) : (
+        <p className="no-products">Không tìm thấy sản phẩm nào.</p>
+      )}
 
       {/* === MÔ TẢ DANH MỤC === */}
       <CategoryDescription description={description} />

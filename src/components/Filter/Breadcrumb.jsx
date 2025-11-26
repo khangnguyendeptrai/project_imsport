@@ -2,7 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import breadcrumbBG from "../../assets/images/breadcrumb-bg.png"
 import { categoriesType } from "../../data/categoriesType";
 import { categories } from "../../data/categories";
-const Breadcrumb = ({ category, subcategory }) => {
+const Breadcrumb = ({ category, subcategory, otherSlugName = null }) => {
   const location = useLocation();
   const currentSlug = location.pathname.replace("/", ""); // ví dụ "/giay" → "giay"
 
@@ -24,6 +24,12 @@ const Breadcrumb = ({ category, subcategory }) => {
         slug: `/${categoryData.slug}`,
       });
     }
+  }
+  if (otherSlugName) {
+    breadcrumbItems.push({
+      name: otherSlugName,
+      slug: `/${otherSlugName}`,
+    });
   }
 
   // const parent = data.find(item => item.slug === currentSlug);

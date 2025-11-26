@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { useCart } from "../context/CartContext";
 
@@ -6,32 +6,49 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const ProductInfo = ({ product, sizes, highlights }) => {
+const ProductInfo = ({ product, variations = [], highlights }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
   const { addToCart } = useCart();
   const navigate = useNavigate();
+
+  const sizeVariations = useMemo(() => (
+    Array.isArray(variations) ? variations : []
+  ), [variations]);
+
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 640);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  const isAddToCartDisabled = !selectedSize || quantity <= 0;
+    setQuantity(1);
+  }, [product?.id, sizeVariations]);
+
+  const selectedVariation = sizeVariations.find(
+    (variation) => variation.size === selectedSize
+  );
+  const isAddToCartDisabled =
+    !selectedVariation || quantity <= 0 || selectedVariation.quantity <= 0;
 
   const handleAddToCart = (product) => {
     if (isAddToCartDisabled) return;
     console.log("product" + JSON.stringify(product));
 
-    console.log('handleAddToCart ', { ...product, quantity: quantity });
-    addToCart({ ...product, quantity: quantity });
+    const payload = {
+      ...product,
+      selectedSize: selectedVariation.size,
+      sku: selectedVariation.sku,
+      price: selectedVariation.price ?? product?.price,
+    };
+
+    console.log('handleAddToCart ', { ...payload, quantity: quantity });
+    addToCart({ ...payload, quantity: quantity });
     navigate('/cart');
 
   }
   const formatPrice = (price) => {
-    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }).replace('₫', 'VNĐ');
-  }
+    return price
+      .toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+      .replace('₫', '')
+      .replace(/\s/g, '')
+      .replace(/\u00A0/g, '') + ' VNĐ';
+  };
   return (
     <div className="w-full md:w-[90%] text-gray-800">
       {/* Tên sản phẩsm */}
@@ -40,7 +57,7 @@ const ProductInfo = ({ product, sizes, highlights }) => {
       </h1>
 
       {/* Thương hiệu + Mã sản phẩm */}
-      <p className="text-sm  mb-4 border-b border-gray-200 mb-6 pb-5">
+      <p className="text-sm mb-6 border-b border-gray-200 pb-5">
         Thương hiệu:{" "}
         <span className="text-[#898989]">{product?.brand}</span> | Mã SP:{" "}
         <span className="text-[#898989]">{product?.id}</span>
@@ -48,53 +65,39 @@ const ProductInfo = ({ product, sizes, highlights }) => {
 
       {/* Giá */}
       <p className=" text-black pb-4 ">
-        Giá: <span className=" text-2xl">{formatPrice(Number(product?.price))}</span>
+        Giá: <span className=" text-2xl">{formatPrice(Number(selectedVariation?.price ?? product?.price ?? 0))}</span>
       </p>
 
-      {/* Chọn size (Giữ nguyên logic hiển thị) */}
+      {/* Chọn size */}
       <div className="mb-6">
         <p className="font-medium mb-3">Chọn size:</p>
-        <div className="flex flex-wrap gap-4 relative">
-          {sizes.map((size) => (
-            <div
-              key={size}
-              className="relative flex flex-col items-center group"
-            >
-              {/* Bong bóng hiển thị khi hover hoặc chọn */}
-              {!isMobile && (
-                <>
-                  {selectedSize === size && (
-                    <div className="absolute -top-11 flex flex-col items-center animate-fadeIn">
-                      <div className="bg-black text-white text-xs font-medium px-2 py-1 rounded-md relative w-14 text-center whitespace-nowrap">
-                        {size}
-                        <span className="absolute left-1/2 -bottom-[5px] -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black"></span>
-                      </div>
-                    </div>
-                  )}
+        <div className="flex flex-wrap gap-2">
+          {sizeVariations.map(({ sku, size, quantity }) => {
+            const isOutOfStock = quantity === 0;
+            return (
+              <label className={`cursor-pointer ${isOutOfStock ? 'opacity-50' : ''}`} key={sku}>
+                <input
+                  type="radio"
+                  name={`detail-size-${product?.id}`}
+                  value={size}
+                  disabled={isOutOfStock}
+                  className="hidden peer"
+                  checked={selectedSize === size}
+                  onChange={() => setSelectedSize(size)}
+                />
 
-                  {selectedSize !== size && (
-                    <div className="absolute -top-11 hidden group-hover:flex flex-col items-center animate-fadeIn">
-                      <div className="bg-black text-white text-xs font-medium px-2 py-1 rounded-md relative w-14 text-center whitespace-nowrap">
-                        {size}
-                        <span className="absolute left-1/2 -bottom-[5px] -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black"></span>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-              {/* Ô chọn size */}
-              <button
-                onClick={() => setSelectedSize(size)}
-                className={`w-14 h-10 border text-sm font-medium transition-all duration-200 text-center
-             ${selectedSize === size
-                    ? "border-[#FF9800] text-[#FF9800] font-semibold shadow-md shadow-orange-200"
-                    : "border-gray-300 text-gray-700 hover:border-[#FF9800] hover:text-[#FF9800]"
-                  }`}
-              >
-                {size}
-              </button>
-            </div>
-          ))}
+                <div className={`border shadow-[0_0_0_1px_#B8B8B8] h-[40px] min-w-[56px]
+                    px-3 text-sm flex justify-center items-center rounded
+                    peer-checked:shadow-[0_0_2px_2px_#FF7A00]
+                    transition-all duration-200 ${isOutOfStock ? 'cursor-not-allowed bg-gray-200' : 'hover:shadow-[0_0_2px_2px_#FF7A00]'}`}>
+                  {size}
+                </div>
+              </label>
+            );
+          })}
+          {!sizeVariations.length && (
+            <p className="text-sm text-gray-500">Hiện chưa có size cho sản phẩm này.</p>
+          )}
         </div>
       </div>
 

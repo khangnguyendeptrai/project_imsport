@@ -2,91 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { productVariationData, productSkusData, productVariationOptionsData, productSkuOptionsData } from '../data/ProductVariation';
-// --- THAY ĐỔI 1: Thêm prop 'onAddToCart' ---
-// Component này sẽ nhận thêm một hàm 'onAddToCart' từ component cha
-// để xử lý logic nghiệp vụ (Rules 4, 5)
+
 const ProductDetailPopup = ({ isOpen, product, onClose }) => {
-    const [selectedOptions, setSelectedOptions] = useState({});
-
-    
-    console.log('product', product);
-
-
-    function getProductVariations(productId) {
-        return productVariationData.filter(v => v.product_id == productId);
-    }
-
-    function getVariationOptions(variationId) {
-        return productVariationOptionsData.filter(o => o.variation_id == variationId);
-    }
-
-    function getProductSkus(productId) {
-        return productSkusData.filter(sku => sku.product_id == productId);
-    }
-
-    function getSkuOptions(skuId) {
-        return productSkuOptionsData
-            .filter(so => so.sku_id == skuId)
-            .map(so => {
-                const option = productVariationOptionsData.find(o => o.id == so.option_id);
-                return option;
-            });	
-    }
-
-    function getProductAttributes(productId) {
-        const variations = getProductVariations(productId); // Màu sắc, kích cỡ
-
-        const variationWithOptions = variations.map(variation => ({
-            ...variation,
-            options: getVariationOptions(variation.id)
-        }));
-
-        const skus = getProductSkus(productId).map(sku => ({
-            ...sku,
-            options: getSkuOptions(sku.id)
-        }));
-
-        return {
-            product_id: productId,
-            variations: variationWithOptions,
-            skus
-        };
-    }
-
-    
-
-    console.log('productAttributes', getProductAttributes(product.id));
-    const data = getProductAttributes(product.id);
-
-    function getDisabledOptions(data) {
-        // Lấy tất cả SKU hết hàng
-        const outOfStockSkus = data.skus.filter(sku => sku.quantity === 0);
-      
-        // Tạo Set để tránh trùng option
-        const disabledOptions = new Set();
-      
-        outOfStockSkus.forEach(sku => {
-          sku.options.forEach(option => {
-            disabledOptions.add(option.value);  
-          });
-        });
-      
-        return disabledOptions; // Trả về dạng Set để FE dùng nhanh
-      }
-      const disabledOptions = getDisabledOptions(data);
 
     if (!isOpen) return null;
     const { addToCart } = useCart();
-    // --- THAY ĐỔI 2: Quản lý State ---
     const [quantity, setQuantity] = useState(1);
-    const [selectedSize, setSelectedSize] = useState(null); // State mới để lưu size đã chọn
+    const [selectedSize, setSelectedSize] = useState(null); 
     const navigate = useNavigate();
 
-    // Reset state mỗi khi mở popup (hoặc khi sản phẩm thay đổi)
     useEffect(() => {
+        if (!product) return;
         setQuantity(1);
-        setSelectedSize(null);
+        const availableSize = (product?.variations || []).find(variation => variation.quantity > 0);
+        // setSelectedSize(availableSize ? availableSize.size : null);
     }, [product, isOpen]); // Thêm 'isOpen' để reset mỗi khi mở lại
 
     const formatPrice = (price) => {
@@ -94,27 +23,15 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
             .replace(/\s/g, '')         // xóa toàn bộ khoảng trắng bình thường
             .replace(/\u00A0/g, '') + ' VNĐ';
     }
-    useEffect(() => {
-        setQuantity(1);
-        setSelectedOptions({});
-    }, [product]);
-
-    // --- THAY ĐỔI 3: Logic cho nút "Thêm vào giỏ hàng" ---
-    console.log('selectedOptions', Object.values(selectedOptions).length === 0);
+    const sizeVariations = product?.variations || [];
     // (Rule 3): Nút bị vô hiệu hóa nếu chưa chọn size HOẶC số lượng <= 0
-    const isAddToCartDisabled = Object.values(selectedOptions).length === 0 || quantity <= 0;
+    const isAddToCartDisabled = !selectedSize || quantity <= 0;
 
     // Hàm xử lý khi nhấn nút
     const handleAddToCart = (product) => {
-        // (Rule 2): Chỉ chạy khi nút không bị disabled
         if (isAddToCartDisabled) return;
-
-        // Gửi thông tin (sản phẩm, size, số lượng) lên component cha
-        // Component cha sẽ tự xử lý (Rule 4 và 5)
-        console.log('handleAddToCart ', { ...product, quantity: quantity });
         addToCart({ ...product, quantity: quantity, selectedSize: selectedSize });
         navigate('/cart');
-        // Đóng popup sau khi thêm
         onClose();
     };
 
@@ -146,51 +63,44 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                                 <p className='text-[#898989] text-sm pl-2'><span className='font-semibold'>Thương hiệu: </span> {product.brand}</p>
                             </div>
                             <h3 className='text-[#858688] text-[22px] font-semibold mb-8'>{formatPrice(product.price)}</h3>
-                            {data.variations.map(variation => (
-                                <div key={variation.id} className='border-t border-gray-100 pt-4'>
-                                    <p className='text-[#333] font-normal text-sm mb-0'>{variation.name}:</p>
+                            {sizeVariations.length > 0 && (
+                                <div className='border-t border-gray-100 pt-4'>
+                                    <p className='text-[#333] font-normal text-sm mb-0'>Size:</p>
 
-                                    <div className='flex gap-x-2'>
-                                        {variation.options.map(option => (
-                                            <label className="cursor-pointer" key={option.id}>
-                                                <input
-                                                    type="radio"
-                                                    name={`popup-variation-${variation.id}`}
-                                                    value={option.value}
-                                                    disabled={disabledOptions.has(option.value)}
-                                                    className="hidden peer"
-                                                    checked={selectedOptions[variation.id] === option.value}
-                                                    onChange={() =>
-                                                        setSelectedOptions(prev => ({
-                                                            ...prev,
-                                                            [variation.id]: option.value
-                                                        }))
-                                                    }
-                                                />
+                                    <div className='flex flex-wrap gap-2 mt-2'>
+                                        {sizeVariations.map(({ sku, size, quantity }) => {
+                                            const isOutOfStock = quantity === 0;
+                                            return (
+                                                <label className={`cursor-pointer ${isOutOfStock ? 'opacity-50' : ''}`} key={sku}>
+                                                    <input
+                                                        type="radio"
+                                                        name={`popup-size-${product.id}`}
+                                                        value={size}
+                                                        disabled={isOutOfStock}
+                                                        className="hidden peer"
+                                                        checked={selectedSize === size}
+                                                        onChange={() => setSelectedSize(size)}
+                                                    />
 
-                                                <div className={`border shadow-[0_0_0_1px_#B8B8B8] h-[35px] w-[50px]
-                                                    text-sm flex justify-center items-center rounded
+                                                    <div className={`border shadow-[0_0_0_1px_#B8B8B8] h-[35px] min-w-[50px]
+                                                    px-3 text-sm flex justify-center items-center rounded
                                                     peer-checked:shadow-[0_0_2px_2px_#FF7A00]
-                                                    hover:shadow-[0_0_2px_2px_#FF7A00] transition-all duration-200`
-                                                    + (disabledOptions.has(option.value)
-                                                    ? "opacity-50 cursor-not-allowed bg-gray-200"
-                                                    : "hover:shadow-[0_0_2px_2px_#FF7A00]")}>
-                                                    {option.value}
-                                                </div>
-                                            </label>
-                                        ))}
+                                                    transition-all duration-200 ${isOutOfStock ? 'cursor-not-allowed bg-gray-200' : 'hover:shadow-[0_0_2px_2px_#FF7A00]'}`}>
+                                                        {size}
+                                                    </div>
+                                                </label>
+                                            )
+                                        })}
                                     </div>
                                 </div>
-                            ))}
+                            )}
                             <p className='text-[#333] font-normal text-sm mt-4'>Số lượng: </p>
                             <div className='flex gap-x-2 items-center mt-2'>
                                 <div>
-                                    {/* --- THAY ĐỔI 5: Gán State cho Số lượng --- */}
                                     <input
                                         className='text-[#333] font-normal text-xs border px-5 w-[130px] py-2.5 text-center rounded-full'
-                                        type="number" // Đảm bảo số lượng luôn > 0
-                                        value={quantity} // Dùng 'value' thay vì 'defaultValue'
-                                        // Cập nhật state khi thay đổi, đảm bảo là số và ít nhất là 1
+                                        type="number" 
+                                        value={quantity} 
                                         onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
                                         onFocus={(e) => e.target.select()}
                                         onBlur={(e) => {
@@ -200,11 +110,10 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
                                     />
                                 </div>
                                 <div>
-                                    {/* --- THAY ĐỔI 6: Áp dụng Logic cho Nút --- */}
                                     <button
                                         className='uppercase bg-[#673AB7] p-2.5 rounded-full text-white text-xs font-normal disabled:opacity-50 disabled:cursor-not-allowed'
-                                        onClick={() => handleAddToCart(product)} // (Rule 2)
-                                        disabled={isAddToCartDisabled} // (Rule 3)
+                                        onClick={() => handleAddToCart(product)}
+                                        disabled={isAddToCartDisabled} 
                                     >
                                         Thêm vào giỏ hàng
                                     </button>
