@@ -162,7 +162,7 @@ export const product2 = [
     name: "Áo Khoác Gió Nam NNormal Trail Wind Jacket - White",
     image: "https://pos.nvncdn.com/be3294-43017/ps/20251018_l4UTnFHDzR.jpeg",
     thumbnail: [
-      "https://pos.nvncdn.com/be3294-43017/ps/20251018_9qgbuRDFZC.jpeg?v=1761295804",
+      "https://pos.nvncdn.com/be3294-43017/ps/20251018_l4UTnFHDzR.jpeg",
       "https://pos.nvncdn.com/be3294-43017/ps/20251018_9HF5aAnmFy.png?v=1760756571",
       "https://pos.nvncdn.com/be3294-43017/ps/20251018_5RKtpHQytY.png?v=1760756573",
       "https://pos.nvncdn.com/be3294-43017/ps/20251018_m8WIImzMDo.png?v=1760756576",

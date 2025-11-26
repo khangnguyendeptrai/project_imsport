@@ -17,7 +17,7 @@ const ProductCategoryPage = () => {
   const [products, setProducts] = useState([]);          // dữ liệu gốc
   const [filteredData, setFilteredData] = useState([]);  // dữ liệu sau filter
   const [categoryTitle, setCategoryTitle] = useState(null);
-
+  const [categoryDescription, setCategoryDescription] = useState(null);
   const [filters, setFilters] = useState({
     sizes: [],
     brands: [],
@@ -51,6 +51,8 @@ const ProductCategoryPage = () => {
 
   // ==== Load sản phẩm theo category/subcategory ====
   useEffect(() => {
+    const categoryType = categoriesType.find((item) => item.slug === category);
+    setCategoryDescription(categoryType.description);
     if (subcategory) {
       const categoryData = categories.find((item) => item.slug === subcategory);
       const list = product2.filter((item) => item.category_id === categoryData.id);
@@ -156,7 +158,7 @@ const ProductCategoryPage = () => {
           <ProductGridPage
             title={categoryTitle}
             category={category}
-            description={categoryTitle || ""}
+            description={categoryDescription || ""}
             productData={filteredData}  // luôn lấy filteredData
           />
         </div>
