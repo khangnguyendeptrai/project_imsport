@@ -12,7 +12,7 @@ const PRICE_MAX = 20_000_000;
 
 const ProductCategoryPage = () => {
   const { category, subcategory } = useParams();
-
+  const [productOrigin, setProductOrigin] = useState([]);
   const [products, setProducts] = useState([]);          // dữ liệu gốc
   const [filteredData, setFilteredData] = useState([]);  // dữ liệu sau filter
   const [categoryTitle, setCategoryTitle] = useState(null);
@@ -34,84 +34,95 @@ const ProductCategoryPage = () => {
 
   // ==== Gom dữ liệu categories type & categories ====
   const dataNew = useMemo(() => {
-    return categoriesType.map((type) => {
-      const relatedCategories = categories
-        .filter((cat) => cat.categories_type_id === type.id)
-        .map((cat) => ({
-          id: cat.id,
-          name: cat.name,
-          slug: cat.slug,
-        }));
 
-      return {
-        id: type.id,
-        categoriesType: type.name,
-        slug: type.slug,
-        description: type.description,
-        categories: relatedCategories,
-      };
-    });
-  }, [categoriesType, categories]);
+    // 1. Gom categories theo từng typeId (1 vòng)
+    const group = {};
+    for (const cat of categories) {
+      if (!group[cat.categories_type_id]) {
+        group[cat.categories_type_id] = [];
+      }
+      const productList = products.filter((p) => p.category_id === cat.id)
+
+      group[cat.categories_type_id].push({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug,
+        products: productList
+      });
+    }
+
+    // 2. Tạo danh sách category type (1 vòng)
+    return categoriesType.map((type) => ({
+      id: type.id,
+      categoriesType: type.name,
+      slug: type.slug,
+      description: type.description,
+      categories: group[type.id] || [],
+    }));
+
+  }, [categoriesType, categories, products]);
 
 
-  // ==== Load sản phẩm theo category/subcategory ====
+  // lấy data API 1 lần 
   useEffect(() => {
-    const loadData = async () => {
+    const loadInitData = async () => {
       try {
         const typeRes = await CategoryTypeAPI.getCategoryType();
         const catRes = await CategoriesAPI.getCategory();
         const productRes = await ProductAPI.getProducts();
 
-        const categoryTypes = typeRes || [];
-        const categories = catRes || [];
-        const productList = productRes || [];
-        setCategoriesType(typeRes);
-        setCategories(catRes);
-        // Tìm loại chính theo slug: /do-nam
-        const currentType = categoryTypes.find((t) => t.slug === category);
-
-        if (!currentType) return;
-
-        setCategoryDescription(currentType.description);
-
-        if (subcategory) {
-          // Nếu URL dạng /do-nam/giay → tìm category con
-          const currentCategory = categories.find(
-            (c) => c.slug === subcategory
-          );
-
-          if (!currentCategory) return;
-
-          const list = productList.filter(
-            (p) => p.category_id === currentCategory.id
-          );
-
-          setProducts(list);
-          setFilteredData(list);
-          setCategoryTitle(currentCategory.name);
-        } else {
-          // Không có subcategory → load toàn bộ sản phẩm /do-nam
-          const categoryChildren = categories.filter(
-            (c) => c.categories_type_id === currentType.id
-          );
-
-          const list = productList.filter((p) =>
-            categoryChildren.some((child) => p.category_id === child.id)
-          );
-
-          setProducts(list);
-          setFilteredData(list);
-          setCategoryTitle(currentType.name);
-        }
+        setCategoriesType(typeRes || []);
+        setCategories(catRes || []);
+        setProductOrigin(productRes || []);
       } catch (err) {
-        console.error("Load category page error:", err);
+        console.error("Init load error:", err);
       }
     };
 
-    loadData();
+    loadInitData();
+  }, []);  // ⬅️ chạy đúng 1 lần duy nhất
 
-    setFilters({ sizes: [], brands: [], price: null });
-  }, [category, subcategory]);
+
+  // ==== Load sản phẩm theo category/subcategory ====
+
+
+  useEffect(() => {
+    if (!categories.length || !categoriesType.length || !productOrigin.length) return;
+
+    let list = [];
+    let categoryTitle = "";
+    let categoryDescription = "";
+
+    const currentType = categoriesType.find(t => t.slug === category);
+    if (!currentType) return;
+
+    categoryDescription = currentType.description;
+
+    if (subcategory) {
+      const currentCategory = categories.find(c => c.slug === subcategory);
+      if (!currentCategory) return;
+
+      list = productOrigin.filter(p => p.category_id === currentCategory.id);
+      categoryTitle = currentCategory.name;
+    } else {
+      const categoryChildren = categories.filter(
+        c => c.categories_type_id === currentType.id
+      );
+
+      list = productOrigin.filter(p =>
+        categoryChildren.some(child => p.category_id === child.id)
+      );
+
+      categoryTitle = currentType.name;
+    }
+
+    setProducts(list);
+    setFilteredData(list);
+    setCategoryTitle(categoryTitle);
+    setCategoryDescription(categoryDescription);
+
+  }, [category, subcategory, categories, categoriesType, productOrigin]);
+
 
 
 
@@ -128,7 +139,9 @@ const ProductCategoryPage = () => {
   // ==== Xử lý filter ====
   useEffect(() => {
     if (!isFiltering) {
-      setFilteredData(products);
+      if (filteredData !== products) {      // tránh setState dư thừa
+        setFilteredData(products);
+      }
       return;
     }
 
@@ -170,9 +183,11 @@ const ProductCategoryPage = () => {
       return matchSize && matchBrand && matchPrice;
     });
 
+
+
     setFilteredData(result);
   }, [filters, products, normalizedSelectedBrands]);
-
+  console.log("kiểm tra ", isFiltering);
   return (
     <>
       <Breadcrumb category={category} subcategory={subcategory} />
@@ -181,7 +196,6 @@ const ProductCategoryPage = () => {
         <div className="md:flex inline-block w-auto bg-white h-full border-2 border-solid ">
           <FilterContainer
             data={dataNew}
-            products={filteredData}
             onFilterChange={handleFilterChange}
           />
         </div>
