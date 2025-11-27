@@ -1,12 +1,9 @@
 import { useState, useRef, useLayoutEffect } from "react";
 // BsLayoutTextSidebar không còn dùng, FaAlignRight đã được import
 import FilterByCategories from "./FilterByCategories";
-import Breadcrumb from "./Breadcrumb";
-import { dataFilter } from "../../data/dataFilter";
+
+
 import { FaAlignRight } from "react-icons/fa";
-import ProductList from "../ProductList";
-import ProductGridPage from "../ProductGridPage";
-import ProductCategoryPage from "../../pages/ProductCategoryPage";
 
 export default function FilterContainer({ data, products, onFilterChange }) {
     const handleFilterChange = (filterData) => {

@@ -3,10 +3,9 @@ import ProductGridPage from "../components/ProductGridPage";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Filter/Breadcrumb";
 import FilterContainer from "../components/Filter/FilterContainer";
-
-import { categoriesType } from "../data/categoriesType.js";
-import { categories } from "../data/categories.js";
-import { product2 } from "../data/product2.js";
+import CategoryTypeAPI from "../service/CategoryTypeAPI.js";
+import CategoriesAPI from "../service/CategoriesAPI.js";
+import ProductAPI from "../service/ProductAPI.js";
 
 const PRICE_MIN = 0;
 const PRICE_MAX = 20_000_000;
@@ -18,6 +17,9 @@ const ProductCategoryPage = () => {
   const [filteredData, setFilteredData] = useState([]);  // dữ liệu sau filter
   const [categoryTitle, setCategoryTitle] = useState(null);
   const [categoryDescription, setCategoryDescription] = useState(null);
+
+  const [categoriesType, setCategoriesType] = useState([]); // ⬅️ THÊM
+  const [categories, setCategories] = useState([]);         // ⬅️ THÊM
   const [filters, setFilters] = useState({
     sizes: [],
     brands: [],
@@ -31,57 +33,87 @@ const ProductCategoryPage = () => {
       (filters.price.min > PRICE_MIN || filters.price.max < PRICE_MAX));
 
   // ==== Gom dữ liệu categories type & categories ====
-  const dataNew = categoriesType.map((type) => {
-    const relatedCategories = categories
-      .filter((cat) => cat.categories_type_id === type.id)
-      .map((cat) => ({
-        id: cat.id,
-        name: cat.name,
-        slug: cat.slug,
-      }));
+  const dataNew = useMemo(() => {
+    return categoriesType.map((type) => {
+      const relatedCategories = categories
+        .filter((cat) => cat.categories_type_id === type.id)
+        .map((cat) => ({
+          id: cat.id,
+          name: cat.name,
+          slug: cat.slug,
+        }));
 
-    return {
-      id: type.id,
-      categoriesType: type.name,
-      slug: type.slug,
-      description: type.description,
-      categories: relatedCategories,
-    };
-  });
+      return {
+        id: type.id,
+        categoriesType: type.name,
+        slug: type.slug,
+        description: type.description,
+        categories: relatedCategories,
+      };
+    });
+  }, [categoriesType, categories]);
+
 
   // ==== Load sản phẩm theo category/subcategory ====
   useEffect(() => {
-    const categoryType = categoriesType.find((item) => item.slug === category);
-    setCategoryDescription(categoryType.description);
-    if (subcategory) {
-      const categoryData = categories.find((item) => item.slug === subcategory);
-      const list = product2.filter((item) => item.category_id === categoryData.id);
+    const loadData = async () => {
+      try {
+        const typeRes = await CategoryTypeAPI.getCategoryType();
+        const catRes = await CategoriesAPI.getCategory();
+        const productRes = await ProductAPI.getProducts();
 
-      setProducts(list);
-      setFilteredData(list); // reset filter data
-      setCategoryTitle(categoryData.name);
-    } else {
-      const categoryType = categoriesType.find((item) => item.slug === category);
-      const categorySub = categories.filter(
-        (item) => item.categories_type_id === categoryType.id
-      );
+        const categoryTypes = typeRes || [];
+        const categories = catRes || [];
+        const productList = productRes || [];
+        setCategoriesType(typeRes);
+        setCategories(catRes);
+        // Tìm loại chính theo slug: /do-nam
+        const currentType = categoryTypes.find((t) => t.slug === category);
 
-      const list = product2.filter((item) =>
-        categorySub.some((c) => c.id === item.category_id)
-      );
+        if (!currentType) return;
 
-      setProducts(list);
-      setFilteredData(list);
-      setCategoryTitle(categoryType.name);
-    }
+        setCategoryDescription(currentType.description);
 
-    // reset filter khi đổi trang category
-    setFilters({
-      sizes: [],
-      brands: [],
-      price: null,
-    });
+        if (subcategory) {
+          // Nếu URL dạng /do-nam/giay → tìm category con
+          const currentCategory = categories.find(
+            (c) => c.slug === subcategory
+          );
+
+          if (!currentCategory) return;
+
+          const list = productList.filter(
+            (p) => p.category_id === currentCategory.id
+          );
+
+          setProducts(list);
+          setFilteredData(list);
+          setCategoryTitle(currentCategory.name);
+        } else {
+          // Không có subcategory → load toàn bộ sản phẩm /do-nam
+          const categoryChildren = categories.filter(
+            (c) => c.categories_type_id === currentType.id
+          );
+
+          const list = productList.filter((p) =>
+            categoryChildren.some((child) => p.category_id === child.id)
+          );
+
+          setProducts(list);
+          setFilteredData(list);
+          setCategoryTitle(currentType.name);
+        }
+      } catch (err) {
+        console.error("Load category page error:", err);
+      }
+    };
+
+    loadData();
+
+    setFilters({ sizes: [], brands: [], price: null });
   }, [category, subcategory]);
+
+
 
   const handleFilterChange = (newFilter) => {
     setFilters((prev) => ({ ...prev, ...newFilter }));
