@@ -67,10 +67,10 @@ export default function FilterContainer({ data, products, onFilterChange }) {
                     ref={drawerRef}
                     className="absolute right-0 w-auto bg-white h-full md:hidden   border-2 border-solid z-[200]"
                 >
-                    <FilterByCategories data={data} products={products} onFilterChange={handleFilterChange} />
+                    <FilterByCategories data={data}  onFilterChange={handleFilterChange} />
                 </div>
             </div>
-            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data} products={products} onFilterChange={handleFilterChange} /> </div>
+            <div className="hidden md:flex inline-block w-auto bg-white h-full border-2 border-solid "> <FilterByCategories data={data}  onFilterChange={handleFilterChange} /> </div>
         </>
     );
 }
