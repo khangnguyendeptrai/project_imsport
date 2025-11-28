@@ -6,11 +6,9 @@ import CollapsibleSection from "./CollapsibleSection";
 import PriceRangeSlider from "./PriceRangeSlider";
 import SizeSelector from "./SizeSelector";
 import BrandSelector from "./BrandSelector";
-import { dataFilter } from "../../data/dataFilter";
 
 const FilterByCategories = ({ data, products, onFilterChange }) => {
   const location = useLocation();
-  //  data =  dataFilter
   // const currentSlug = location.pathname.substring(1);
   // console.log("location",location);
   console.log("Nhận data",data);

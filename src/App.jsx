@@ -11,6 +11,8 @@ import "./App.css";
 
 import FilterContainer from './components/Filter/FilterContainer';
 import Cart from "./pages/Cart";
+import ChatbotPage from "./pages/ChatBotDemo";
+import Dashboard from "./pages/Admin/Dashboard";
 
 function App() {
   return (
@@ -29,6 +31,10 @@ function App() {
           <Route path="/:category" element={<ProductCategoryPage />} />
           <Route path="/:category/:subcategory" element={<ProductCategoryPage />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/chatbot" element={<ChatbotPage />} />
+        </Route>
+        <Route path="/admin">
+          <Route index element={<Dashboard />} />
         </Route>
       </Routes>
     </Router>

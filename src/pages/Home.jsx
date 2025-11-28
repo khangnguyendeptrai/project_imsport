@@ -8,9 +8,6 @@ import CollectionProduct from '../components/CollectionProduct';
 import ProductsSection from '../components/ProductsSection';
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <>
       <MainBanner/>

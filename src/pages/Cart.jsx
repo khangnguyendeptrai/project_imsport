@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../components/Filter/Breadcrumb'
-import { dataFilter } from '../data/dataFilter'
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { ChevronLeftIcon } from 'lucide-react';
@@ -30,7 +29,7 @@ const Cart = () => {
     }
     return (
         <>
-            <Breadcrumb data={dataFilter} otherSlugName="Giỏ hàng" />
+            <Breadcrumb otherSlugName="Giỏ hàng" />
             <div className="container">
                 <div className="w-full">
                     <div className="col-span-1">

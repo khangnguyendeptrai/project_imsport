@@ -6,6 +6,7 @@ import ProductAPI from '../service/ProductAPI'
 
 import { product2 } from '../data/product2'
 import { categories } from '../data/categories'
+import { Link } from 'react-router-dom'
 const data =
 {
     title: 'Đồ Nam',
@@ -86,28 +87,30 @@ const data =
 }
 
 const CollectionProduct = () => {
-    // const productMockup = products.filter(item => item.category_id === 1).slice(0, 6);
-    // const productMockup = products.slice(0, 6);
-    // const [products, setProducts] = useState(productsData)
     const [products, setProducts] = useState()
-    // useEffect(() => {
-    //     const fetchProducts = async () => {
-    //         const response = await ProductAPI.getProducts()
-    //         console.log('data lấy từ aws dynamoDB', response);
-    //         setProducts(response)
-    //     }
-
-    //     fetchProducts()
-    // }, [])
     useEffect(() => {
-        const category = categories.filter(item => item.categories_type_id === 1)
-        setProducts(product2.filter(item => category.some(c => c.id === item.category_id)))
-    }, [])
+        const fetchData = async () => {
+            try {
+                const [categories, products] = await Promise.all([
+                    ProductAPI.getCategories(),
+                    ProductAPI.getProducts()
+                ]);
+                setProducts(
+                    products.filter(item =>
+                        categories.some(c => c.id === item.category_id)
+                    ).slice(0, 6)
+                );
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <>
             <div className='container mx-auto !pt-10'>
                 <h3 className='text-[28px] uppercase text-center mb-10'>
-                    <a className='text-[#333333] hover:text-[#673AB7] font-semibold' href='/'>{data.title}</a>
+                    <Link to='/do-nam' className='text-[#333333] hover:text-[#673AB7] font-semibold'>Đồ Nam</Link>
                 </h3>
                 <div className='grid grid-cols-1 min-[1000px]:grid-cols-2'>
                     <div className='col-span-1 px-4'>

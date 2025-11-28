@@ -8,20 +8,32 @@ import RelatedProducts from "../components/RelatedProducts";
 import bg from "../assets/images/breadcrumb-bg.png";
 import { product2 } from "../data/product2";
 import ProductAPI from "../service/ProductAPI";
+import { categories } from "../data/categories";
+import { categoriesType } from "../data/categoriesType";
+import Breadcrumb from "../components/Filter/Breadcrumb";
+import CategoryAPI from "../service/CategoriesAPI";
+import CategoryTypeAPI from "../service/CategoryTypeAPI";
 
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState();
   const { id } = useParams();
+  const [category, setCategory] = useState();
+  const [subcategory, setSubcategory] = useState();
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchProduct = async () => {
       const response = await ProductAPI.getProductDetail(id)
-      console.log('Product detail', response);
+      const categoryRes = await CategoryAPI.getCategory()
+      const cateogryTypeRes = await CategoryTypeAPI.getCategoryType()
+      const subCategory = categoryRes.find(c => c.id === response.category_id)
+      const categoryType = cateogryTypeRes.find(c => c.id === subCategory.categories_type_id)
+      setCategory(categoryType.slug)
+      setSubcategory(subCategory.slug)
       setProduct(response)
     }
-    // fetchProduct()
-    setProduct(product2.find(p => p.id == id))
+    fetchProduct()
+    // setProduct(product2.find(p => p.id == id))
   }, [id]);
 
 const handleRealAddToCart = (productData) => {
@@ -47,10 +59,10 @@ const handleRealAddToCart = (productData) => {
         className="h-24 md:h-30 text-sm text-gray-700 mb-8 p-4 rounded-lg shadow-sm flex items-center"
       >
         <div className="container mx-auto">
-          <a href="#" className="hover:text-[#673AB7]">Trang chủ</a> /
-          <a href="#" className="hover:text-[#673AB7]"> Đồ Nữ</a> /
-          <a href="#" className="hover:text-[#673AB7]"> Giày Chạy Địa Hình Nữ</a>
+          <Breadcrumb category={category} subcategory={subcategory} />
+
         </div>
+
       </div>
 
       {/* Nội dung chính */}

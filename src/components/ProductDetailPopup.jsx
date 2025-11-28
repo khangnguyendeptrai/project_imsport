@@ -10,12 +10,10 @@ const ProductDetailPopup = ({ isOpen, product, onClose }) => {
     const [quantity, setQuantity] = useState(1);
     const [selectedSize, setSelectedSize] = useState(null); 
     const navigate = useNavigate();
-
+    console.log('product', product);
     useEffect(() => {
         if (!product) return;
         setQuantity(1);
-        const availableSize = (product?.variations || []).find(variation => variation.quantity > 0);
-        // setSelectedSize(availableSize ? availableSize.size : null);
     }, [product, isOpen]); // Thêm 'isOpen' để reset mỗi khi mở lại
 
     const formatPrice = (price) => {
