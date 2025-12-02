@@ -1,0 +1,78 @@
+{
+  "header": {
+    "searchPlaceholder": "Tìm...",
+    "searchMobilePlaceholder": "Tìm kiếm...",
+    "about": "Giới Thiệu",
+    "sale": "SALE SHOCK CUỐI HÈ",
+    "menu": "Menu",
+    "men": "Men",
+    "women": "Women",
+    "gps": "GPS Watch",
+    "menRoad": "Road Running Shoes",
+    "menTrail": "Trail Running Shoes",
+    "menSandals": "Sandals",
+    "menHiking": "Hiking Shoes"
+  },
+  "footer": {
+    "introTitle": "GIỚI THIỆU",
+    "introText": "IMSports chuyên giày dép, quần áo và phụ kiện chạy bộ/chạy địa hình chính hãng đến từ các thương hiệu hàng đầu thế giới. Đội ngũ nhân viên trẻ trung, nhiệt huyết, là những chân chạy có kinh nghiệm tập luyện và thi đấu, mang đến tinh thần phục vụ chuyên sâu cho khách hàng.",
+    "addressTitle": "ĐỊA CHỈ STORE",
+    "addressHN": "HÀ NỘI",
+    "addressHNLine1": "Số 58A Ngõ 92, Thanh Nhàn, Hai Bà Trưng",
+    "addressHNHotline1": "Hotline: 0846 33 5858",
+    "addressHNLine2": "B11, Imperia Sky Garden, 423 Minh Khai",
+    "addressHNHotline2": "Hotline: 0839 33 5858",
+    "addressHCM": "TP. HỒ CHÍ MINH",
+    "addressHCMLine1": "Số 285/21 CMT8, P.12, Q.10",
+    "addressHCMHotline1": "Hotline: 08668 285 21",
+    "guideTitle": "HƯỚNG DẪN",
+    "guideProducts": "Sản phẩm",
+    "guidePayment": "Chính sách thanh toán",
+    "guideShipping": "Chính sách vận chuyển",
+    "guideReturn": "Chính sách đổi trả hàng",
+    "guideWarranty": "Chính sách bảo hành",
+    "guidePrivacy": "Chính sách bảo mật",
+    "followTitle": "THEO DÕI CHÚNG TÔI",
+    "emailLabel": "Nhập email của bạn",
+    "subscribeNote": "Đăng ký để nhận chương trình ưu đãi! Website thuộc Công ty TNHH Thể Thao Thung Lũng Mặt Trời."
+  },
+  "about": {
+    "title": "Về chúng tôi",
+    "subtitle": "Shopify - Nền tảng thương mại điện tử hàng đầu Việt Nam",
+    "missionTitle": "Sứ mệnh của chúng tôi",
+    "missionText": "Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao với giá cả hợp lý và dịch vụ khách hàng tuyệt vời.",
+    "visionTitle": "Tầm nhìn",
+    "visionText": "Trở thành nền tảng thương mại điện tử hàng đầu tại Việt Nam, kết nối người mua và người bán một cách hiệu quả và tin cậy.",
+    "coreTitle": "Giá trị cốt lõi",
+    "core1": "Chất lượng sản phẩm và dịch vụ",
+    "core2": "Trải nghiệm khách hàng xuất sắc",
+    "core3": "Minh bạch và tin cậy",
+    "core4": "Đổi mới và phát triển liên tục"
+  },
+  "policyBar": {
+    "freeShipping": "MIỄN PHÍ VẬN CHUYỂN (BILL > 1M)",
+    "return7Days": "ĐỔI TRẢ TRONG VÒNG 7 NGÀY",
+    "experienceInStore": "SẢN PHẨM TRẢI NGHIỆM SẴN TẠI STORE"
+  },
+  "products": {
+    "newProducts": "Sản phẩm mới",
+    "saleProducts": "Sản phẩm sale off",
+    "products": "sản phẩm",
+    "sortByDefault": "Sắp xếp theo",
+    "newest": "Mới nhất",
+    "priceLowToHigh": "Giá thấp đến cao",
+    "priceHighToLow": "Giá cao đến thấp",
+    "discount": "Đang giảm giá",
+    "noProducts": "Không tìm thấy sản phẩm nào"
+  },
+  "breadcrumb": {
+    "home": "Trang chủ"
+  },
+  "filter": {
+    "category": "Danh mục",
+    "price": "Giá",
+    "size": "Kích cỡ",
+    "brand": "Thương hiệu",
+    "search": "Tìm kiếm"
+  }
+}

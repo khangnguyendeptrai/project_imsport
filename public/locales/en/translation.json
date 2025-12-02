@@ -1,0 +1,78 @@
+{
+  "header": {
+    "searchPlaceholder": "Search...",
+    "searchMobilePlaceholder": "Search...",
+    "about": "About",
+    "sale": "SUMMER FINAL SALE",
+    "menu": "Menu",
+    "men": "Men",
+    "women": "Women",
+    "gps": "GPS Watch",
+    "menRoad": "Road Running Shoes",
+    "menTrail": "Trail Running Shoes",
+    "menSandals": "Sandals",
+    "menHiking": "Hiking Shoes"
+  },
+  "footer": {
+    "introTitle": "ABOUT US",
+    "introText": "IMSports specializes in authentic running/trail running shoes, apparel and accessories from leading global brands. Our young and passionate team are experienced runners, bringing deep expertise and dedicated service to our customers.",
+    "addressTitle": "STORE ADDRESSES",
+    "addressHN": "HA NOI",
+    "addressHNLine1": "58A, Alley 92 Thanh Nhan, Hai Ba Trung",
+    "addressHNHotline1": "Hotline: 0846 33 5858",
+    "addressHNLine2": "B11, Imperia Sky Garden, 423 Minh Khai",
+    "addressHNHotline2": "Hotline: 0839 33 5858",
+    "addressHCM": "HO CHI MINH CITY",
+    "addressHCMLine1": "285/21 CMT8, Ward 12, District 10",
+    "addressHCMHotline1": "Hotline: 08668 285 21",
+    "guideTitle": "GUIDES",
+    "guideProducts": "Products",
+    "guidePayment": "Payment policy",
+    "guideShipping": "Shipping policy",
+    "guideReturn": "Return policy",
+    "guideWarranty": "Warranty policy",
+    "guidePrivacy": "Privacy policy",
+    "followTitle": "FOLLOW US",
+    "emailLabel": "Enter your email",
+    "subscribeNote": "Subscribe to receive promotions! Website of Thung Lung Mat Troi Sports Co., Ltd."
+  },
+  "about": {
+    "title": "About us",
+    "subtitle": "Shopify - Vietnam's leading e‑commerce platform",
+    "missionTitle": "Our mission",
+    "missionText": "We are committed to bringing customers high‑quality products at reasonable prices with excellent customer service.",
+    "visionTitle": "Vision",
+    "visionText": "To become the leading e‑commerce platform in Vietnam, effectively and reliably connecting buyers and sellers.",
+    "coreTitle": "Core values",
+    "core1": "Product and service quality",
+    "core2": "Excellent customer experience",
+    "core3": "Transparency and trust",
+    "core4": "Continuous innovation and growth"
+  },
+  "policyBar": {
+    "freeShipping": "FREE SHIPPING (BILL > 1M)",
+    "return7Days": "7‑DAY RETURN POLICY",
+    "experienceInStore": "IN‑STORE PRODUCT TRIAL AVAILABLE"
+  },
+  "products": {
+    "newProducts": "New Products",
+    "saleProducts": "Sale Products",
+    "products": "products",
+    "sortByDefault": "Sort by",
+    "newest": "Newest",
+    "priceLowToHigh": "Price low to high",
+    "priceHighToLow": "Price high to low",
+    "discount": "Discount",
+    "noProducts": "No products found"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "filter": {
+    "category": "Category",
+    "price": "Price",
+    "size": "Size",
+    "brand": "Brand",
+    "search": "Search"
+  }
+}

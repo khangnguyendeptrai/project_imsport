@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import DiscountBadge from "./DiscountBadge";
 import { product2 } from "../data/product2";
 import ProductAPI from "../service/ProductAPI";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -161,6 +162,7 @@ const ProductSlider = ({ title, items }) => (
 const ProductsSection = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [saleProducts, setSaleProducts] = useState([]);
+  const { t } = useTranslation();
   useEffect(() => {
     const fetchNewProducts = async () => {
       const response = await ProductAPI.getProducts();
@@ -172,8 +174,8 @@ const ProductsSection = () => {
   }, []);
   return (
     <>
-      <ProductSlider title="Sản phẩm mới" items={newProducts} />
-      <ProductSlider title="Sản phẩm sale off" items={saleProducts} />
+      <ProductSlider title={t("products.newProducts")} items={newProducts} />
+      <ProductSlider title={t("products.saleProducts")} items={saleProducts} />
     </>
   );
 };

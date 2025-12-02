@@ -3,12 +3,14 @@ import ProductCard from "./ProductCard";
 import CategoryDescription from "./CategoryDescription";
 import "../styles/pages/ProductGridPage.scss";
 import ProductList from "./ProductList";
-
+import { useTranslation } from "react-i18next";
+import i18n from "../i18next/i18next";
 
 const ProductGridPage = ({ category, title, description, productData }) => {
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState("");
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
   console.log('productData', productData);
   // === Lấy dữ liệu sản phẩm ===
   useEffect(() => {
@@ -47,7 +49,7 @@ const ProductGridPage = ({ category, title, description, productData }) => {
         <div className="grid-header__left">
           <h2 className="grid-header__title">{title}</h2>
           <span className="grid-header__count">
-            ({products.length} sản phẩm)
+            ({products.length} {t("products.products")})
           </span>
         </div>
 
@@ -57,11 +59,11 @@ const ProductGridPage = ({ category, title, description, productData }) => {
             onChange={(e) => setSortBy(e.target.value)}
             value={sortBy}
           >
-            <option value="">--Sắp xếp theo--</option>
-            <option value="newest">Sản phẩm mới nhất</option>
-            <option value="price-asc">Giá thấp đến cao</option>
-            <option value="price-desc">Giá cao đến thấp</option>
-            <option value="discount">Đang giảm giá</option>
+            <option value="">--{t("products.sortByDefault")}--</option>
+            <option value="newest">{t("products.newest")}</option>
+            <option value="price-asc">{t("products.priceLowToHigh")}</option>
+            <option value="price-desc">{t("products.priceHighToLow")}</option>
+            <option value="discount">{t("products.discount")}</option>
           </select>
         </div>
       </div>
@@ -80,7 +82,7 @@ const ProductGridPage = ({ category, title, description, productData }) => {
       {products.length > 0 ? (
         <ProductList products={products} />
       ) : (
-        <p className="no-products">Không tìm thấy sản phẩm nào.</p>
+        <p className="no-products">{t("products.noProducts")}</p>
       )}
 
       {/* === MÔ TẢ DANH MỤC === */}

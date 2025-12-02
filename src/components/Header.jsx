@@ -21,6 +21,7 @@ import { useCart } from "../context/CartContext";
 import CategoryAPI from "../service/CategoriesAPI";
 import CategoryTypeAPI from "../service/CategoryTypeAPI";
 import { useTranslation } from "react-i18next";
+import i18n from "../i18next/i18next";
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -32,13 +33,14 @@ export default function Header() {
   const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
   const [categories, setCategories] = useState([]);
   const [categoriesType, setCategoriesType] = useState([]);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await CategoryAPI.getCategory();
       setCategories(response);
       const responseType = await CategoryTypeAPI.getCategoryType();
+      console.log("responseType", responseType);
       setCategoriesType(responseType.sort((a, b) => a.id - b.id));
     };
     fetchCategories();
@@ -59,8 +61,7 @@ export default function Header() {
 
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
-    localStorage.setItem("language", language);
-    window.location.reload();
+    window.localStorage.setItem("language", language);
   };
 
 
@@ -94,7 +95,7 @@ export default function Header() {
               <div className="hidden md:flex flex-1">
                 <input
                   type="text"
-                  placeholder="Tìm..."
+                  placeholder={t("header.searchPlaceholder")}
                   className="px-4 py-1 outline-none w-full"
                 />
               </div>
@@ -133,12 +134,14 @@ export default function Header() {
                 src={vnFlag}
                 alt="Vietnamese"
                 className="h-5 w-5 cursor-pointer"
+                onClick={() => handleLanguageChange("vi")}
               />
               <span className="h-5 border-l border-gray-400"></span>
               <img
                 src={ukFlag}
                 alt="English"
                 className="h-5 w-5 cursor-pointer"
+                onClick={() => handleLanguageChange("en")}
               />
             </li>
           </ul>
@@ -146,38 +149,46 @@ export default function Header() {
 
       </div>
       <nav className="main-navigation container">
-        <Link to="/about" className="nav-link">Giới Thiệu</Link>
+        <Link to="/about" className="nav-link">
+          {t("header.about")}
+        </Link>
         {categoriesType.map((categoryType) => {
             const categoriesSub = (categories.filter((category) => category.categories_type_id === categoryType.id))
             return (
             <div key={categoryType.id} className="nav-dropdown">
-              <Link to={`/${categoryType.slug}`} className="nav-link">{categoryType.name} <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+              <Link to={`/${categoryType.slug}`} className="nav-link">{categoryType.translations[i18n.language].name} <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
               </span></Link>
               <ul className="dropdown-menu">
                 {categoriesSub.map((category) => (
-                  <li key={category.id}><Link to={`/${categoryType.slug}/${category.slug}`} className="dropdown-item">{category.name}</Link></li>
+                  <li key={category.id}><Link to={`/${categoryType.translations[i18n.language].slug}/${category.translations[i18n.language].slug}`} className="dropdown-item">{category.translations[i18n.language].name}</Link></li>
                 ))}
               </ul>
             </div>
           )
         })}
 
-        <Link to="/sale" className="nav-link sale-link">SALE SHOCK CUỐI HÈ</Link>
+        <Link to="/sale" className="nav-link sale-link">
+          {t("header.sale")}
+        </Link>
       </nav>
 
       {/* Navigation mobile */}
       <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
-        <div className="mobile-nav-header"><p>Menu</p></div>
+          <div className="mobile-nav-header">
+            <p>{t("header.menu")}</p>
+          </div>
 
         <nav className="mobile-nav">
           <div className="mobile-nav-item">
-            <Link to="/about" className="mobile-nav-link" onClick={toggleMenu}>Giới Thiệu</Link>
+            <Link to="/about" className="mobile-nav-link" onClick={toggleMenu}>
+              {t("header.about")}
+            </Link>
           </div>
 
           {/* Men có submenu */}
           <div className="mobile-nav-item">
             <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>
-              <span className="label">Men</span>
+              <span className="label">{t("header.men")}</span>
               <span
                 className="arrow-icon"
                 onClick={(e) => {
@@ -193,7 +204,7 @@ export default function Header() {
 
           <div className="mobile-nav-item">
             <Link to="/women" className="mobile-nav-link" onClick={toggleMenu}>
-              <span className="label">Women</span>
+              <span className="label">{t("header.women")}</span>
               <span
                 className="arrow-icon"
                 onClick={(e) => {
@@ -210,7 +221,7 @@ export default function Header() {
           {/* Women có submenu */}
           <div className="mobile-nav-item">
             <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>
-              <span className="label">Women</span>
+              <span className="label">{t("header.women")}</span>
               <span
                 className="arrow-icon"
                 onClick={(e) => {
@@ -227,7 +238,7 @@ export default function Header() {
           {/* GPS Watch có submenu */}
           <div className="mobile-nav-item">
             <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>
-              <span className="label">Gps Watch</span>
+              <span className="label">{t("header.gps")}</span>
               <div
                 className="arrow-icon"
                 onClick={(e) => {
@@ -242,7 +253,9 @@ export default function Header() {
           </div>
 
           <div className="mobile-nav-item">
-            <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>SALE SHOCK CUỐI HÈ</Link>
+            <Link to="/" className="mobile-nav-link" onClick={toggleMenu}>
+              {t("header.sale")}
+            </Link>
           </div>
         </nav>
         {/* Submenu cho mobile */}
@@ -251,27 +264,35 @@ export default function Header() {
             <div className="mobile-submenu">
               <div className="mobile-nav-header">
                 <button className="back-btn" onClick={closeSubmenu}>‹</button>
-                <span>Men</span>
+                <span>{t("header.men")}</span>
               </div>
               <nav>
-                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Road Running Shoes</Link>
-                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Trail Running Shoes</Link>
-                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Sandals</Link>
-                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>Hiking Shoes</Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                  {t("header.menRoad")}
+                </Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                  {t("header.menTrail")}
+                </Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                  {t("header.menSandals")}
+                </Link>
+                <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
+                  {t("header.menHiking")}
+                </Link>
               </nav>
             </div>
             <nav>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
-                Road Running Shoes
+                {t("header.menRoad")}
               </Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
-                Trail Running Shoes
+                {t("header.menTrail")}
               </Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
-                Sandals
+                {t("header.menSandals")}
               </Link>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
-                Hiking Shoes
+                {t("header.menHiking")}
               </Link>
             </nav>
           </>
@@ -283,7 +304,7 @@ export default function Header() {
               <button className="back-btn" onClick={closeSubmenu}>
                 ‹
               </button>
-              <span>Women</span>
+              <span>{t("header.women")}</span>
             </div>
             <nav>
               <Link to="/" className="mobile-nav-link-child" onClick={toggleMenu}>
@@ -338,12 +359,13 @@ export default function Header() {
 
       {/* Mobile search */}
       <div
-        className={`md:hidden absolute top-16 right-0 w-2/3 bg-gray-100 border border-gray-300 flex items-center p-2 rounded-l-md shadow-md z-50 overflow-hidden transition-all duration-500 ease-linear ${showMobileSearch ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`md:hidden absolute top-16 right-0 w-2/3 bg-gray-100 border border-gray-300 flex items-center p-2 rounded-l-md shadow-md z-50 overflow-hidden transition-all duration-500 ease-linear ${
+          showMobileSearch ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <input
           type="text"
-          placeholder="Tìm kiếm..."
+          placeholder={t("header.searchMobilePlaceholder")}
           className="flex-1 outline-none rounded-md px-3 py-2 bg-white text-gray-700"
         />
         <button className="ml-2 text-gray-600 hover:text-orange-500">

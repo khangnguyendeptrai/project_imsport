@@ -14,32 +14,39 @@ import Cart from "./pages/Cart";
 import ChatbotPage from "./pages/ChatBotDemo";
 import Dashboard from "./pages/Admin/Dashboard";
 import ProductEditor from "./pages/Admin/ProductEditor";
+import "./i18next/i18next";
+import { I18nextProvider } from "react-i18next";
 import i18n from "./i18next/i18next";
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
+    <I18nextProvider i18n={i18n}>
+      <Router>
+        <ScrollToTop />
 
-      <Routes>
-        {/* 🔹 Dùng layout chính */}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="product/:id" element={<ProductDetail />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          
-          {/* <Route path='filter' element={<FilterContainer />} /> */}
-          <Route path="/:category" element={<ProductCategoryPage />} />
-          <Route path="/:category/:subcategory" element={<ProductCategoryPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/chatbot" element={<ChatbotPage />} />
-        </Route>
-        <Route path="/admin">
-          <Route index element={<Dashboard />} />
-          <Route path="products/:id" element={<ProductEditor />} />
-        </Route>
-      </Routes>
-    </Router>
+        <Routes>
+          {/* 🔹 Dùng layout chính */}
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="product/:id" element={<ProductDetail />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+
+            {/* <Route path='filter' element={<FilterContainer />} /> */}
+            <Route path="/:category" element={<ProductCategoryPage />} />
+            <Route
+              path="/:category/:subcategory"
+              element={<ProductCategoryPage />}
+            />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/chatbot" element={<ChatbotPage />} />
+          </Route>
+          <Route path="/admin">
+            <Route index element={<Dashboard />} />
+            <Route path="products/:id" element={<ProductEditor />} />
+          </Route>
+        </Routes>
+      </Router>
+    </I18nextProvider>
   );
 }
 

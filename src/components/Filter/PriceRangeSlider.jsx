@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
-
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18next/i18next";
 // === KHAI BÁO HẰNG SỐ LÊN ĐẦU ===
 const INITIAL_MIN = 0;
 const INITIAL_MAX = 20000000;
@@ -22,7 +23,7 @@ const formatPrice = (price) =>
 export default function PriceFilter({ onChange }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(true);
-
+  const { t } = useTranslation();
   // Helper an toàn để lấy giá trị từ URL
   const getPriceFromUrl = () => {
     const priceParam = searchParams.get("price"); // "100:5000" or null
@@ -176,18 +177,13 @@ export default function PriceFilter({ onChange }) {
   const maxPercent = (maxPrice / INITIAL_MAX) * 100;
 
   return (
-    <div className="p-4 md:w-auto border-t border-gray-200">
+    <div className="p-4 md:w-auto  border-gray-200">
       {/* Header GIÁ */}
       <div
         className="flex justify-between items-center mb-4 cursor-pointer select-none"
         onClick={() => setOpen(!open)}
       >
-        <h3 className="text-black font-bold text-base">GIÁ</h3>
-        {open ? (
-          <MdKeyboardArrowUp className="text-black text-xl" />
-        ) : (
-          <MdKeyboardArrowDown className="text-black text-xl" />
-        )}
+        
       </div>
 
       {open && (
@@ -305,7 +301,7 @@ T        		  }}
         	  onClick={handleApplyFilter}
         	  className="w-full border text-sm border-black bg-white text-black py-2 font-semibold hover:bg-black hover:text-white transition"
       	>
-        	  SEARCH
+        	  {t("filter.search")}
       	</button>
       	</>
     	)}

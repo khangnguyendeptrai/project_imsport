@@ -6,9 +6,11 @@ import CollapsibleSection from "./CollapsibleSection";
 import PriceRangeSlider from "./PriceRangeSlider";
 import SizeSelector from "./SizeSelector";
 import BrandSelector from "./BrandSelector";
-
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18next/i18next";
 const FilterByCategories = ({ data, onFilterChange }) => {
   const location = useLocation();
+  const { t } = useTranslation();
   // const currentSlug = location.pathname.substring(1);
   // console.log("location",location);
 
@@ -117,7 +119,7 @@ const FilterByCategories = ({ data, onFilterChange }) => {
   // === Render ===
   return (
     <div className="inline-block p-4 w-[256px] md:w-[300px]">
-      <CollapsibleSection title="DANH MỤC">
+      <CollapsibleSection title={t("filter.category")}>
         {normalizedData.map((item) => {
           const isParentActive = item.slug === parentSlug;
           const isChildActive = item.categories?.some(
@@ -190,16 +192,16 @@ const FilterByCategories = ({ data, onFilterChange }) => {
         })}
       </CollapsibleSection>
 
-      <CollapsibleSection title="GIÁ">
+      <CollapsibleSection title={t("filter.price")}>
         <PriceRangeSlider onChange={handlePriceChange} />
       </CollapsibleSection>
 
       {/* 🔽 Truyền state xuống component con */}
-      <CollapsibleSection title="KÍCH CỠ">
+      <CollapsibleSection title={t("filter.size")}>
         <SizeSelector data={sizes} onChange={handleSizeChange} />
       </CollapsibleSection>
 
-      <CollapsibleSection title="THƯƠNG HIỆU">
+      <CollapsibleSection title={t("filter.brand")}>
         <BrandSelector data={brands} onChange={handleBrandChange} />
       </CollapsibleSection>
     </div>

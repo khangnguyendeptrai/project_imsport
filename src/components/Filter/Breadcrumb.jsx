@@ -2,36 +2,59 @@ import { useLocation, Link } from "react-router-dom";
 import breadcrumbBG from "../../assets/images/breadcrumb-bg.png"
 import { categoriesType } from "../../data/categoriesType";
 import { categories } from "../../data/categories";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18next/i18next";
+import CategoryTypeAPI from "../../service/CategoryTypeAPI";
+import CategoryAPI from "../../service/CategoriesAPI";
+import { useEffect, useState } from "react";
 const Breadcrumb = ({ category, subcategory, otherSlugName = null }) => {
+  const [categoriesType, setCategoriesType] = useState([]);
+  const [categories, setCategories] = useState([]);
+  // const [otherSlugName, setOtherSlugName] = useState(null);
+  const { t } = useTranslation();
   const location = useLocation();
   const currentSlug = location.pathname.replace("/", ""); // ví dụ "/giay" → "giay"
 
-  let breadcrumbItems = [{ name: "Trang chủ", slug: "/" }];
+  let breadcrumbItems = [{ name: t("breadcrumb.home"), slug: "/" }];
+  console.log(category, subcategory, otherSlugName);
+  
+  useEffect(() => {
+    const loadInitData = async () => {
+      const [categoriesType, categories] = await Promise.all([
+        CategoryTypeAPI.getCategoryType(),
+        CategoryAPI.getCategory(),
+      ]);
+      setCategoriesType(categoriesType.sort((a, b) => a.id - b.id) || []);
+      setCategories(categories.sort((a, b) => a.id - b.id) || []);
+    }
+    loadInitData();
+  }, [i18n.language]);
 
-  const categoryType = categoriesType.find(item => item.slug === category);
+  const categoryType = categoriesType.find(item => item.translations[i18n.language].slug === category);
   if (categoryType) {
     breadcrumbItems.push({
-      name: categoryType.name,
-      slug: `/${categoryType.slug}`,
+      name: categoryType.translations[i18n.language].name,
+      slug: `/${categoryType.translations[i18n.language].slug}`,
     });
+    console.log("categoryType", categoryType.translations[i18n.language].slug);
+    console.log("breadcrumbItems", breadcrumbItems);
   }
 
   if (subcategory) {
-    const categoryData = categories.find(item => item.slug === subcategory);
+    const categoryData = categories.find(item => item.translations[i18n.language].slug === subcategory);
     if (categoryData) {
       breadcrumbItems.push({
-        name: categoryData.name,
-        slug: `/${categoryData.slug}`,
+        name: categoryData.translations[i18n.language].name,
+        slug: `/${categoryData.translations[i18n.language].slug}`,
       });
     }
   }
   if (otherSlugName) {
     breadcrumbItems.push({
-      name: otherSlugName,
-      slug: `/${otherSlugName}`,
+      name: otherSlugName.translations[i18n.language].name,
+      slug: `/${otherSlugName.translations[i18n.language].slug}`,
     });
   }
-
   // const parent = data.find(item => item.slug === currentSlug);
 
   // if (parent) {
