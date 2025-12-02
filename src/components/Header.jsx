@@ -18,6 +18,9 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { useCart } from "../context/CartContext";
+import CategoryAPI from "../service/CategoriesAPI";
+import CategoryTypeAPI from "../service/CategoryTypeAPI";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -27,6 +30,19 @@ export default function Header() {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const location = useLocation();
   const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
+  const [categories, setCategories] = useState([]);
+  const [categoriesType, setCategoriesType] = useState([]);
+  const {t} = useTranslation();
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const response = await CategoryAPI.getCategory();
+      setCategories(response);
+      const responseType = await CategoryTypeAPI.getCategoryType();
+      setCategoriesType(responseType.sort((a, b) => a.id - b.id));
+    };
+    fetchCategories();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -41,7 +57,13 @@ export default function Header() {
     setActiveSubmenu(null);
   };
 
- 
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("language", language);
+    window.location.reload();
+  };
+
+
 
   return (
     <header className="w-full shadow-sm border-b bg-white">
@@ -125,35 +147,21 @@ export default function Header() {
       </div>
       <nav className="main-navigation container">
         <Link to="/about" className="nav-link">Giới Thiệu</Link>
-        <div className="nav-dropdown">
-          <Link to="/do-nam" className="nav-link">Men <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
-          </span></Link>
-          <ul className="dropdown-menu">
-            <li><Link to="/" className="dropdown-item">Áo</Link></li>
-            <li><Link to="/" className="dropdown-item">Quần</Link></li>
-            <li><Link to="/" className="dropdown-item">Giày chạy bộ</Link></li>
-            <li><Link to="/" className="dropdown-item">Giày địa hình</Link></li>
-          </ul>
-        </div>
-        <div className="nav-dropdown">
-          <Link to="/do-nu" className="nav-link">Women <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
-          </span> </Link>
-          <ul className="dropdown-menu">
-            <li><Link to="/" className="dropdown-item">Áo</Link></li>
-            <li><Link to="/" className="dropdown-item">Quần</Link></li>
-            <li><Link to="/" className="dropdown-item">Giày chạy bộ</Link></li>
-            <li><Link to="/" className="dropdown-item">Giày địa hình</Link></li>
-          </ul>
-        </div>
-        <div className="nav-dropdown">
-          <Link to="/dong-ho-tai-nghe" className="nav-link">GPS Watch <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
-          </span></Link>
-          <ul className="dropdown-menu">
-            <li><Link to="/" className="dropdown-item">Coros</Link></li>
-            <li><Link to="/" className="dropdown-item">Garmin</Link></li>
-            <li><Link to="/" className="dropdown-item">Coros</Link></li>
-          </ul>
-        </div>
+        {categoriesType.map((categoryType) => {
+            const categoriesSub = (categories.filter((category) => category.categories_type_id === categoryType.id))
+            return (
+            <div key={categoryType.id} className="nav-dropdown">
+              <Link to={`/${categoryType.slug}`} className="nav-link">{categoryType.name} <span className="caret"><ChevronDownIcon className="h-4 w-4 ml-1 text-gray-500" />
+              </span></Link>
+              <ul className="dropdown-menu">
+                {categoriesSub.map((category) => (
+                  <li key={category.id}><Link to={`/${categoryType.slug}/${category.slug}`} className="dropdown-item">{category.name}</Link></li>
+                ))}
+              </ul>
+            </div>
+          )
+        })}
+
         <Link to="/sale" className="nav-link sale-link">SALE SHOCK CUỐI HÈ</Link>
       </nav>
 

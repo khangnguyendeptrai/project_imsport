@@ -13,7 +13,8 @@ import FilterContainer from './components/Filter/FilterContainer';
 import Cart from "./pages/Cart";
 import ChatbotPage from "./pages/ChatBotDemo";
 import Dashboard from "./pages/Admin/Dashboard";
-
+import ProductEditor from "./pages/Admin/ProductEditor";
+import i18n from "./i18next/i18next";
 function App() {
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
         </Route>
         <Route path="/admin">
           <Route index element={<Dashboard />} />
+          <Route path="products/:id" element={<ProductEditor />} />
         </Route>
       </Routes>
     </Router>

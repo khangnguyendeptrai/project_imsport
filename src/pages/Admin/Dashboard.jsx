@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import ProductAPI from "../../service/ProductAPI";
 import CategoryAPI from "../../service/CategoriesAPI";
+import { Link } from "react-router-dom";
 
 const summaryCards = [
   {
@@ -165,7 +166,7 @@ export default function Dashboard() {
                 key={product.id}
                 className="grid grid-cols-12 items-center px-6 py-5 text-sm text-slate-600 transition hover:bg-slate-50"
               >
-                <div className="col-span-4 flex items-center gap-4">
+                <div className="col-span-4 px-2 flex items-center gap-4">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -181,12 +182,12 @@ export default function Dashboard() {
                   <span className="text-base font-bold text-slate-900">{product.variations.reduce((acc, variation) => acc + variation.quantity, 0)}</span> sản phẩm
                 </div>
                 <div className="col-span-2 flex justify-end gap-2">
-                  <button className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600">
+                  <Link to={`/admin/products/${product.id}`} className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600">
                     <Pencil size={16} />
-                  </button>
-                  <button className="rounded-2xl border border-slate-200 bg-white p-2 text-rose-500 transition hover:border-rose-200 hover:text-rose-600">
+                  </Link>
+                  <Link to={`/admin/products/${product.id}`} className="rounded-2xl border border-slate-200 bg-white p-2 text-rose-500 transition hover:border-rose-200 hover:text-rose-600">
                     <Trash2 size={16} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             )})}
