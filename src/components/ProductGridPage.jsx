@@ -11,7 +11,7 @@ const ProductGridPage = ({ category, title, description, productData }) => {
   const [sortBy, setSortBy] = useState("");
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
-  console.log('productData', productData);
+
   // === Lấy dữ liệu sản phẩm ===
   useEffect(() => {
     setProducts(productData);

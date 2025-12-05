@@ -8,8 +8,13 @@ const ProductAPI = {
         return response.data
     },
     getProductDetail: async (id) => {
-        const response = await axios.get(`${BaseURL}/products/${id}`)
-        return response.data
+        try {
+            const response = await axios.get(`${BaseURL}/products/${id}`)
+            return response.data
+        } catch (error) {
+            console.log("error", error);
+            return null;
+        }
     },
     createProduct: async (data) => {
         const response = await axios.post(`${BaseURL}/products`, data)
@@ -17,6 +22,10 @@ const ProductAPI = {
     },
     updateProduct: async (id, data) => {
         const response = await axios.put(`${BaseURL}/products/${id}`, data)
+        return response.data
+    },
+    deleteProduct: async (id) => {
+        const response = await axios.delete(`${BaseURL}/products/${id}`)
         return response.data
     },
     getCategories: async () => {

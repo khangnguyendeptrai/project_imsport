@@ -64,6 +64,37 @@ export default function Dashboard() {
         .replace(/\s/g, '')         // xóa toàn bộ khoảng trắng bình thường
         .replace(/\u00A0/g, '')  + ' VNĐ';
     }
+    const handleDelete = async (id) => {
+      Swal.fire({
+        title: "Bạn có chắc muốn xoá sản phẩm này?",
+        text: "Bạn sẽ không thể khôi phục lại sau khi xoá!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Có",
+        cancelButtonText: "Không"
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const response = await ProductAPI.deleteProduct(id)
+          console.log("response", response)
+          if (response) {
+            setProducts(products.filter(product => product.id !== id))
+            Swal.fire({
+              title: "Đã xoá!",
+              text: "Sản phẩm đã được xoá.",
+              icon: "success"
+            });
+          } else {
+            Swal.fire({
+              title: "Lỗi!",
+              text: "Không thể xoá sản phẩm.",
+              icon: "error"
+            });
+          }
+        }
+      });
+    }
   return (
     <div className="min-h-screen bg-[#f8fafc] px-6 py-10 text-slate-900">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
@@ -85,7 +116,7 @@ export default function Dashboard() {
             </button>
             <button className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(59,130,246,.35)] transition hover:-translate-y-0.5">
               <Plus size={18} />
-              Thêm sản phẩm
+              Quản lí sản phẩm
             </button>
           </div>
         </div>
@@ -133,18 +164,10 @@ export default function Dashboard() {
                 <option>Giày</option>
                 <option>Phụ kiện</option>
               </select>
-              <div className="flex gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-1">
-                {["Tất cả", "Đang bán", "Chờ duyệt", "Ẩn"].map((item, index) => (
-                  <button
-                    key={item}
-                    className={`rounded-2xl px-4 py-2 text-xs font-semibold uppercase tracking-wide ${
-                      index === 0 ? "bg-white text-slate-900 shadow" : "text-slate-500 hover:text-slate-900"
-                    }`}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
+              <Link to="/admin/products" className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(59,130,246,.35)] transition hover:-translate-y-0.5">
+                <Plus size={18} />
+                Quản lí sản phẩm
+            </Link>
             </div>
           </div>
         </div>
@@ -182,12 +205,12 @@ export default function Dashboard() {
                   <span className="text-base font-bold text-slate-900">{product.variations.reduce((acc, variation) => acc + variation.quantity, 0)}</span> sản phẩm
                 </div>
                 <div className="col-span-2 flex justify-end gap-2">
-                  <Link to={`/admin/products/${product.id}`} className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600">
+                  {/* <Link to={`/admin/products/${product.id}`} className="rounded-2xl border border-slate-200 bg-white p-2 text-slate-500 transition hover:border-blue-200 hover:text-blue-600">
                     <Pencil size={16} />
-                  </Link>
-                  <Link to={`/admin/products/${product.id}`} className="rounded-2xl border border-slate-200 bg-white p-2 text-rose-500 transition hover:border-rose-200 hover:text-rose-600">
+                  </Link> */}
+                  <button onClick={() => handleDelete(product.id)} className="rounded-2xl border border-slate-200 bg-white p-2 text-rose-500 transition hover:border-rose-200 hover:text-rose-600">
                     <Trash2 size={16} />
-                  </Link>
+                  </button>
                 </div>
               </div>
             )})}

@@ -16,7 +16,6 @@ const Breadcrumb = ({ category, subcategory, otherSlugName = null }) => {
   const currentSlug = location.pathname.replace("/", ""); // ví dụ "/giay" → "giay"
 
   let breadcrumbItems = [{ name: t("breadcrumb.home"), slug: "/" }];
-  console.log(category, subcategory, otherSlugName);
   
   useEffect(() => {
     const loadInitData = async () => {
@@ -30,29 +29,27 @@ const Breadcrumb = ({ category, subcategory, otherSlugName = null }) => {
     loadInitData();
   }, [i18n.language]);
 
-  const categoryType = categoriesType.find(item => item.translations[i18n.language].slug === category);
+  const categoryType = categoriesType.find(item => item.slug === category);
   if (categoryType) {
     breadcrumbItems.push({
       name: categoryType.translations[i18n.language].name,
-      slug: `/${categoryType.translations[i18n.language].slug}`,
+      slug: `/${categoryType.slug}`,
     });
-    console.log("categoryType", categoryType.translations[i18n.language].slug);
-    console.log("breadcrumbItems", breadcrumbItems);
   }
 
   if (subcategory) {
-    const categoryData = categories.find(item => item.translations[i18n.language].slug === subcategory);
+    const categoryData = categories.find(item => item.slug === subcategory);
     if (categoryData) {
       breadcrumbItems.push({
         name: categoryData.translations[i18n.language].name,
-        slug: `/${categoryData.translations[i18n.language].slug}`,
+        slug: `/${categoryData.slug}`,
       });
     }
   }
   if (otherSlugName) {
     breadcrumbItems.push({
       name: otherSlugName.translations[i18n.language].name,
-      slug: `/${otherSlugName.translations[i18n.language].slug}`,
+      slug: `/${otherSlugName.slug}`,
     });
   }
   // const parent = data.find(item => item.slug === currentSlug);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../styles/components/Header.scss";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -22,6 +22,7 @@ import CategoryAPI from "../service/CategoriesAPI";
 import CategoryTypeAPI from "../service/CategoryTypeAPI";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18next/i18next";
+import ProductAPI from "../service/ProductAPI";
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -33,18 +34,40 @@ export default function Header() {
   const hideMenu = ["/men", "/women", "/watch"].includes(location.pathname);
   const [categories, setCategories] = useState([]);
   const [categoriesType, setCategoriesType] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchRef = useRef(null);
   const { t } = useTranslation();
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await CategoryAPI.getCategory();
+      const [response, responseType, productResponse] = await Promise.all([
+        CategoryAPI.getCategory(),
+        CategoryTypeAPI.getCategoryType(),
+        ProductAPI.getProducts()
+      ]);
       setCategories(response);
-      const responseType = await CategoryTypeAPI.getCategoryType();
-      console.log("responseType", responseType);
       setCategoriesType(responseType.sort((a, b) => a.id - b.id));
+      setProducts(productResponse);
     };
     fetchCategories();
   }, []);
+
+  // Close search results when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showSearchResults && searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowSearchResults(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showSearchResults]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,6 +87,47 @@ export default function Header() {
     window.localStorage.setItem("language", language);
   };
 
+  // Hàm loại bỏ dấu tiếng Việt
+  const removeVietnameseDiacritics = (str) => {
+    if (!str) return "";
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .replace(/Đ/g, "D");
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query.trim() === "") {
+      setFilteredProducts([]);
+      setShowSearchResults(false);
+    } else {
+      const normalizedQuery = removeVietnameseDiacritics(query.toLowerCase());
+      const filtered = products.filter((product) => {
+        const normalizedProductName = removeVietnameseDiacritics(product.name.toLowerCase());
+        return normalizedProductName.includes(normalizedQuery);
+      });
+      setFilteredProducts(filtered);
+      setShowSearchResults(filtered.length > 0);
+      console.log("filteredProducts", filteredProducts);
+      console.log("showSearchResults", showSearchResults);
+    }
+  };
+
+  const formatPrice = (price) => {
+    return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+      .replace('₫', '')
+      .replace(/\s/g, '')
+      .replace(/\u00A0/g, '') + ' VNĐ';
+  };
+
+  const handleProductClick = (productId) => {
+    setSearchQuery("");
+    setFilteredProducts([]);
+    setShowSearchResults(false);
+    navigate(`/product/${productId}`);
+  };
 
 
   return (
@@ -91,13 +155,54 @@ export default function Header() {
         <div className="flex items-center justify-between relative">
           <ul className="flex items-center justify-between gap-4 w-full">
             {/* Search */}
-            <li className="flex items-center md:border overflow-hidden">
-              <div className="hidden md:flex flex-1">
+            <li ref={searchRef} className="flex items-center md:border relative">
+              <div className="hidden md:flex flex-1 relative">
                 <input
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  onFocus={() => {
+                    if (filteredProducts.length > 0) {
+                      setShowSearchResults(true);
+                    }
+                  }}
                   type="text"
                   placeholder={t("header.searchPlaceholder")}
                   className="px-4 py-1 outline-none w-full"
                 />
+                {/* Search Results Dropdown */}
+                {showSearchResults && filteredProducts.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 md:w-[300px] bg-white border border-gray-200 shadow-lg z-50 max-h-96 overflow-y-auto mt-1">
+                    {filteredProducts.slice(0, 10).map((product) => (
+                      <div
+                        key={product.id}
+                        onClick={() => handleProductClick(product.id)}
+                        className="flex items-center gap-3 p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                      >
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-16 h-16 object-cover flex-shrink-0"
+                          onError={(e) => {
+                            e.target.src = 'https://via.placeholder.com/64';
+                          }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900 truncate">
+                            {product.name}
+                          </p>
+                          <p className="text-sm font-semibold text-orange-500 mt-1">
+                            {formatPrice(Number(product.price))}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                    {filteredProducts.length > 10 && (
+                      <div className="p-3 text-center text-sm text-gray-500 border-t border-gray-200">
+                        Và {filteredProducts.length - 10} sản phẩm khác...
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
               <button className="hidden md:flex p-2 text-gray-500 hover:text-orange-500 outline-none">
                 <MagnifyingGlassIcon className="h-5 w-5" />
@@ -160,7 +265,7 @@ export default function Header() {
               </span></Link>
               <ul className="dropdown-menu">
                 {categoriesSub.map((category) => (
-                  <li key={category.id}><Link to={`/${categoryType.translations[i18n.language].slug}/${category.translations[i18n.language].slug}`} className="dropdown-item">{category.translations[i18n.language].name}</Link></li>
+                  <li key={category.id}><Link to={`/${categoryType.slug}/${category.translations[i18n.language].slug}`} className="dropdown-item">{category.translations[i18n.language].name}</Link></li>
                 ))}
               </ul>
             </div>

@@ -18,6 +18,7 @@ const ProductCategoryPage = () => {
   const [filteredData, setFilteredData] = useState([]);  // dữ liệu sau filter
   const [categoryTitle, setCategoryTitle] = useState(null);
   const [categoryDescription, setCategoryDescription] = useState(null);
+  const [language, setLanguage] = useState(i18n.language);
   const { t } = useTranslation();
   const [categoriesType, setCategoriesType] = useState([]); // ⬅️ THÊM
   const [categories, setCategories] = useState([]);         // ⬅️ THÊM
@@ -27,6 +28,8 @@ const ProductCategoryPage = () => {
     price: null,
   });
 
+
+  
   const isFiltering =
     filters.sizes.length > 0 ||
     filters.brands.length > 0 ||
@@ -47,16 +50,15 @@ const ProductCategoryPage = () => {
       group[cat.categories_type_id].push({
         id: cat.id,
         name: cat.translations[i18n.language].name,
-        slug: cat.translations[i18n.language].slug,
+        slug: cat.slug,
         products: productList
       });
     }
-    console.log("group", group);
     // 2. Tạo danh sách category type (1 vòng)
     return categoriesType.map((type) => ({
       id: type.id,
       categoriesType: type.translations[i18n.language].name,
-      slug: type.translations[i18n.language].slug,
+      slug: type.slug,
       description: type.translations[i18n.language].description,
       categories: group[type.id] || [],
     }));
@@ -80,9 +82,9 @@ const ProductCategoryPage = () => {
       }
     };   
     loadInitData();
-  }, [i18n.language]);  // ⬅️ chạy đúng 1 lần duy nhất
+  }, []);  // ⬅️ chạy đúng 1 lần duy nhất
 
-
+  
   // ==== Load sản phẩm theo category/subcategory ====
 
 
@@ -93,13 +95,13 @@ const ProductCategoryPage = () => {
     let categoryTitle = "";
     let categoryDescription = "";
 
-    const currentType = categoriesType.find(t => t.translations[i18n.language].slug === category);
+    const currentType = categoriesType.find(t => t.slug === category);
     if (!currentType) return;
 
     categoryDescription = currentType.translations[i18n.language].description;
 
     if (subcategory) {
-      const currentCategory = categories.find(c => c.translations[i18n.language].slug === subcategory);
+      const currentCategory = categories.find(c => c.slug === subcategory);
       if (!currentCategory) return;
 
       list = productOrigin.filter(p => p.category_id === currentCategory.id);
@@ -121,8 +123,7 @@ const ProductCategoryPage = () => {
     setCategoryTitle(categoryTitle);
     setCategoryDescription(categoryDescription);
 
-  }, [category, subcategory, categories, categoriesType, productOrigin]);
-
+  }, [category, subcategory, productOrigin, i18n.language]);
 
 
 
@@ -187,7 +188,6 @@ const ProductCategoryPage = () => {
 
     setFilteredData(result);
   }, [filters, products, normalizedSelectedBrands]);
-  console.log("kiểm tra ", isFiltering);
   return (
     <>
       <Breadcrumb category={category} subcategory={subcategory} />

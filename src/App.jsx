@@ -17,6 +17,7 @@ import ProductEditor from "./pages/Admin/ProductEditor";
 import "./i18next/i18next";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18next/i18next";
+import Error from "./pages/Error";
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
@@ -39,10 +40,11 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/chatbot" element={<ChatbotPage />} />
+            <Route path="/404" element={<Error />} />
           </Route>
           <Route path="/admin">
             <Route index element={<Dashboard />} />
-            <Route path="products/:id" element={<ProductEditor />} />
+            <Route path="products" element={<ProductEditor />} />
           </Route>
         </Routes>
       </Router>

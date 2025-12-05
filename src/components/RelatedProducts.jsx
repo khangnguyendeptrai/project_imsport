@@ -11,6 +11,7 @@ import 'swiper/css';
 // 1. Import mảng 'product' phẳng (nguồn dữ liệu chính)
 // Dùng 'as allProducts' để đổi tên, tránh trùng lặp với biến 'product' ở hàm filter
 import { product2 as allProducts } from "../data/product2";
+import ProductAPI from '../service/ProductAPI';
 
 // 2. Nhận cả 'currentProductId' và 'categoryId' từ props
 const RelatedProducts = ({ currentProductId, categoryId }) => {
@@ -26,21 +27,25 @@ const RelatedProducts = ({ currentProductId, categoryId }) => {
       setFilteredList([]);
       return;
     }
+    const getProducts = async () => {
+      const response = await ProductAPI.getProducts();
+      const related = response.filter(product => {
+        // Điều kiện 1: Phải cùng categoryId
+        // (Dùng == để so sánh lỏng, an toàn cho cả string và number)
+        // Điều kiện 2: Phải KHÁC sản phẩm hiện tại
+        return (
+          product.category_id == categoryId &&
+          product.id != currentProductId
+        );
+      });
+      setFilteredList(related);
 
+    }
     // 4. Lọc trực tiếp trên mảng 'allProducts' (đã import)
     // KHÔNG cần dùng .find() nữa
-    const related = allProducts.filter(product => {
-      // Điều kiện 1: Phải cùng categoryId
-      // (Dùng == để so sánh lỏng, an toàn cho cả string và number)
-      // Điều kiện 2: Phải KHÁC sản phẩm hiện tại
-      return (
-        product.category_id == categoryId &&
-        product.id != currentProductId
-      );
-    });
-
+    
+    getProducts();
     // 5. Cập nhật state với danh sách đã lọc
-    setFilteredList(related);
 
   }, [currentProductId, categoryId]); // 6. Phụ thuộc vào cả hai props
 

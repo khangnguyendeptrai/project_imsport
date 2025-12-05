@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // ẢNH SẢN PHẨM CHÍNH (MAFATE 5)
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductGallery from "../components/ProductGallery";
 import ProductInfo from "../components/ProductInfo";
 import ProductDescriptionTabs from "../components/ProductDescriptionTabs";
@@ -20,10 +20,16 @@ const ProductDetailPage = () => {
   const { id } = useParams();
   const [category, setCategory] = useState();
   const [subcategory, setSubcategory] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchProduct = async () => {
       const response = await ProductAPI.getProductDetail(id)
+      console.log("response", response);
+      
+      if (!response) {
+        navigate("/404");
+      }
       const categoryRes = await CategoryAPI.getCategory()
       const cateogryTypeRes = await CategoryTypeAPI.getCategoryType()
       const subCategory = categoryRes.find(c => c.id === response.category_id)
